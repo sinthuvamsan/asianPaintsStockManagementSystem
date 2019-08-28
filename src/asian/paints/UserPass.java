@@ -50,7 +50,7 @@ public class UserPass {
     
     logIn.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent loginEvent){
-       /*String userNameV = userName.getText();
+       String userNameV = userName.getText();
        String passwordV =  new String(passWord.getPassword());
             try{  
 Class.forName("com.mysql.jdbc.Driver");  
@@ -64,30 +64,43 @@ while(rSFUP.next())  {
 String empUNFUP=rSFUP.getString("emp_userName");
 String empPassFUP=rSFUP.getString("emp_password"); 
 if(empUNFUP.compareTo(userNameV)==0 && empPassFUP.compareTo(passwordV)==0){
-    JOptionPane.showMessageDialog(userPass,"Login success");
-    con.close();
+    if(empPFUP.compareTo("manager")==0){
+        con.close();
+    new MainFirstFrame();
+    MainFirstFrame.managersMainFrame();
     break;
+    }
+    if(empPFUP.compareTo("stock keeper")==0){
+        con.close();
+    new MainFirstFrame();
+    MainFirstFrame.stockKeeperMainFrame();
+    break;
+    }
+    if(empPFUP.compareTo("cashier")==0){
+        con.close();
+    new MainFirstFrame();
+    MainFirstFrame.cashierMainFrame();
+    break;
+    }
+    else{
+        con.close();  
+    JOptionPane.showMessageDialog(userPass,"Wrong user");
+    break;
+    }
 }
-    
-con.close();  
+    else{con.close();  
+    JOptionPane.showMessageDialog(userPass,"Wrong user name or password");
+    break;
+    }
+
 } 
 }
  
 catch(Exception e){
-    
-    JOptionPane.showMessageDialog(userPass,"e");
-}  */
-       try{  
-Class.forName("com.mysql.jdbc.Driver");  
-Connection con=DriverManager.getConnection(  
-"jdbc:mysql://localhost:3306/asianPaints","root","root");  
-//here sonoo is database name, root is username and password  
-Statement stmt=con.createStatement();  
-ResultSet rs=stmt.executeQuery("select emp_possition from employeedetails");  
-while(rs.next())  
-System.out.println(rs.getInt("emp_possition"));  
-con.close();  
-}catch(Exception e){ System.out.println(e);} 
+    System.out.println();
+    JOptionPane.showMessageDialog(userPass,e);
+}  
+ 
 }  
     });
     
