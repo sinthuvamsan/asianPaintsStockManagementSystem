@@ -12,7 +12,8 @@ public class AsianPaints {
      */
     public static void main(String[] args) {
         
-   UserPass f1=new UserPass();
+   UserViewSelectionFrame f1=new UserViewSelectionFrame();
+f1.userViewAction();
    
 }  
     }

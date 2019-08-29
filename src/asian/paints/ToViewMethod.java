@@ -5,16 +5,10 @@
  */
 package asian.paints;
 
-import javax.swing.*; 
-
 /**
  *
  * @author User
  */
-public class ViewFrame {
-    static JPanel viewPanel=new JPanel(); 
-    
-    
-    static JButton backFVF=new JButton("Back");
-    static Exit xFD=new Exit();
+public interface ToViewMethod {
+     public void showTableData();
 }

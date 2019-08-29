@@ -8,6 +8,7 @@ package asian.paints;
 import javax.swing.*; 
 import java.awt.*;  
 import java.awt.event.*;
+import java.io.*; 
 
 /**
  *
@@ -16,7 +17,7 @@ import java.awt.event.*;
 public class UserViewSelectionFrame {
     static JFrame userViewSelectionFrameManager=new JFrame();
     
-    static JTextField dataForSearchUser=new JTextField("Search by");
+    static JTextField dataForSearchUser=new JTextField("Search for");
     
     static Exit xFUVS=new Exit();
     
@@ -28,6 +29,8 @@ public class UserViewSelectionFrame {
     static JButton backFUVSF=new JButton("Back");
     static JButton viewAllUsers=new JButton("View all");
     static JButton viewUserBy=new JButton("Search");
+    
+  
     
     UserViewSelectionFrame(){
     
@@ -51,5 +54,25 @@ public class UserViewSelectionFrame {
     userViewSelectionFrameManager.setLayout(null);  
     userViewSelectionFrameManager.setVisible(true); 
     }
+     public boolean checkInput(String idOrName){
+     if(idOrName.matches("^\\d+(\\.\\d+)?")){return true;}
+     else{return false;}
+     }
      
+     public void userViewAction(){
+     viewUserBy.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        String idOrName=dataForSearchUser.getText();
+        NewClass uSF=new NewClass();
+        uSF.showTableData(checkInput(idOrName),idOrName);
+    }  
+    });
+     
+        viewAllUsers.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        
+         NewClass.showTableData();
+    }  
+    });
+     }
 }

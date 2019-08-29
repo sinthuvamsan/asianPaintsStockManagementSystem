@@ -66,18 +66,21 @@ String empPassFUP=rSFUP.getString("emp_password");
 if(empUNFUP.compareTo(userNameV)==0 && empPassFUP.compareTo(passwordV)==0){
     if(empPFUP.compareTo("manager")==0){
         con.close();
+        userPass.dispose();
     new MainFirstFrame();
     MainFirstFrame.managersMainFrame();
     break;
     }
-    if(empPFUP.compareTo("stock keeper")==0){
+    else if(empPFUP.compareTo("stock keeper")==0){
         con.close();
+        userPass.dispose();
     new MainFirstFrame();
     MainFirstFrame.stockKeeperMainFrame();
     break;
     }
-    if(empPFUP.compareTo("cashier")==0){
+    else if(empPFUP.compareTo("cashier")==0){
         con.close();
+        userPass.dispose();
     new MainFirstFrame();
     MainFirstFrame.cashierMainFrame();
     break;
