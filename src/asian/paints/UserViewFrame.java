@@ -15,86 +15,65 @@ import java.sql.*;
  *
  * @author User
  */
-public class UserViewFrame extends ViewFrame {
-    static JFrame managerUserViewFrame = new JFrame();
-    static JTable table;
-    String[] columnNames = {"User ID", "Name", "Address", "User T.P no.", "Position", "User name", "Password"};
-    
-   UserViewFrame(){
-    
-    
-      JPanel panel = new JPanel();
-        panel.setLayout(new BorderLayout());
+public class UserViewFrame {
+    static JFrame frame1;
+static JTable table;
 
-        
 
-        JScrollPane tableContainer = new JScrollPane(table);
+static String driverName = "com.mysql.jdbc.Driver";
+ static String url = "jdbc:mysql://localhost:3306/asianPaints";
+ static String userName = "root";
+static String password = "root";
+static String[] columnNames = {"User ID", "Name", "Address", "User T.P no.", "Position", "User name", "Password"};
+static String sql;
+ UserViewSelectionFrame uF=new UserViewSelectionFrame();
+//boolean uFTF=uF.checkInput();
+    public static void showTableData()
+{
 
-        panel.add(tableContainer, BorderLayout.CENTER);
-        managerUserViewFrame.getContentPane().add(panel);
+frame1 = new JFrame("Database Search Result");
+frame1.setDefaultCloseOperation(frame1.DISPOSE_ON_CLOSE);
+frame1.setLayout(new BorderLayout()); 
 
-        managerUserViewFrame.pack();
-        
-   
-    
-    /*TextArea area=new TextArea();  
-        area.setBounds(10,30, 300,300); 
-        managerUserViewFrame.add(area); */ 
-    
-    
-    
+DefaultTableModel model = new DefaultTableModel();
+model.setColumnIdentifiers(columnNames);
+table = new JTable();
+table.setModel(model); 
+table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+table.setFillsViewportHeight(true);
 JScrollPane scroll = new JScrollPane(table);
-scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED); 
-   
-        
-    managerUserViewFrame.add(backFVF);
-    backFVF.setBounds(50,700,95,30);
-    managerUserViewFrame.add(xFD.exit);
-    xFD.exit.setBounds(250,700,95,30);
-   
- 
-    
-    DefaultTableModel model = new DefaultTableModel();
-    model.setColumnIdentifiers(columnNames);
-    table = new JTable();
-    table.setModel(model);
-    table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-    table.setFillsViewportHeight(true);
-    
-        managerUserViewFrame.add(scroll);
-    managerUserViewFrame.setSize(800,800);    
-    managerUserViewFrame.setLayout(null);    
-    managerUserViewFrame.setVisible(true);
-    
-    int UID=0;
+scroll.setHorizontalScrollBarPolicy(
+JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+scroll.setVerticalScrollBarPolicy(
+JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED); 
+int UID=0;
     String nameUser="";
     String addressUser="";
     int tPUser=0;
     String positionUser="";
-    String userName="";
+    String userNametext="";
     String passwordUser="";
-    try
+try
 { 
-Class.forName("com.mysql.jdbc.Driver"); 
-Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/asianPaints","root","root");
-String sql = "select * from EmployeeDetails ";
+Class.forName(driverName); 
+Connection con = DriverManager.getConnection(url, userName, password);
+String sql = "select * from EmployeeDetails";
 PreparedStatement ps = con.prepareStatement(sql);
 ResultSet rs = ps.executeQuery();
 int i =0;
-if(rs.next())
+while(rs.next())
 {
 UID = rs.getInt("emp_ID");
 nameUser = rs.getString("emp_name");
 addressUser = rs.getString("emp_address");
-addressUser=rs.getString("emp_possition");
- tPUser=rs.getInt("emp_tp_no");
-    userName=rs.getString("emp_userName");
+tPUser=rs.getInt("emp_tp_no");
+positionUser=rs.getString("emp_possition");
+    userNametext=rs.getString("emp_userName");
     passwordUser=rs.getString("emp_password");
     
-    //area.setText(rs.getString(2));
     
-model.addRow(new Object[]{UID, nameUser, addressUser, addressUser,tPUser,userName,passwordUser});
+    
+model.addRow(new Object[]{UID, nameUser, addressUser, tPUser, positionUser,userNametext,passwordUser});
 i++; 
 }
 if(i <1)
@@ -102,11 +81,98 @@ if(i <1)
 JOptionPane.showMessageDialog(null, "No Record Found","Error",
 JOptionPane.ERROR_MESSAGE);
 }
+if(i ==1)
+{
+System.out.println(i+" Record Found");
+}
+else
+{
+System.out.println(i+" Records Found");
+}
 }
 catch(Exception ex)
 {
 JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",
 JOptionPane.ERROR_MESSAGE);
 }
-    }
+frame1.add(scroll);
+frame1.setVisible(true);
+frame1.setSize(400,300);
+    
+}
+    
+    public static void showTableData(boolean userSearch,String idOrNameForUserSearch)
+{
+
+frame1 = new JFrame("Database Search Result");
+frame1.setDefaultCloseOperation(frame1.DISPOSE_ON_CLOSE);
+frame1.setLayout(new BorderLayout()); 
+
+DefaultTableModel model = new DefaultTableModel();
+model.setColumnIdentifiers(columnNames);
+
+table = new JTable();
+table.setModel(model); 
+table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+table.setFillsViewportHeight(true);
+JScrollPane scroll = new JScrollPane(table);
+scroll.setHorizontalScrollBarPolicy(
+JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+scroll.setVerticalScrollBarPolicy(
+JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED); 
+int UID=0;
+    String nameUser="";
+    String addressUser="";
+    int tPUser=0;
+    String positionUser="";
+    String userNametext="";
+    String passwordUser="";
+try
+{ 
+Class.forName(driverName); 
+Connection con = DriverManager.getConnection(url, userName, password);
+if(userSearch==true){
+sql = "select * from employeedetails where emp_ID = "+idOrNameForUserSearch;}
+else {sql = "select * from employeedetails where emp_name LIKE '%"+ idOrNameForUserSearch + "%'";}
+PreparedStatement ps = con.prepareStatement(sql);
+ResultSet rs = ps.executeQuery();
+//Statement stmt=con.createStatement();  ResultSet rs=stmt.executeQuery("select * from employeedetails where emp_name = "+idOrNameForUserSearch);    
+int i =0;
+if(rs.next())
+{
+UID = rs.getInt("emp_ID");
+nameUser = rs.getString("emp_name");
+addressUser = rs.getString("emp_address");
+tPUser=rs.getInt("emp_tp_no");
+positionUser=rs.getString("emp_possition");
+    userNametext=rs.getString("emp_userName");
+    passwordUser=rs.getString("emp_password");
+    
+model.addRow(new Object[]{UID, nameUser, addressUser, tPUser, positionUser,userNametext,passwordUser});
+i++; 
+}
+if(i <1)
+{
+JOptionPane.showMessageDialog(null, "No Record Found","Error",
+JOptionPane.ERROR_MESSAGE);
+}
+if(i ==1)
+{
+System.out.println(i+" Record Found");
+}
+else
+{
+System.out.println(i+" Records Found");
+}
+}
+catch(Exception ex)
+{
+JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",
+JOptionPane.ERROR_MESSAGE);
+}
+frame1.add(scroll);
+frame1.setVisible(true);
+frame1.setSize(400,300);
+    
+}
 }

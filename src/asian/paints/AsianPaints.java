@@ -12,8 +12,9 @@ public class AsianPaints {
      */
     public static void main(String[] args) {
         
-   UserViewSelectionFrame f1=new UserViewSelectionFrame();
-f1.userViewAction();
+   new UserViewSelectionFrame();
+   UserViewSelectionFrame.userViewAction();
+
    
 }  
     }

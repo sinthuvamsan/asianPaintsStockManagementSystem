@@ -46,8 +46,8 @@ public class PaintActionSelectionFrame{
     updateStocks.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameManager.dispose();
-           new PaintAddAndUpdateFrame();
-          PaintAddAndUpdateFrame.managerPaintAddAndUpdateFrame();
+           new PaintAddFrame();
+          PaintAddFrame.managerPaintAddAndUpdateFrame();
     }  
     });
     
@@ -97,16 +97,16 @@ public class PaintActionSelectionFrame{
     addStock.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameStockKeeper.dispose();
-           new PaintAddAndUpdateFrame();
-          PaintAddAndUpdateFrame.stockKeeperPaintAddAndUpdateFrame();
+           new PaintAddFrame();
+          PaintAddFrame.stockKeeperPaintAddAndUpdateFrame();
     }  
     });
     
     updateStocks.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameStockKeeper.dispose();
-           new PaintAddAndUpdateFrame();
-          PaintAddAndUpdateFrame.stockKeeperPaintAddAndUpdateFrame();
+           new PaintAddFrame();
+          PaintAddFrame.stockKeeperPaintAddAndUpdateFrame();
     }  
     });
     

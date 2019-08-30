@@ -46,8 +46,8 @@ public class CustomerActionSelectionFrame{
     updateCustomer.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         customerActionSelectionFrameManager.dispose();
-           new CustomerAddAndUpdateFrame();
-          CustomerAddAndUpdateFrame.managersCustomerAddAndUpdateFrame();
+           new CustomerAddFrame();
+          CustomerAddFrame.managersCustomerAddAndUpdateFrame();
     }  
     });
     
@@ -98,16 +98,16 @@ public class CustomerActionSelectionFrame{
      addCustomer.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         customerActionSelectionFrameCashier.dispose();
-           new CustomerAddAndUpdateFrame();
-          CustomerAddAndUpdateFrame.cashierCustomerAddAndUpdateFrame();
+           new CustomerAddFrame();
+          CustomerAddFrame.cashierCustomerAddAndUpdateFrame();
     }  
     });
      
       updateCustomer.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         customerActionSelectionFrameCashier.dispose();
-           new CustomerAddAndUpdateFrame();
-          CustomerAddAndUpdateFrame.cashierCustomerAddAndUpdateFrame();
+           new CustomerAddFrame();
+          CustomerAddFrame.cashierCustomerAddAndUpdateFrame();
     }  
     });
       

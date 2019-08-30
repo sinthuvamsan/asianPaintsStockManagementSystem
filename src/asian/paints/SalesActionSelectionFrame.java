@@ -46,8 +46,8 @@ public class SalesActionSelectionFrame{
     updateSale.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         salesActionSelectionFrameManager.dispose();
-           new SalesAddAndUpdateFrame();
-          SalesAddAndUpdateFrame.managersSalesUpdateFrame();
+           new SalesAddFrame();
+          SalesAddFrame.managersSalesUpdateFrame();
     }  
     });
     
@@ -92,8 +92,8 @@ public class SalesActionSelectionFrame{
         addSale.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         salesActionSelectionFrameCashier.dispose();
-           new SalesAddAndUpdateFrame();
-          SalesAddAndUpdateFrame.cashierSalesAddFrame();
+           new SalesAddFrame();
+          SalesAddFrame.cashierSalesAddFrame();
     }  
     });
     

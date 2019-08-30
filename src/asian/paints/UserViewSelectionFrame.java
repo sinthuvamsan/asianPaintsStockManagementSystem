@@ -9,6 +9,8 @@ import javax.swing.*;
 import java.awt.*;  
 import java.awt.event.*;
 import java.io.*; 
+import java.sql.*;
+
 
 /**
  *
@@ -21,16 +23,16 @@ public class UserViewSelectionFrame {
     
     static Exit xFUVS=new Exit();
     
-    static JLabel labelForSearchUser=new JLabel("Search by:"); 
+    static JLabel labelForSearchUser=new JLabel("Search by ID or name:"); 
     
     static String searchUserBy[]={"Emp ID","Name"};        
-    static JComboBox userSearchByCB=new JComboBox(searchUserBy); 
+    
     
     static JButton backFUVSF=new JButton("Back");
     static JButton viewAllUsers=new JButton("View all");
     static JButton viewUserBy=new JButton("Search");
     
-  
+  static Connection con;
     
     UserViewSelectionFrame(){
     
@@ -39,39 +41,62 @@ public class UserViewSelectionFrame {
     viewAllUsers.setBounds(130,100,100, 40);
     userViewSelectionFrameManager.add(labelForSearchUser);
     labelForSearchUser.setBounds(50,150, 150,30);
-    userViewSelectionFrameManager.add(userSearchByCB);
-    userSearchByCB.setBounds(130,150,90,20); 
     userViewSelectionFrameManager.add(dataForSearchUser);
-    dataForSearchUser.setBounds(130,200,100, 40);
+    dataForSearchUser.setBounds(180,150,100, 40);
     userViewSelectionFrameManager.add(viewUserBy);
-    viewUserBy.setBounds(130,250,100, 40);
+    viewUserBy.setBounds(130,200,100, 40);
     userViewSelectionFrameManager.add(backFUVSF);
-    backFUVSF.setBounds(50,300,95,30);
+    backFUVSF.setBounds(50,250,95,30);
     userViewSelectionFrameManager.add(xFUVS.exit);
-    xFUVS.exit.setBounds(250,300,95,30);
+    xFUVS.exit.setBounds(250,250,95,30);
     
    userViewSelectionFrameManager.setSize(500,500);  
     userViewSelectionFrameManager.setLayout(null);  
     userViewSelectionFrameManager.setVisible(true); 
     }
-     public boolean checkInput(String idOrName){
+     public static boolean checkInput(String idOrName){
      if(idOrName.matches("^\\d+(\\.\\d+)?")){return true;}
      else{return false;}
      }
      
-     public void userViewAction(){
+     public static void userViewAction(){
      viewUserBy.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         String idOrName=dataForSearchUser.getText();
-        NewClass uSF=new NewClass();
+        UserViewFrame uSF=new UserViewFrame();
         uSF.showTableData(checkInput(idOrName),idOrName);
     }  
     });
      
         viewAllUsers.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
-        
-         NewClass.showTableData();
+        JFrame fToViewUser=new JFrame();
+       String sql = "select * from EmployeeDetails";
+        new DBManager().showDataFromDB(sql);
+JTextArea tVU=new JTextArea();
+tVU.setText("emp_ID"+" "+"emp_name"+" "+"emp_address"+" "+"emp_tp_no"+" "+"emp_possition"+" "+"emp_userName"+" "+"emp_password");
+String[] arr=new DBManager().showDataFromDB(sql);
+for(int i = 1;i<=1;i++){
+tVU.append(arr[i]);}
+JScrollPane scroll = new JScrollPane(tVU); 
+fToViewUser.add(scroll); 
+scroll.setBounds(10,30, 300,300); 
+  fToViewUser.setSize(500,500); 
+    fToViewUser.setLayout(null);  
+    fToViewUser.setVisible(true); 
+/*
+        int UID = rs.getInt("emp_ID");
+String nameUser = rs.getString("emp_name");
+String addressUser = rs.getString("emp_address");
+int tPUser=rs.getInt("emp_tp_no");
+String positionUser=rs.getString("emp_possition");
+    String userNametext=rs.getString("emp_userName");
+    String passwordUser=rs.getString("emp_password");
+    
+    
+    */
+    
+         //UserViewFrame.showTableData();
     }  
     });
      }
