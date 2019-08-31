@@ -91,9 +91,9 @@ int i = 0;
 
        
     while(rs.next()){
-   for( i = 1;i<=numberOfColumns;i++){
-         for(int a = 0;a<numberOfColumns;a++){
-       arr[a]=rs.getString(i); }
+   for( i = 1;i<numberOfColumns;i++){
+         
+       arr[i-1]=rs.getString(i); 
    }
    return arr;
    
