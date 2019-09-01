@@ -45,5 +45,14 @@ public class UserUpdateIDCollectionFrame {
        new UserActionSelectionFrame();
     }  
     });
+    
+    searchUserToBeUpdated.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        userUpdateIDCollectionFrameManager.dispose();
+       new UserUpdateFrame(Integer.parseInt(userToBeUpdated.getText()));
+       
+       
+    }  
+    });
     }
 }

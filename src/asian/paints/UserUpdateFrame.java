@@ -17,20 +17,20 @@ import java.sql.*;
 public class UserUpdateFrame {
     static JFrame userUpdateFrameManager=new JFrame();
     
-    static JTextField empIDUpdateUser=new JTextField("Employee ID");
-    static JTextField empNameForUpdateUser=new JTextField("Employee name");
-    static JTextField empAddressForUpdateUser=new JTextField("Employee address");
-    static JTextField empTPNoForUpdateUser=new JTextField("Employee TP no.");
-    static JTextField empPositionForUpdateUser=new JTextField("Position");
-    static JTextField empUserNameForUpdateUser=new JTextField("Employee user name");
-    static JTextField empPaawordForUpdateUser=new JTextField("Employee passwoerd");
+    static JTextField empIDUpdateUser=new JTextField();
+    static JTextField empNameForUpdateUser=new JTextField();
+    static JTextField empAddressForUpdateUser=new JTextField();
+    static JTextField empTPNoForUpdateUser=new JTextField();
+    static JTextField empPositionForUpdateUser=new JTextField();
+    static JTextField empUserNameForUpdateUser=new JTextField();
+    static JTextField empPaawordForUpdateUser=new JTextField();
     
     static Exit xFUU=new Exit();
      
     static JButton backFUAUF=new JButton("Back");
     static JButton updateUser=new JButton("Update user");
    
-  UserUpdateFrame(){
+  UserUpdateFrame(int userToBeUpdated){
     
     
     userUpdateFrameManager.add(empIDUpdateUser);
@@ -57,13 +57,35 @@ public class UserUpdateFrame {
    userUpdateFrameManager.setSize(550,550);  
     userUpdateFrameManager.setLayout(null);  
     userUpdateFrameManager.setVisible(true);  
+    try{
+     Connection con=new DBManager().getConnection();
+    String sqlToViewUserToBeUpdated = "select * from employeedetails where emp_ID = "+userToBeUpdated;
+    PreparedStatement ps = con.prepareStatement(sqlToViewUserToBeUpdated);
+ResultSet rs = ps.executeQuery();
+   if(rs.next()){
+   empIDUpdateUser.setText(String.valueOf(rs.getInt("emp_ID")));
+    empNameForUpdateUser.setText(rs.getString("emp_name"));
+     empAddressForUpdateUser.setText(rs.getString("emp_address"));
+     empTPNoForUpdateUser.setText(String.valueOf(rs.getInt("emp_tp_no")));
+     empPositionForUpdateUser.setText(rs.getString("emp_possition"));
+     empUserNameForUpdateUser.setText(rs.getString("emp_userName"));
+     empPaawordForUpdateUser.setText(rs.getString("emp_password"));
+   }
+   //else{JOptionPane.showMessageDialog(userUpdateFrameManager,"Wrong ID"); }
+    }catch(Exception ex){JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);}
     
     updateUser.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
-      Connection con=new DBManager().getConnection();
+      int empIDUpdateUserInt=Integer.parseInt(empNameForUpdateUser.getText());
       String empNameForUpdateUserString=empNameForUpdateUser.getText();
-      String sQLToUpdate="update employeedetails set emp_name='"+empNameForUpdateUserString+"' where emp_id=3";
-      new DBManager().updateDataToDB(sQLToUpdate);
+      String empAddressForUpdateUserString=empNameForUpdateUser.getText();
+      int empTPNoForUpdateUserInt=Integer.parseInt(empNameForUpdateUser.getText());
+      String empPositionForUpdateUserString=empNameForUpdateUser.getText();
+      String empUserNameForUpdateUserString=empNameForUpdateUser.getText();
+      String empPaawordForUpdateUserString=empNameForUpdateUser.getText();
+      
+      String sQLToUpdateUser="update employeedetails set emp_id='"+empIDUpdateUserInt+"' ,emp_name='"+empNameForUpdateUserString+"' ,emp_address='"+empAddressForUpdateUserString+"' ,emp_tp_no='"+empTPNoForUpdateUserInt+"' ,emp_possition='"+empPositionForUpdateUserString+"' ,emp_userName='"+empUserNameForUpdateUserString+"' ,emp_password='"+empPaawordForUpdateUserString+"' where emp_id="+userToBeUpdated;
+      new DBManager().updateDataToDB(sQLToUpdateUser);
     }  
     });
     
@@ -75,4 +97,3 @@ public class UserUpdateFrame {
     });
    }
 }
-//"update login set firstname='"+firstname+"' ,lastname='"+lastname+"' ,username='"+username+"' ,password='"+password+"' ,address='"+address+"' ,number='"+number+"' ,gender='"+gender+"' ,roll='"+roll+"' where firstname  LIKE '%"+ idOrNameForUserSearch + "%'"

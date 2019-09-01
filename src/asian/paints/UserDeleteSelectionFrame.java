@@ -45,5 +45,13 @@ public class UserDeleteSelectionFrame {
        new UserActionSelectionFrame();
     }  
     });
+    
+    searchUserToBeDeleted.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+         userDeleteIDCollectionFrameManager.dispose();
+       new UserDeleteFrame(Integer.parseInt(userToBeDeleted.getText()));
+      
+    }  
+    });
     }
 }
