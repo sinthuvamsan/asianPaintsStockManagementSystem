@@ -9,6 +9,9 @@ package asian.paints;
  *
  * @author User
  */
-public interface ToViewMethod {
-     public void showTableData();
+public class InputIntOrString {
+    public static boolean checkInput(String idOrName){
+     if(idOrName.matches("^\\d+(\\.\\d+)?")){return true;}
+     else{return false;}
+     }
 }

@@ -19,7 +19,7 @@ public class SalesUpdateIDCollectionFrame {
     static JTextField salesToBeUpdated=new JTextField("Employee ID");
     
     static JButton searchSalesToBeUpdated=new JButton("Update this user");
-    static JButton backFSUSFM=new JButton("Back");
+    static JButton backFSUSF=new JButton("Back");
     
      static Exit xFCUSF=new Exit();
      
@@ -30,13 +30,20 @@ public class SalesUpdateIDCollectionFrame {
     salesUpdateIDCollectionFrameManager.add(searchSalesToBeUpdated);
     searchSalesToBeUpdated.setBounds(130,100,100, 40);
     
-   salesUpdateIDCollectionFrameManager.add(backFSUSFM);
-   backFSUSFM.setBounds(50,150,95,30);
+   salesUpdateIDCollectionFrameManager.add(backFSUSF);
+   backFSUSF.setBounds(50,150,95,30);
    salesUpdateIDCollectionFrameManager.add(xFCUSF.exit);
    xFCUSF.exit.setBounds(250,150,95,30);
    
     salesUpdateIDCollectionFrameManager.setSize(500,500);  
     salesUpdateIDCollectionFrameManager.setLayout(null);  
     salesUpdateIDCollectionFrameManager.setVisible(true); 
+    
+    backFSUSF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        salesUpdateIDCollectionFrameManager.dispose();
+           SalesActionSelectionFrame.cashierSalesFrame();
+    }  
+    });
     }
 }

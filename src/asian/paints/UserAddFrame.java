@@ -27,7 +27,7 @@ public class UserAddFrame{
     
     static Exit xFUA=new Exit();
      
-    static JButton backFUAUF=new JButton("Back");
+    static JButton backFUAF=new JButton("Back");
     static JButton addUser=new JButton("Add user");
     
 //private Connection con = null;
@@ -54,8 +54,8 @@ public class UserAddFrame{
     empPaawordForAddUser.setBounds(130,350,100, 40); 
    userAddFrameManager.add(addUser);
    addUser.setBounds(50,400,100, 40);
-   userAddFrameManager.add(backFUAUF);
-   backFUAUF.setBounds(50,450,95,30);
+   userAddFrameManager.add(backFUAF);
+   backFUAF.setBounds(50,450,95,30);
    userAddFrameManager.add(xFUA.exit);
    xFUA.exit.setBounds(250,450,95,30);
     
@@ -91,5 +91,11 @@ int lastOfuserId = DBManager.lastID(query,colName);
             }
     });
    
+     backFUAF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+       userAddFrameManager.dispose();
+       new UserActionSelectionFrame();
+    }  
+    });
 }
 }

@@ -66,6 +66,13 @@ public class UserUpdateFrame {
       new DBManager().updateDataToDB(sQLToUpdate);
     }  
     });
+    
+    backFUAUF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+       userUpdateFrameManager.dispose();
+       new UserUpdateIDCollectionFrame();
+    }  
+    });
    }
 }
 //"update login set firstname='"+firstname+"' ,lastname='"+lastname+"' ,username='"+username+"' ,password='"+password+"' ,address='"+address+"' ,number='"+number+"' ,gender='"+gender+"' ,roll='"+roll+"' where firstname  LIKE '%"+ idOrNameForUserSearch + "%'"

@@ -46,7 +46,7 @@ public class SalesActionSelectionFrame{
     updateSale.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         salesActionSelectionFrameManager.dispose();
-           new SalesAddFrame();
+           new SalesUpdateIDCollectionFrame();
     }  
     });
     
@@ -67,7 +67,6 @@ public class SalesActionSelectionFrame{
              backFS.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         salesActionSelectionFrameManager.dispose();
-       new MainFirstFrame();
        MainFirstFrame.managersMainFrame();
     }  
     });
@@ -98,7 +97,6 @@ public class SalesActionSelectionFrame{
     backFS.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         salesActionSelectionFrameCashier.dispose();
-       new MainFirstFrame();
        MainFirstFrame.cashierMainFrame();
     }  
     });

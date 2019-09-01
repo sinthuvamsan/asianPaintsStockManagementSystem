@@ -35,5 +35,12 @@ public class SalesDeleteFrame {
     salesDeleteFrameManager.setSize(500,500);  
     salesDeleteFrameManager.setLayout(null);  
     salesDeleteFrameManager.setVisible(true); 
+    
+    backFSDF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        salesDeleteFrameManager.dispose();
+           new SalesDeleteIDCollectionFrame();
+    }  
+    });
     }
 }

@@ -52,5 +52,13 @@ public class SalesAddFrame {
     salesAddFrameCahier.setSize(500,500);  
     salesAddFrameCahier.setLayout(null);  
     salesAddFrameCahier.setVisible(true);  
+    
+    backFSAF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        salesAddFrameCahier.dispose();
+         
+           SalesActionSelectionFrame.cashierSalesFrame();
+    }  
+    });
     }
 }

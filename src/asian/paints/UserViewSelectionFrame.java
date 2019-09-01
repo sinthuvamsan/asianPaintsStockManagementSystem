@@ -58,7 +58,7 @@ public class UserViewSelectionFrame {
     public void actionPerformed(ActionEvent e){ 
         String idOrName=dataForSearchUser.getText();
         UserViewFrame uSF=new UserViewFrame();
-        uSF.showTableData(checkInput(idOrName),idOrName);
+        uSF.showTableData(InputIntOrString.checkInput(idOrName),idOrName);
     }  
     });
      
@@ -89,9 +89,7 @@ scroll.setBounds(10,30, 300,300);
          
     }  
     });
+        
+        
     }
-     public static boolean checkInput(String idOrName){
-     if(idOrName.matches("^\\d+(\\.\\d+)?")){return true;}
-     else{return false;}
-     }
 }

@@ -47,5 +47,12 @@ public class SalesUpdateFrame {
    salesUpdateFrameManager.setSize(500,500);  
     salesUpdateFrameManager.setLayout(null);  
     salesUpdateFrameManager.setVisible(true);  
-   }
+   
+     backFSUF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        salesUpdateFrameManager.dispose();
+           new SalesUpdateIDCollectionFrame();
+    }  
+    });
+     }
 }

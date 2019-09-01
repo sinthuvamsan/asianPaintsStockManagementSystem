@@ -26,8 +26,7 @@ static String driverName = "com.mysql.jdbc.Driver";
 static String password = "root";
 static String[] columnNames = {"User ID", "Name", "Address", "User T.P no.", "Position", "User name", "Password"};
 static String sql;
- UserViewSelectionFrame uF=new UserViewSelectionFrame();
-//boolean uFTF=uF.checkInput();
+
     public static void showTableData()
 {
 

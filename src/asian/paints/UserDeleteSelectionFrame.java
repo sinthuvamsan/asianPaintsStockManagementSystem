@@ -38,5 +38,12 @@ public class UserDeleteSelectionFrame {
     userDeleteIDCollectionFrameManager.setSize(500,500);  
     userDeleteIDCollectionFrameManager.setLayout(null);  
     userDeleteIDCollectionFrameManager.setVisible(true); 
+    
+    backFUDSF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+       userDeleteIDCollectionFrameManager.dispose();
+       new UserActionSelectionFrame();
+    }  
+    });
     }
 }

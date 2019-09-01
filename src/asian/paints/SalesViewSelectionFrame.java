@@ -50,6 +50,13 @@ public class SalesViewSelectionFrame {
    salesViewSelectionFrameManager.setSize(500,500);  
     salesViewSelectionFrameManager.setLayout(null);  
     salesViewSelectionFrameManager.setVisible(true); 
+    
+    backFSVSF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        salesViewSelectionFrameManager.dispose();
+           SalesActionSelectionFrame.managersSalesFrame();
+    }  
+    });
     }
      
 }

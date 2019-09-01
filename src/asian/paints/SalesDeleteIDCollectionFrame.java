@@ -38,5 +38,13 @@ public class SalesDeleteIDCollectionFrame {
     salesDeleteIDCollectionFrameManager.setSize(500,500);  
     salesDeleteIDCollectionFrameManager.setLayout(null);  
     salesDeleteIDCollectionFrameManager.setVisible(true); 
+    
+     backFSDSF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        salesDeleteIDCollectionFrameManager.dispose();
+        
+           SalesActionSelectionFrame.managersSalesFrame();
+    }  
+    });
     }
 }

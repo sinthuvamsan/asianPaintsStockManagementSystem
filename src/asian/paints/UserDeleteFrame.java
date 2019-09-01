@@ -138,5 +138,12 @@ JOptionPane.ERROR_MESSAGE);
           
     }  
     });
+     
+     backFUDAF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+       userDeleteConfirmFrameManager.dispose();
+       new UserDeleteSelectionFrame();
+    }  
+    });
     }
 }

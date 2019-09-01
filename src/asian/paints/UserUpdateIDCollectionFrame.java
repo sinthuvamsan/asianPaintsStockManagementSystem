@@ -39,6 +39,11 @@ public class UserUpdateIDCollectionFrame {
     userUpdateIDCollectionFrameManager.setLayout(null);  
     userUpdateIDCollectionFrameManager.setVisible(true); 
     
-    
+    backFUUSF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+       userUpdateIDCollectionFrameManager.dispose();
+       new UserActionSelectionFrame();
+    }  
+    });
     }
 }
