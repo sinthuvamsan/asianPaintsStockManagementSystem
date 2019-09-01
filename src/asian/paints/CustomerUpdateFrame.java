@@ -57,7 +57,7 @@ public class CustomerUpdateFrame {
     }  
     });
    }
-    //public void stockKeeperCustomerAddAndUpdateFrame(){}
+    
    
     public static void cashierCustomerAddAndUpdateFrame(){
     customerUpdateFrameCahier.add(cusIDForAddOrUpdate);

@@ -9,7 +9,7 @@ import javax.swing.*;
 import java.awt.*;  
 import java.awt.event.*;
 import java.sql.*;
-
+        
 /**
  *
  * @author User
@@ -92,7 +92,7 @@ ResultSet rs = ps.executeQuery();
     backFUAUF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
        userUpdateFrameManager.dispose();
-       new UserUpdateIDCollectionFrame();
+    new UserUpdateIDCollectionFrame();
     }  
     });
    }

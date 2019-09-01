@@ -16,9 +16,9 @@ import java.awt.event.*;
 public class SalesUpdateIDCollectionFrame {
         static JFrame salesUpdateIDCollectionFrameManager=new JFrame();
      
-    static JTextField salesToBeUpdated=new JTextField("Employee ID");
+     JTextField salesToBeUpdated=new JTextField("Sales ID");
     
-    static JButton searchSalesToBeUpdated=new JButton("Update this user");
+    static JButton searchSalesToBeUpdated=new JButton("Update this sales");
     static JButton backFSUSF=new JButton("Back");
     
      static Exit xFCUSF=new Exit();
@@ -43,6 +43,13 @@ public class SalesUpdateIDCollectionFrame {
     public void actionPerformed(ActionEvent e){ 
         salesUpdateIDCollectionFrameManager.dispose();
            SalesActionSelectionFrame.cashierSalesFrame();
+    }  
+    });
+    
+     searchSalesToBeUpdated.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        salesUpdateIDCollectionFrameManager.dispose();
+       new SalesUpdateFrame(Integer.parseInt(salesToBeUpdated.getText()));
     }  
     });
     }

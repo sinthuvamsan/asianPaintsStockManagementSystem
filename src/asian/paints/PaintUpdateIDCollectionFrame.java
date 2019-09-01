@@ -17,22 +17,22 @@ public class PaintUpdateIDCollectionFrame {
      static JFrame paintUpdateIDCollectionFrameManager=new JFrame();
     static JFrame paintUpdateIDCollectionFrameStockKeeper=new JFrame();
     
-    static JTextField paintProductNoForUpdate=new JTextField("Paint product no.");
+     JTextField paintProductNoForUpdate=new JTextField("Paint product no.");
    
     
     static Exit xFPUICF=new Exit();
      
     static JButton backFPUICF=new JButton("Back");
-    static JButton updatePaint=new JButton("Add paint");
+    static JButton searchPaintToBeUpdated=new JButton("Add paint");
    
     
-    public static void managerPaintupdateIDCollectionFrame(){
+    public void managerPaintupdateIDCollectionFrame(){
     
     
     paintUpdateIDCollectionFrameManager.add(paintProductNoForUpdate);
     paintProductNoForUpdate.setBounds(130,100,100, 40);   
-     paintUpdateIDCollectionFrameManager.add(updatePaint);
-    updatePaint.setBounds(50,350,100, 40);
+     paintUpdateIDCollectionFrameManager.add(searchPaintToBeUpdated);
+    searchPaintToBeUpdated.setBounds(50,350,100, 40);
    paintUpdateIDCollectionFrameManager.add(backFPUICF);
    backFPUICF.setBounds(50,400,95,30);
    paintUpdateIDCollectionFrameManager.add(xFPUICF.exit);
@@ -48,15 +48,22 @@ public class PaintUpdateIDCollectionFrame {
            PaintActionSelectionFrame.managersPaintFrame();
     }  
     });
+    
+     searchPaintToBeUpdated.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        paintUpdateIDCollectionFrameManager.dispose();
+       new PaintUpdateFrame(Integer.parseInt(paintProductNoForUpdate.getText()));
+    }  
+    });
     }
     
-    public static void stockKeeperPaintupdateIDCollectionFrame(){
+    public void stockKeeperPaintupdateIDCollectionFrame(){
     
     
     paintUpdateIDCollectionFrameStockKeeper.add(paintProductNoForUpdate);
     paintProductNoForUpdate.setBounds(130,100,100, 40); 
-    paintUpdateIDCollectionFrameStockKeeper.add(updatePaint);
-    updatePaint.setBounds(50,350,100, 40);
+    paintUpdateIDCollectionFrameStockKeeper.add(searchPaintToBeUpdated);
+    searchPaintToBeUpdated.setBounds(50,350,100, 40);
    paintUpdateIDCollectionFrameStockKeeper.add(backFPUICF);
    backFPUICF.setBounds(50,400,95,30);
    paintUpdateIDCollectionFrameStockKeeper.add(xFPUICF.exit);
@@ -70,6 +77,13 @@ public class PaintUpdateIDCollectionFrame {
     public void actionPerformed(ActionEvent e){ 
         paintUpdateIDCollectionFrameStockKeeper.dispose();
            PaintActionSelectionFrame.stockKeeperPaintFrame();
+    }  
+    });
+    
+     searchPaintToBeUpdated.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        paintUpdateIDCollectionFrameStockKeeper.dispose();
+       new PaintUpdateFrame(Integer.parseInt(paintProductNoForUpdate.getText()));
     }  
     });
     }

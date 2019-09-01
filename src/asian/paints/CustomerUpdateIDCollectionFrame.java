@@ -17,7 +17,7 @@ public class CustomerUpdateIDCollectionFrame {
         static JFrame customerUpdateIDCollectionFrameManager=new JFrame();
      static JFrame customerUpdateIDCollectionFrameCashier=new JFrame();
      
-    static JTextField userToBeUpdated=new JTextField("Employee ID");
+     JTextField userToBeUpdated=new JTextField("Employee ID");
     
     static JButton searchUserToBeUpdated=new JButton("Update this user");
     static JButton backFCUSF=new JButton("Back");
@@ -46,6 +46,13 @@ public class CustomerUpdateIDCollectionFrame {
          CustomerActionSelectionFrame.managersCustomerFrame();
     }  
     });
+    
+     searchUserToBeUpdated.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        customerUpdateIDCollectionFrameManager.dispose();
+       new CustomerUpdateFrame(Integer.parseInt(userToBeUpdated.getText()));
+    }  
+    });
     }
     public static void UpdateIDCollectionFrameCashier(){
         
@@ -67,6 +74,13 @@ public class CustomerUpdateIDCollectionFrame {
     public void actionPerformed(ActionEvent e){ 
         customerUpdateIDCollectionFrameCashier.dispose();
          CustomerActionSelectionFrame.cashierCustomerFrame();
+    }  
+    });
+    
+     searchUserToBeUpdated.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        customerUpdateIDCollectionFrameCashier.dispose();
+       new CustomerUpdateFrame(Integer.parseInt(userToBeUpdated.getText()));
     }  
     });
     }

@@ -16,7 +16,7 @@ import java.awt.event.*;
 public class UserUpdateIDCollectionFrame {
     static JFrame userUpdateIDCollectionFrameManager=new JFrame();
     
-    static JTextField userToBeUpdated=new JTextField("Employee ID");
+    JTextField userToBeUpdated=new JTextField();
     
     static JButton searchUserToBeUpdated=new JButton("Update this user");
     static JButton backFUUSF=new JButton("Back");
@@ -50,9 +50,8 @@ public class UserUpdateIDCollectionFrame {
     public void actionPerformed(ActionEvent e){ 
         userUpdateIDCollectionFrameManager.dispose();
        new UserUpdateFrame(Integer.parseInt(userToBeUpdated.getText()));
-       
-       
     }  
     });
     }
+    
 }
