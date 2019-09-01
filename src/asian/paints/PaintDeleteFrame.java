@@ -39,6 +39,13 @@ public class PaintDeleteFrame {
     paintDeleteFrameManager.setSize(500,500);  
     paintDeleteFrameManager.setLayout(null);  
     paintDeleteFrameManager.setVisible(true); 
+   
+     backFPDF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        paintDeleteFrameManager.dispose();
+           PaintDeleteIDCollectionFrame.managerPaintDeleteFrame();
+    }  
+    });
     }
     
     public static void stockKeeperPaintDeleteFrame(){  
@@ -56,5 +63,12 @@ public class PaintDeleteFrame {
     paintDeleteFrameStockKeeper.setSize(500,500);  
     paintDeleteFrameStockKeeper.setLayout(null);  
     paintDeleteFrameStockKeeper.setVisible(true); 
+    
+     backFPDF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        paintDeleteFrameStockKeeper.dispose();
+           PaintDeleteIDCollectionFrame.stockKeeperPaintDeleteFrame();
+    }  
+    });
     }
 }

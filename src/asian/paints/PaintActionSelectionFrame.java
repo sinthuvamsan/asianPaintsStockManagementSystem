@@ -47,7 +47,7 @@ public class PaintActionSelectionFrame{
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameManager.dispose();
            new PaintUpdateIDCollectionFrame();
-          PaintUpdateIDCollectionFrame.managerPaintAddFrame();
+          PaintUpdateIDCollectionFrame.managerPaintupdateIDCollectionFrame();
     }  
     });
     
@@ -106,7 +106,7 @@ public class PaintActionSelectionFrame{
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameStockKeeper.dispose();
            new PaintUpdateIDCollectionFrame();
-          PaintUpdateIDCollectionFrame.stockKeeperPaintAddFrame();
+          PaintUpdateIDCollectionFrame.stockKeeperPaintupdateIDCollectionFrame();
     }  
     });
     

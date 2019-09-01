@@ -52,6 +52,13 @@ public class PaintAddFrame {
    paintAddFrameManager.setSize(500,500);  
     paintAddFrameManager.setLayout(null);  
     paintAddFrameManager.setVisible(true);  
+    
+    backFPAF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        paintAddFrameManager.dispose();
+           PaintActionSelectionFrame.managersPaintFrame();
+    }  
+    });
     }
     
     public static void stockKeeperPaintAddFrame(){
@@ -77,5 +84,12 @@ public class PaintAddFrame {
    paintAddFrameStockKeeper.setSize(500,500);  
     paintAddFrameStockKeeper.setLayout(null);  
     paintAddFrameStockKeeper.setVisible(true);  
+    
+     backFPAF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        paintAddFrameStockKeeper.dispose();
+           PaintActionSelectionFrame.stockKeeperPaintFrame();
+    }  
+    });
     }
 }

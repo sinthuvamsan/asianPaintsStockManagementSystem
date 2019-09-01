@@ -24,9 +24,8 @@ public class PaintUpdateFrame {
     static JTextField paintStockQuantityForUpdate=new JTextField("Paint stock quantity");
     
     static Exit xFPU=new Exit();
-     
-    static JButton backFPUFM=new JButton("Back");
-    static JButton backFPUFSK=new JButton("Back");
+
+    static JButton backFPUF=new JButton("Back");
     static JButton updatePaint=new JButton("Add paint");
    
     
@@ -45,14 +44,21 @@ public class PaintUpdateFrame {
     paintStockQuantityForUpdate.setBounds(130,300,100, 40);   
      paintUpdateFrameManager.add(updatePaint);
     updatePaint.setBounds(50,350,100, 40);
-   paintUpdateFrameManager.add(backFPUFM);
-   backFPUFM.setBounds(50,400,95,30);
+   paintUpdateFrameManager.add(backFPUF);
+   backFPUF.setBounds(50,400,95,30);
    paintUpdateFrameManager.add(xFPU.exit);
    xFPU.exit.setBounds(250,400,95,30);
    
    paintUpdateFrameManager.setSize(500,500);  
     paintUpdateFrameManager.setLayout(null);  
     paintUpdateFrameManager.setVisible(true);  
+    
+    backFPUF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        paintUpdateFrameManager.dispose();
+           PaintUpdateIDCollectionFrame.managerPaintupdateIDCollectionFrame();
+    }  
+    });
     }
     
     public static void stockKeeperPaintAddFrame(){
@@ -70,13 +76,20 @@ public class PaintUpdateFrame {
     paintStockQuantityForUpdate.setBounds(130,300,100, 40);   
     paintUpdateFrameStockKeeper.add(updatePaint);
     updatePaint.setBounds(50,350,100, 40);
-   paintUpdateFrameStockKeeper.add(backFPUFSK);
-   backFPUFSK.setBounds(50,400,95,30);
+   paintUpdateFrameStockKeeper.add(backFPUF);
+   backFPUF.setBounds(50,400,95,30);
    paintUpdateFrameStockKeeper.add(xFPU.exit);
    xFPU.exit.setBounds(250,400,95,30);
    
    paintUpdateFrameStockKeeper.setSize(500,500);  
     paintUpdateFrameStockKeeper.setLayout(null);  
     paintUpdateFrameStockKeeper.setVisible(true);  
+    
+    backFPUF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        paintUpdateFrameManager.dispose();
+           PaintUpdateIDCollectionFrame.stockKeeperPaintupdateIDCollectionFrame();
+    }  
+    });
     }
 }

@@ -52,6 +52,13 @@ public class PaintViewSelectionFrame {
    paintViewSelectionFrameManager.setSize(500,500);  
     paintViewSelectionFrameManager.setLayout(null);  
     paintViewSelectionFrameManager.setVisible(true); 
+    
+    backFPVSF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        paintViewSelectionFrameManager.dispose();
+           PaintActionSelectionFrame.managersPaintFrame();
+    }  
+    });
     }
      
     public static void stockKeeperPaintViewSelectionFrame(){
@@ -75,6 +82,13 @@ public class PaintViewSelectionFrame {
    paintViewSelectionFrameStockKeeper.setSize(500,500);  
     paintViewSelectionFrameStockKeeper.setLayout(null);  
     paintViewSelectionFrameStockKeeper.setVisible(true); 
+    
+    backFPVSF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        paintViewSelectionFrameStockKeeper.dispose();
+           PaintActionSelectionFrame.stockKeeperPaintFrame();
+    }  
+    });
     }
     
     public static void cashierPaintViewSelectionFrame(){
@@ -98,5 +112,12 @@ public class PaintViewSelectionFrame {
    paintViewSelectionFrameCahsier.setSize(500,500);  
     paintViewSelectionFrameCahsier.setLayout(null);  
     paintViewSelectionFrameCahsier.setVisible(true); 
+    
+    backFPVSF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        paintViewSelectionFrameCahsier.dispose();
+           PaintActionSelectionFrame.cashierPaintFrame();
+    }  
+    });
     }
 }
