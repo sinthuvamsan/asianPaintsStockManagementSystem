@@ -63,37 +63,17 @@ return recordCount;
         return lastId;
     }
  
-public static void addDataToDB(String sQLToAdd){
+public static void dBManipulator(String sQLToManipulate){
     con = DBManager.getConnection();
     try{
 stmt = con.createStatement();
-stmt.executeUpdate(sQLToAdd);
-    
-    }
-    catch(SQLException ex){JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);}
-
-    }
-public static void updateDataToDB(String sQLToUpdate){
-    con = DBManager.getConnection();
-    try{
-stmt = con.createStatement();
-stmt.executeUpdate(sQLToUpdate);
+stmt.executeUpdate(sQLToManipulate);
     
     }
     catch(SQLException ex){JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);}
 
     }
 
-public static void deleteDataFromDB(String sQLToDelete){
-
-     con = DBManager.getConnection();
-    try{
-stmt = con.createStatement();
-stmt.executeUpdate(sQLToDelete);
-    
-    }
-    catch(SQLException ex){JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);}
-}
 
 /* 
 public static boolean showDataFromDB(String sQLToviewAll){ con = DBManager.getConnection();

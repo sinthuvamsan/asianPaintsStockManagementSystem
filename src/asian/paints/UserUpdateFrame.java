@@ -85,7 +85,7 @@ ResultSet rs = ps.executeQuery();
       String empPaawordForUpdateUserString=empNameForUpdateUser.getText();
       
       String sQLToUpdateUser="update employeedetails set emp_id='"+empIDUpdateUserInt+"' ,emp_name='"+empNameForUpdateUserString+"' ,emp_address='"+empAddressForUpdateUserString+"' ,emp_tp_no='"+empTPNoForUpdateUserInt+"' ,emp_possition='"+empPositionForUpdateUserString+"' ,emp_userName='"+empUserNameForUpdateUserString+"' ,emp_password='"+empPaawordForUpdateUserString+"' where emp_id="+userToBeUpdated;
-      new DBManager().updateDataToDB(sQLToUpdateUser);
+      new DBManager().dBManipulator(sQLToUpdateUser);
     }  
     });
     

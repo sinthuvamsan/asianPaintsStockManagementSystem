@@ -26,7 +26,6 @@ public class SalesAddFrame {
      
     static JButton backFSAF=new JButton("Back");
     static JButton addSales=new JButton("Add sales");
-    static JButton updateSales=new JButton("Update sales");
    
   
     //public void stockKeeperCustomerAddAndUpdateFrame(){}
@@ -59,6 +58,32 @@ public class SalesAddFrame {
          
            SalesActionSelectionFrame.cashierSalesFrame();
     }  
+    });
+    
+    addSales.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        
+
+        String query ="SELECT * FROM salesdetails ORDER BY emp_id DESC LIMIT 1;";
+        String colName="sales_no";
+int lastOfSalesId = DBManager.lastID(query,colName);
+
+  lastOfSalesId++;
+  
+   int paintSalesQuantityForAddSalesInt=Integer.parseInt(paintSalesQuantityForAddSales.getText());
+    int paintProductNoForAddSalesInt=Integer.parseInt(paintProductNoForAddSales.getText());
+     int cusIDForAddSalesInt=Integer.parseInt(cusIDForAddSales.getText());
+     
+   
+    String sQLForAddSales="insert into salesdetails (sales_no,paint_sales_quantity,paint_product_no,cus_id)"
+            + "values('"+lastOfSalesId+"','"+paintSalesQuantityForAddSalesInt+"','"+paintProductNoForAddSalesInt+"','"+cusIDForAddSalesInt+"')";
+   
+    new DBManager().dBManipulator(sQLForAddSales);
+            
+    salesAddFrameCahier.dispose();
+    SalesActionSelectionFrame.cashierSalesFrame();
+    JOptionPane.showMessageDialog(SalesActionSelectionFrame.salesActionSelectionFrameCashier,"Data has been successfully added");  
+     }
     });
     }
 }

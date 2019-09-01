@@ -78,10 +78,10 @@ int lastOfuserId = DBManager.lastID(query,colName);
     String empPositionForAddUserString=empPositionForAddUser.getText();
     String empUserNameForAddUserString=empUserNameForAddUser.getText();
     String empPaawordForAddUserString=empPaawordForAddUser.getText();
-    String sQLForADD="insert into employeeDetails (emp_id,emp_name,emp_address,emp_tp_no,emp_possition,emp_userName,emp_password)"
+    String sQLForAddUser="insert into employeeDetails (emp_id,emp_name,emp_address,emp_tp_no,emp_possition,emp_userName,emp_password)"
             + "values('"+lastOfuserId+"','"+EmpNameForAddUserString+"','"+empAddressForAddUserString+"','"+empTPNoForAddUserInt+"','"+empPositionForAddUserString+"','"+empUserNameForAddUserString+"','"+empPaawordForAddUserString+"')";
    
-    new DBManager().addDataToDB(sQLForADD);
+    new DBManager().dBManipulator(sQLForAddUser);
             
     userAddFrameManager.dispose();
     new UserActionSelectionFrame();

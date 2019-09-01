@@ -22,15 +22,15 @@ public class PaintDeleteIDCollectionFrame {
     static Exit xFPDICF=new Exit();
       
     static JButton backFPDICF=new JButton("Back"); 
-    static JButton deletePaint=new JButton("Delete");
+    static JButton searchPaintToBeDeleted=new JButton("Delete");
     
     public static void managerPaintDeleteFrame(){  
     
     
     paintDeleteIDCollectionFrameManager.add(paintProductNoForDelete);
     paintProductNoForDelete.setBounds(130,100,100, 40);
-    paintDeleteIDCollectionFrameManager.add(deletePaint);
-    deletePaint.setBounds(250,150,100, 40);
+    paintDeleteIDCollectionFrameManager.add(searchPaintToBeDeleted);
+    searchPaintToBeDeleted.setBounds(250,150,100, 40);
     paintDeleteIDCollectionFrameManager.add(backFPDICF);
     backFPDICF.setBounds(50,400,95,30);
     paintDeleteIDCollectionFrameManager.add(xFPDICF.exit);
@@ -46,6 +46,14 @@ public class PaintDeleteIDCollectionFrame {
            PaintActionSelectionFrame.managersPaintFrame();
     }  
     });
+    
+    searchPaintToBeDeleted.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+         paintDeleteIDCollectionFrameManager.dispose();
+       new PaintDeleteFrame(Integer.parseInt(paintProductNoForDelete.getText()),true);
+      
+    }  
+    });
     }
     
     public static void stockKeeperPaintDeleteFrame(){  
@@ -53,8 +61,8 @@ public class PaintDeleteIDCollectionFrame {
     
     paintDeleteIDCollectionFrameStockKeeper.add(paintProductNoForDelete);
     paintProductNoForDelete.setBounds(130,100,100, 40);
-    paintDeleteIDCollectionFrameStockKeeper.add(deletePaint);
-    deletePaint.setBounds(250,150,100, 40);
+    paintDeleteIDCollectionFrameStockKeeper.add(searchPaintToBeDeleted);
+    searchPaintToBeDeleted.setBounds(250,150,100, 40);
     paintDeleteIDCollectionFrameStockKeeper.add(backFPDICF);
     backFPDICF.setBounds(50,400,95,30);
     paintDeleteIDCollectionFrameStockKeeper.add(xFPDICF.exit);
@@ -68,6 +76,14 @@ public class PaintDeleteIDCollectionFrame {
     public void actionPerformed(ActionEvent e){ 
         paintDeleteIDCollectionFrameStockKeeper.dispose();
            PaintActionSelectionFrame.stockKeeperPaintFrame();
+    }  
+    });
+    
+    searchPaintToBeDeleted.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+         paintDeleteIDCollectionFrameStockKeeper.dispose();
+       new PaintDeleteFrame(Integer.parseInt(paintProductNoForDelete.getText()),false);
+      
     }  
     });
     }

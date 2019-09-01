@@ -17,34 +17,28 @@ import java.sql.*;
 public class UserDeleteFrame {
     static JFrame userDeleteConfirmFrameManager=new JFrame();
     
-    static JTextField userIDForDelete=new JTextField("User ID");
-    
     static Exit xFSD=new Exit();
     static Exit xFSDC=new Exit();
     
-    static JButton backFUDCF=new JButton("Back"); 
-    static JButton backFUDF=new JButton("Back");  
-    static JButton confirmdeleteUser=new JButton("Delete");
-    
-    static JTextArea empDetailsForDeleteUser=new JTextArea();;
+    JTextArea empDetailsForDeleteUser=new JTextArea();
     
     static Exit xFUD=new Exit();
      
     static JButton backFUDAF=new JButton("Back");
-    static JButton confirmDeleteUser=new JButton("Add user");
+    static JButton confirmDeleteUser=new JButton("Delete user");
     
-   
+    JScrollPane scrollUD = new JScrollPane(empDetailsForDeleteUser);
     
+    String sQLToDeleteUser="Error";
+            
     UserDeleteFrame(int userIDToBeDeleted){
-        
-        JScrollPane scroll = new JScrollPane(empDetailsForDeleteUser);
-userDeleteConfirmFrameManager.add(scroll);       
-scroll.setBounds(20, 20, 300, 300);
+userDeleteConfirmFrameManager.add(scrollUD);       
+scrollUD.setBounds(20, 20, 300, 300);
 
-userDeleteConfirmFrameManager.add(confirmdeleteUser);
-confirmdeleteUser.setBounds(150,350,95,30);
-userDeleteConfirmFrameManager.add(backFUDF);
-backFUDF.setBounds(50,400,95,30);
+userDeleteConfirmFrameManager.add(confirmDeleteUser);
+confirmDeleteUser.setBounds(150,350,95,30);
+userDeleteConfirmFrameManager.add(backFUDAF);
+backFUDAF.setBounds(50,400,95,30);
 userDeleteConfirmFrameManager.add(xFSDC.exit);
 xFSDC.exit.setBounds(250,400,95,30);
         
@@ -52,7 +46,7 @@ userDeleteConfirmFrameManager.setSize(500,500);
     userDeleteConfirmFrameManager.setLayout(null);  
     userDeleteConfirmFrameManager.setVisible(true); 
  
-        int UID=userIDToBeDeleted;
+        int uID=userIDToBeDeleted;
     String nameUser="";
     String addressUser="";
     int tPUser=0;
@@ -64,14 +58,14 @@ userDeleteConfirmFrameManager.setSize(500,500);
 Connection con = DBManager.getConnection();
 
 String sql = "select * from employeedetails where emp_ID = "+userIDToBeDeleted;
- String sQLToDeleteUser="DELETE FROM employeeDetails WHERE emp_id="+userIDToBeDeleted;
+ sQLToDeleteUser="DELETE FROM employeeDetails WHERE emp_id="+userIDToBeDeleted;
 PreparedStatement ps = con.prepareStatement(sql);
 ResultSet rs = ps.executeQuery();
 //Statement stmt=con.createStatement();  ResultSet rs=stmt.executeQuery("select * from employeedetails where emp_name = "+idOrNameForUserSearch);    
 int i =0;
 if(rs.next())
 {
-UID = rs.getInt("emp_ID");
+uID = rs.getInt("emp_ID");
 nameUser = rs.getString("emp_name");
 addressUser = rs.getString("emp_address");
 tPUser=rs.getInt("emp_tp_no");
@@ -79,7 +73,7 @@ positionUser=rs.getString("emp_possition");
     userNametext=rs.getString("emp_userName");
     passwordUser=rs.getString("emp_password");
     
-String detailsOfUserToBeDeleted="User ID: "+UID+"\n"+"User name: "+nameUser+"\n"+"User address: "+addressUser+"\n"+"User T.P No.: "+tPUser+"\n"+"User position: "+positionUser+"\n"+"User name: "+userNametext+"\n"+"User password: "+passwordUser;
+String detailsOfUserToBeDeleted="User ID: "+uID+"\n"+"User name: "+nameUser+"\n"+"User address: "+addressUser+"\n"+"User T.P No.: "+tPUser+"\n"+"User position: "+positionUser+"\n"+"User name: "+userNametext+"\n"+"User password: "+passwordUser;
 
 empDetailsForDeleteUser.setText(detailsOfUserToBeDeleted);
 i++; 
@@ -89,24 +83,10 @@ if(i <1)
 JOptionPane.showMessageDialog(null, "No Record Found","Error",
 JOptionPane.ERROR_MESSAGE);
 }
-if(i ==1)
-{
-System.out.println(i+" Record Found");
-}
 else
 {
-System.out.println(i+" Records Found");
+ JOptionPane.showMessageDialog(userDeleteConfirmFrameManager,i+" Records found to be deleted"); 
 }
-
-
-    
-confirmdeleteUser.addActionListener(new ActionListener(){  
-    public void actionPerformed(ActionEvent e){ 
-        new DBManager().deleteDataFromDB(sQLToDeleteUser);
-        userDeleteConfirmFrameManager.dispose();
-           new UserActionSelectionFrame();
-    }  
-    });
 
 }
 catch(Exception ex)
@@ -114,7 +94,15 @@ catch(Exception ex)
 JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
 }
         
-          
+          confirmDeleteUser.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        new DBManager().dBManipulator(sQLToDeleteUser);
+        userDeleteConfirmFrameManager.dispose();
+           new UserActionSelectionFrame();
+           JOptionPane.showMessageDialog(UserActionSelectionFrame.userActionSelectionFrame,"User deleted successfully"); 
+    }  
+    });
+
      
      backFUDAF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 

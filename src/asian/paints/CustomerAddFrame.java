@@ -17,11 +17,11 @@ public class CustomerAddFrame {
    
     static JFrame customerAddFrameCahier=new JFrame();
     
-    static JTextField cusIDForAddOrUpdate=new JTextField("Customer ID");
-    static JTextField cusNameForAddOrUpdate=new JTextField("Customer name");
-    static JTextField cusAddressForAddOrUpdate=new JTextField("Customer address");
-    static JTextField cusTPNoForAddOrUpdate=new JTextField("Customer TP number");
-    static JTextField cusTotalForAddOrUpdate=new JTextField("Customer total");
+    static JTextField cusIDForAdd=new JTextField("Customer ID");
+    static JTextField cusNameForAdd=new JTextField("Customer name");
+    static JTextField cusAddressForAdd=new JTextField("Customer address");
+    static JTextField cusTPNoForAdd=new JTextField("Customer TP number");
+    static JTextField cusTotalForAdd=new JTextField("Customer total");
     
     static Exit xFCAU=new Exit();
      
@@ -33,16 +33,16 @@ public class CustomerAddFrame {
     //public void stockKeeperCustomerAddAndUpdateFrame(){}
    
     public static void cashierCustomerAddFrame(){
-    customerAddFrameCahier.add(cusIDForAddOrUpdate);
-    cusIDForAddOrUpdate.setBounds(130,100,100, 40);
-    customerAddFrameCahier.add(cusNameForAddOrUpdate);
-    cusNameForAddOrUpdate.setBounds(130,150,100, 40);
-    customerAddFrameCahier.add(cusAddressForAddOrUpdate);
-    cusAddressForAddOrUpdate.setBounds(130,200,100, 40);
-    customerAddFrameCahier.add(cusTPNoForAddOrUpdate);
-    cusTPNoForAddOrUpdate.setBounds(130,250,100, 40);
-    customerAddFrameCahier.add(cusTotalForAddOrUpdate);
-    cusTotalForAddOrUpdate.setBounds(130,300,100, 40);   
+    customerAddFrameCahier.add(cusIDForAdd);
+    cusIDForAdd.setBounds(130,100,100, 40);
+    customerAddFrameCahier.add(cusNameForAdd);
+    cusNameForAdd.setBounds(130,150,100, 40);
+    customerAddFrameCahier.add(cusAddressForAdd);
+    cusAddressForAdd.setBounds(130,200,100, 40);
+    customerAddFrameCahier.add(cusTPNoForAdd);
+    cusTPNoForAdd.setBounds(130,250,100, 40);
+    customerAddFrameCahier.add(cusTotalForAdd);
+    cusTotalForAdd.setBounds(130,300,100, 40);   
     customerAddFrameCahier.add(addCustomer);
     addCustomer.setBounds(50,350,100, 40);
     customerAddFrameCahier.add(backFCAF);
@@ -61,5 +61,33 @@ public class CustomerAddFrame {
     }  
     });
     
+    addCustomer.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        
+
+        String query ="SELECT * FROM customerdetails ORDER BY emp_id DESC LIMIT 1;";
+        String colName="cus_id";
+int lastOfCusId = DBManager.lastID(query,colName);
+
+  lastOfCusId++;
+    String cusNameForAddString=cusNameForAdd.getText();
+    String cusAddressForAddString=cusAddressForAdd.getText();
+    int cusTPNoForAddInt=Integer.parseInt(cusTPNoForAdd.getText());
+    float cusTotalForAddFloat=Float.parseFloat(cusTotalForAdd.getText());
+    
+    String sQLForAddCus="insert into customerdetails (cus_id,cus_name,cus_address,cus_tp_no,cus_total)"
+            + "values('"+lastOfCusId+"','"+cusNameForAddString+"','"+cusAddressForAddString+"','"+cusTPNoForAddInt+"','"+cusTotalForAddFloat+"')";
+   
+    new DBManager().dBManipulator(sQLForAddCus);
+            
+    customerAddFrameCahier.dispose();
+    new CustomerActionSelectionFrame();
+    CustomerActionSelectionFrame.cashierCustomerFrame();
+    JOptionPane.showMessageDialog(UserActionSelectionFrame.userActionSelectionFrame,"Data has been successfully added");  
+   
+    
+            }
+    });
+
     }
 }

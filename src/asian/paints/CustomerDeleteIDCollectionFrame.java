@@ -45,5 +45,13 @@ public class CustomerDeleteIDCollectionFrame {
          CustomerActionSelectionFrame.managersCustomerFrame();
     }  
     });
+    
+    searchCustomerToBeDeleted.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+         customerDeleteIDCollectionFrameManager.dispose();
+       new CustomerDeleteFrame(Integer.parseInt(customerToBeDeleted.getText()));
+      
+    }  
+    });
     }
 }

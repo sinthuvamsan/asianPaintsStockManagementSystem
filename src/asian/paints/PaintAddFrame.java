@@ -59,6 +59,27 @@ public class PaintAddFrame {
            PaintActionSelectionFrame.managersPaintFrame();
     }  
     });
+    
+    addPaint.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+       
+    int paintProductNoForAddInt=Integer.parseInt(paintProductNoForAdd.getText());
+    String paintModelNameForAddString=paintModelNameForAdd.getText();
+    String paintColourForAddString=paintColourForAdd.getText();
+    float paintUnitPriceForAddFloat=Float.parseFloat(paintUnitPriceForAdd.getText());
+    int paintStockQuantityForAddInt=Integer.parseInt(paintStockQuantityForAdd.getText());
+
+    String sQLForAddPaintM="insert into paintdetails (paint_product_no,paint_model_name,paint_colour,paint_unit_price,paint_stock_quantity)"
+            + "values('"+paintProductNoForAddInt+"','"+paintModelNameForAddString+"','"+paintColourForAddString+"','"+paintUnitPriceForAddFloat+"','"+paintStockQuantityForAddInt+"')";
+   
+    new DBManager().dBManipulator(sQLForAddPaintM);
+            
+    paintAddFrameManager.dispose();
+    new PaintActionSelectionFrame();
+    PaintActionSelectionFrame.managersPaintFrame();
+    JOptionPane.showMessageDialog(PaintActionSelectionFrame.paintActionSelectionFrameManager,"Data has been successfully added");  
+            }
+    });
     }
     
     public static void stockKeeperPaintAddFrame(){
@@ -90,6 +111,29 @@ public class PaintAddFrame {
         paintAddFrameStockKeeper.dispose();
            PaintActionSelectionFrame.stockKeeperPaintFrame();
     }  
+    });
+     
+     addPaint.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+       
+    int paintProductNoForAddInt=Integer.parseInt(paintProductNoForAdd.getText());
+    String paintModelNameForAddString=paintModelNameForAdd.getText();
+    String paintColourForAddString=paintColourForAdd.getText();
+    float paintUnitPriceForAddFloat=Float.parseFloat(paintUnitPriceForAdd.getText());
+    int paintStockQuantityForAddInt=Integer.parseInt(paintStockQuantityForAdd.getText());
+
+    String sQLForAddPaintSK="insert into paintdetails (paint_product_no,paint_model_name,paint_colour,paint_unit_price,paint_stock_quantity)"
+            + "values('"+paintProductNoForAddInt+"','"+paintModelNameForAddString+"','"+paintColourForAddString+"','"+paintUnitPriceForAddFloat+"','"+paintStockQuantityForAddInt+"')";
+   
+    new DBManager().dBManipulator(sQLForAddPaintSK);
+            
+    paintAddFrameStockKeeper.dispose();
+    new PaintActionSelectionFrame();
+    PaintActionSelectionFrame.stockKeeperPaintFrame();
+    JOptionPane.showMessageDialog(PaintActionSelectionFrame.paintActionSelectionFrameStockKeeper,"Data has been successfully added");  
+   
+    
+            }
     });
     }
 }

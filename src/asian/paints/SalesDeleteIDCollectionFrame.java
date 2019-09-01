@@ -46,5 +46,13 @@ public class SalesDeleteIDCollectionFrame {
            SalesActionSelectionFrame.managersSalesFrame();
     }  
     });
+     
+     searchSalesToBeDeleted.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+         salesDeleteIDCollectionFrameManager.dispose();
+       new SalesDeleteFrame(Integer.parseInt(saleToBeDeleted.getText()));
+      
+    }  
+    });
     }
 }
