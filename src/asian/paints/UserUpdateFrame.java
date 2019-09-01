@@ -8,6 +8,7 @@ package asian.paints;
 import javax.swing.*; 
 import java.awt.*;  
 import java.awt.event.*;
+import java.sql.*;
 
 /**
  *
@@ -17,7 +18,7 @@ public class UserUpdateFrame {
     static JFrame userUpdateFrameManager=new JFrame();
     
     static JTextField empIDUpdateUser=new JTextField("Employee ID");
-    static JTextField EmpNameForUpdateUser=new JTextField("Employee name");
+    static JTextField empNameForUpdateUser=new JTextField("Employee name");
     static JTextField empAddressForUpdateUser=new JTextField("Employee address");
     static JTextField empTPNoForUpdateUser=new JTextField("Employee TP no.");
     static JTextField empPositionForUpdateUser=new JTextField("Position");
@@ -34,8 +35,8 @@ public class UserUpdateFrame {
     
     userUpdateFrameManager.add(empIDUpdateUser);
     empIDUpdateUser.setBounds(130,50,100, 40);
-    userUpdateFrameManager.add(EmpNameForUpdateUser);
-    EmpNameForUpdateUser.setBounds(130,100,100, 40);
+    userUpdateFrameManager.add(empNameForUpdateUser);
+    empNameForUpdateUser.setBounds(130,100,100, 40);
     userUpdateFrameManager.add(empAddressForUpdateUser);
     empAddressForUpdateUser.setBounds(130,150,100, 40);
     userUpdateFrameManager.add(empTPNoForUpdateUser);
@@ -56,5 +57,15 @@ public class UserUpdateFrame {
    userUpdateFrameManager.setSize(550,550);  
     userUpdateFrameManager.setLayout(null);  
     userUpdateFrameManager.setVisible(true);  
+    
+    updateUser.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+      Connection con=new DBManager().getConnection();
+      String empNameForUpdateUserString=empNameForUpdateUser.getText();
+      String sQLToUpdate="update employeedetails set emp_name='"+empNameForUpdateUserString+"' where emp_id=3";
+      new DBManager().updateDataToDB(sQLToUpdate);
+    }  
+    });
    }
 }
+//"update login set firstname='"+firstname+"' ,lastname='"+lastname+"' ,username='"+username+"' ,password='"+password+"' ,address='"+address+"' ,number='"+number+"' ,gender='"+gender+"' ,roll='"+roll+"' where firstname  LIKE '%"+ idOrNameForUserSearch + "%'"

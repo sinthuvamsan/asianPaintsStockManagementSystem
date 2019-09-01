@@ -34,5 +34,12 @@ public class CustomerDeleteFrame {
     customerDeleteFrameManager.setSize(500,500);  
     customerDeleteFrameManager.setLayout(null);  
     customerDeleteFrameManager.setVisible(true); 
+    
+    backFCDF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        customerDeleteFrameManager.dispose();
+          new CustomerDeleteIDCollectionFrame();
+    }  
+    });
     }
 }

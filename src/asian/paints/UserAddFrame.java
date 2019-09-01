@@ -30,9 +30,9 @@ public class UserAddFrame{
     static JButton backFUAUF=new JButton("Back");
     static JButton addUser=new JButton("Add user");
     
-private Connection con = null;
-private Statement stmt = null;
-private ResultSet rs = null;
+//private Connection con = null;
+//private Statement stmt = null;
+//private ResultSet rs = null;
 
    
   UserAddFrame(){

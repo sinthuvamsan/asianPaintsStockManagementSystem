@@ -38,5 +38,7 @@ public class UserUpdateIDCollectionFrame {
     userUpdateIDCollectionFrameManager.setSize(500,500);  
     userUpdateIDCollectionFrameManager.setLayout(null);  
     userUpdateIDCollectionFrameManager.setVisible(true); 
+    
+    
     }
 }

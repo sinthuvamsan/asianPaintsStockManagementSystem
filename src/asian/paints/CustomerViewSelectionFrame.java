@@ -50,6 +50,13 @@ public class CustomerViewSelectionFrame {
    customerViewSelectionFrameManager.setSize(500,500);  
     customerViewSelectionFrameManager.setLayout(null);  
     customerViewSelectionFrameManager.setVisible(true); 
+    
+    backFCVSF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        customerViewSelectionFrameManager.dispose();
+         CustomerActionSelectionFrame.managersCustomerFrame();
+    }  
+    });
     }
      
     public static void cashiresCustomerViewSelectionFrame(){
@@ -71,5 +78,12 @@ public class CustomerViewSelectionFrame {
    customerViewSelectionFrameCahsier.setSize(500,500);  
     customerViewSelectionFrameCahsier.setLayout(null);  
     customerViewSelectionFrameCahsier.setVisible(true); 
+    
+    backFCVSF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        customerViewSelectionFrameCahsier.dispose();
+         CustomerActionSelectionFrame.cashierCustomerFrame();
+    }  
+    });
     }
 }

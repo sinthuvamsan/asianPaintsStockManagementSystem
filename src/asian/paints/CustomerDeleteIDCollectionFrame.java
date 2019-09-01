@@ -38,5 +38,12 @@ public class CustomerDeleteIDCollectionFrame {
     customerDeleteIDCollectionFrameManager.setSize(500,500);  
     customerDeleteIDCollectionFrameManager.setLayout(null);  
     customerDeleteIDCollectionFrameManager.setVisible(true); 
+   
+    backFCDSF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        customerDeleteIDCollectionFrameManager.dispose();
+         CustomerActionSelectionFrame.managersCustomerFrame();
+    }  
+    });
     }
 }

@@ -15,7 +15,7 @@ import java.awt.event.*;
  */
 public class CustomerAddFrame {
    
-    static JFrame customerAddAndUpdateFrameCahier=new JFrame();
+    static JFrame customerAddFrameCahier=new JFrame();
     
     static JTextField cusIDForAddOrUpdate=new JTextField("Customer ID");
     static JTextField cusNameForAddOrUpdate=new JTextField("Customer name");
@@ -25,33 +25,41 @@ public class CustomerAddFrame {
     
     static Exit xFCAU=new Exit();
      
-    static JButton backFCAUF=new JButton("Back");
+    static JButton backFCAF=new JButton("Back");
     static JButton addCustomer=new JButton("Add customer");
    
    
    //public static void managersCustomerAddAndUpdateFrame(){}
     //public void stockKeeperCustomerAddAndUpdateFrame(){}
    
-    public static void cashierCustomerAddAndUpdateFrame(){
-    customerAddAndUpdateFrameCahier.add(cusIDForAddOrUpdate);
+    public static void cashierCustomerAddFrame(){
+    customerAddFrameCahier.add(cusIDForAddOrUpdate);
     cusIDForAddOrUpdate.setBounds(130,100,100, 40);
-    customerAddAndUpdateFrameCahier.add(cusNameForAddOrUpdate);
+    customerAddFrameCahier.add(cusNameForAddOrUpdate);
     cusNameForAddOrUpdate.setBounds(130,150,100, 40);
-    customerAddAndUpdateFrameCahier.add(cusAddressForAddOrUpdate);
+    customerAddFrameCahier.add(cusAddressForAddOrUpdate);
     cusAddressForAddOrUpdate.setBounds(130,200,100, 40);
-    customerAddAndUpdateFrameCahier.add(cusTPNoForAddOrUpdate);
+    customerAddFrameCahier.add(cusTPNoForAddOrUpdate);
     cusTPNoForAddOrUpdate.setBounds(130,250,100, 40);
-    customerAddAndUpdateFrameCahier.add(cusTotalForAddOrUpdate);
+    customerAddFrameCahier.add(cusTotalForAddOrUpdate);
     cusTotalForAddOrUpdate.setBounds(130,300,100, 40);   
-    customerAddAndUpdateFrameCahier.add(addCustomer);
+    customerAddFrameCahier.add(addCustomer);
     addCustomer.setBounds(50,350,100, 40);
-    customerAddAndUpdateFrameCahier.add(backFCAUF);
-    backFCAUF.setBounds(50,400,95,30);
-    customerAddAndUpdateFrameCahier.add(xFCAU.exit);
+    customerAddFrameCahier.add(backFCAF);
+    backFCAF.setBounds(50,400,95,30);
+    customerAddFrameCahier.add(xFCAU.exit);
     xFCAU.exit.setBounds(250,400,95,30);
     
-    customerAddAndUpdateFrameCahier.setSize(500,500);  
-    customerAddAndUpdateFrameCahier.setLayout(null);  
-    customerAddAndUpdateFrameCahier.setVisible(true);  
+    customerAddFrameCahier.setSize(500,500);  
+    customerAddFrameCahier.setLayout(null);  
+    customerAddFrameCahier.setVisible(true);  
+   
+    backFCAF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        customerAddFrameCahier.dispose();
+          CustomerActionSelectionFrame.cashierCustomerFrame();
+    }  
+    });
+    
     }
 }

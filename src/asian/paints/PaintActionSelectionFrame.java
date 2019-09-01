@@ -46,16 +46,16 @@ public class PaintActionSelectionFrame{
     updateStocks.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameManager.dispose();
-           new PaintAddFrame();
-          PaintAddFrame.managerPaintAddAndUpdateFrame();
+           new PaintUpdateIDCollectionFrame();
+          PaintUpdateIDCollectionFrame.managerPaintAddFrame();
     }  
     });
     
         deleteStock.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameManager.dispose();
-           new PaintDeleteFrame();
-           PaintDeleteFrame.managerPaintDeleteFrame();
+           new PaintDeleteIDCollectionFrame();
+           PaintDeleteIDCollectionFrame.managerPaintDeleteFrame();
     }  
     });
         
@@ -98,23 +98,23 @@ public class PaintActionSelectionFrame{
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameStockKeeper.dispose();
            new PaintAddFrame();
-          PaintAddFrame.stockKeeperPaintAddAndUpdateFrame();
+          PaintAddFrame.stockKeeperPaintAddFrame();
     }  
     });
     
     updateStocks.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameStockKeeper.dispose();
-           new PaintAddFrame();
-          PaintAddFrame.stockKeeperPaintAddAndUpdateFrame();
+           new PaintUpdateIDCollectionFrame();
+          PaintUpdateIDCollectionFrame.stockKeeperPaintAddFrame();
     }  
     });
     
         deleteStock.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameStockKeeper.dispose();
-           new PaintDeleteFrame();
-           PaintDeleteFrame.stockKeeperPaintDeleteFrame();
+           new PaintDeleteIDCollectionFrame();
+           PaintDeleteIDCollectionFrame.stockKeeperPaintDeleteFrame();
     }  
     });
         

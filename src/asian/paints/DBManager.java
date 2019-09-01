@@ -63,45 +63,63 @@ return recordCount;
         return lastId;
     }
  
-public static void addDataToDB(String sQLTOAdd){
+public static void addDataToDB(String sQLToAdd){
     con = DBManager.getConnection();
     try{
 stmt = con.createStatement();
-stmt.executeUpdate(sQLTOAdd);
+stmt.executeUpdate(sQLToAdd);
+    
+    }
+    catch(SQLException ex){JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);}
+
+    }
+public static void updateDataToDB(String sQLToUpdate){
+    con = DBManager.getConnection();
+    try{
+stmt = con.createStatement();
+stmt.executeUpdate(sQLToUpdate);
     
     }
     catch(SQLException ex){JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);}
 
     }
 
-public static void deleteDataFromDB(int ToDelete){
+public static void deleteDataFromDB(String sQLToDelete){
 
+     con = DBManager.getConnection();
+    try{
+stmt = con.createStatement();
+stmt.executeUpdate(sQLToDelete);
     
+    }
+    catch(SQLException ex){JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);}
 }
 
-public static String[] showDataFromDB(String sQLToviewAll){ con = DBManager.getConnection();
+/* 
+public static boolean showDataFromDB(String sQLToviewAll){ con = DBManager.getConnection();
      String[] arr= {"Error"};
 try{
 stmt = con.createStatement();
 ResultSet rs =stmt.executeQuery(sQLToviewAll);
-int i = 0;
+
 
      ResultSetMetaData rsmd = rs.getMetaData();
      int numberOfColumns = rsmd.getColumnCount();
 
        
-    while(rs.next()){
-   for( i = 1;i<numberOfColumns;i++){
+    if(rs.next()){
+   for( int i = 1;i<=numberOfColumns;i++){
          
        arr[i-1]=rs.getString(i); 
    }
-   return arr;
+   return true;
    
     }
 }
     catch(SQLException ex){JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);}
-return arr;
+return false;
     }
 
 public static void showDataFromDB(int iD){}
+*/
 }

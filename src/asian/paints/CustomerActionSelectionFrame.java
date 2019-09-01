@@ -46,22 +46,22 @@ public class CustomerActionSelectionFrame{
     updateCustomer.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         customerActionSelectionFrameManager.dispose();
-           new CustomerAddFrame();
-          CustomerAddFrame.managersCustomerAddAndUpdateFrame();
+           
+          CustomerUpdateIDCollectionFrame.UpdateIDCollectionFrameManager();
     }  
     });
     
         deleteCustomer.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         customerActionSelectionFrameManager.dispose();
-           new CustomerDeleteFrame();
+           new CustomerDeleteIDCollectionFrame();
     }  
     });
         
                 viewCustomer.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         customerActionSelectionFrameManager.dispose();
-           new CustomerViewSelectionFrame();
+           
            CustomerViewSelectionFrame.managersCustomerViewSelectionFrame();
     }  
     });
@@ -69,7 +69,6 @@ public class CustomerActionSelectionFrame{
                  backFC.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         customerActionSelectionFrameManager.dispose();
-       new MainFirstFrame();
        MainFirstFrame.managersMainFrame();
     }  
     });
@@ -98,23 +97,23 @@ public class CustomerActionSelectionFrame{
      addCustomer.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         customerActionSelectionFrameCashier.dispose();
-           new CustomerAddFrame();
-          CustomerAddFrame.cashierCustomerAddAndUpdateFrame();
+           
+          CustomerAddFrame.cashierCustomerAddFrame();
     }  
     });
      
       updateCustomer.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         customerActionSelectionFrameCashier.dispose();
-           new CustomerAddFrame();
-          CustomerAddFrame.cashierCustomerAddAndUpdateFrame();
+           
+          CustomerUpdateIDCollectionFrame.UpdateIDCollectionFrameCashier();
     }  
     });
       
             viewCustomer.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         customerActionSelectionFrameCashier.dispose();
-           new CustomerViewSelectionFrame();
+           
           CustomerViewSelectionFrame.cashiresCustomerViewSelectionFrame();
     }  
     });
@@ -122,7 +121,7 @@ public class CustomerActionSelectionFrame{
              backFC.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         customerActionSelectionFrameCashier.dispose();
-       new MainFirstFrame();
+      
        MainFirstFrame.cashierMainFrame();
     }  
     });

@@ -47,5 +47,35 @@ public class UserActionSelectionFrame{
        MainFirstFrame.managersMainFrame();
     }  
     });
+        
+        AddUser.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+       userActionSelectionFrame.dispose();
+       new UserAddFrame();
+       
+    }  
+    });
+        
+       updateUser.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+       userActionSelectionFrame.dispose();
+       new UserUpdateIDCollectionFrame();
+    }  
+    });     
+           
+       deleteUser.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+       userActionSelectionFrame.dispose();
+       new UserDeleteSelectionFrame();
+    }  
+    });     
+       
+       viewUsers.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+       userActionSelectionFrame.dispose();
+       new UserViewFrame();
+    }  
+    });     
+       
     }
 }

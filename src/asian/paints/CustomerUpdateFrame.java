@@ -14,8 +14,8 @@ import java.awt.event.*;
  * @author User
  */
 public class CustomerUpdateFrame {
-      static JFrame customerAddAndUpdateFrameManager=new JFrame();
-    static JFrame customerAddAndUpdateFrameCahier=new JFrame();
+      static JFrame customerUpdateFrameManager=new JFrame();
+    static JFrame customerUpdateFrameCahier=new JFrame();
     
     static JTextField cusIDForAddOrUpdate=new JTextField("Customer ID");
     static JTextField cusNameForAddOrUpdate=new JTextField("Customer name");
@@ -23,55 +23,69 @@ public class CustomerUpdateFrame {
     static JTextField cusTPNoForAddOrUpdate=new JTextField("Customer TP number");
     static JTextField cusTotalForAddOrUpdate=new JTextField("Customer total");
     
-    static Exit xFCAU=new Exit();
+    static Exit xFCU=new Exit();
      
-    static JButton backFCAUF=new JButton("Back");
+    static JButton backFCUF=new JButton("Back");
     static JButton updateCustomer=new JButton("Update customer");
    
-   public static void managersCustomerAddAndUpdateFrame(){
-    customerAddAndUpdateFrameManager.add(cusIDForAddOrUpdate);
+   public static void managersCustomerUpdateFrame(){
+    customerUpdateFrameManager.add(cusIDForAddOrUpdate);
     cusIDForAddOrUpdate.setBounds(130,100,100, 40);
-    customerAddAndUpdateFrameManager.add(cusNameForAddOrUpdate);
+    customerUpdateFrameManager.add(cusNameForAddOrUpdate);
     cusNameForAddOrUpdate.setBounds(130,150,100, 40);
-    customerAddAndUpdateFrameManager.add(cusAddressForAddOrUpdate);
+    customerUpdateFrameManager.add(cusAddressForAddOrUpdate);
     cusAddressForAddOrUpdate.setBounds(130,200,100, 40);
-    customerAddAndUpdateFrameManager.add(cusTPNoForAddOrUpdate);
+    customerUpdateFrameManager.add(cusTPNoForAddOrUpdate);
     cusTPNoForAddOrUpdate.setBounds(130,250,100, 40);
-    customerAddAndUpdateFrameManager.add(cusTotalForAddOrUpdate);
+    customerUpdateFrameManager.add(cusTotalForAddOrUpdate);
     cusTotalForAddOrUpdate.setBounds(130,300,100, 40);   
-   customerAddAndUpdateFrameManager.add(updateCustomer);
+   customerUpdateFrameManager.add(updateCustomer);
    updateCustomer.setBounds(130,350,100, 40);
-   customerAddAndUpdateFrameManager.add(backFCAUF);
-   backFCAUF.setBounds(50,400,95,30);
-   customerAddAndUpdateFrameManager.add(xFCAU.exit);
-   xFCAU.exit.setBounds(250,400,95,30);
+   customerUpdateFrameManager.add(backFCUF);
+   backFCUF.setBounds(50,400,95,30);
+   customerUpdateFrameManager.add(xFCU.exit);
+   xFCU.exit.setBounds(250,400,95,30);
     
-   customerAddAndUpdateFrameManager.setSize(500,500);  
-    customerAddAndUpdateFrameManager.setLayout(null);  
-    customerAddAndUpdateFrameManager.setVisible(true);  
+   customerUpdateFrameManager.setSize(500,500);  
+    customerUpdateFrameManager.setLayout(null);  
+    customerUpdateFrameManager.setVisible(true);  
+   
+       backFCUF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        customerUpdateFrameManager.dispose();
+         CustomerUpdateIDCollectionFrame.UpdateIDCollectionFrameManager();
+    }  
+    });
    }
     //public void stockKeeperCustomerAddAndUpdateFrame(){}
    
     public static void cashierCustomerAddAndUpdateFrame(){
-    customerAddAndUpdateFrameCahier.add(cusIDForAddOrUpdate);
+    customerUpdateFrameCahier.add(cusIDForAddOrUpdate);
     cusIDForAddOrUpdate.setBounds(130,100,100, 40);
-    customerAddAndUpdateFrameCahier.add(cusNameForAddOrUpdate);
+    customerUpdateFrameCahier.add(cusNameForAddOrUpdate);
     cusNameForAddOrUpdate.setBounds(130,150,100, 40);
-    customerAddAndUpdateFrameCahier.add(cusAddressForAddOrUpdate);
+    customerUpdateFrameCahier.add(cusAddressForAddOrUpdate);
     cusAddressForAddOrUpdate.setBounds(130,200,100, 40);
-    customerAddAndUpdateFrameCahier.add(cusTPNoForAddOrUpdate);
+    customerUpdateFrameCahier.add(cusTPNoForAddOrUpdate);
     cusTPNoForAddOrUpdate.setBounds(130,250,100, 40);
-    customerAddAndUpdateFrameCahier.add(cusTotalForAddOrUpdate);
+    customerUpdateFrameCahier.add(cusTotalForAddOrUpdate);
     cusTotalForAddOrUpdate.setBounds(130,300,100, 40);
-    customerAddAndUpdateFrameCahier.add(updateCustomer);
+    customerUpdateFrameCahier.add(updateCustomer);
     updateCustomer.setBounds(250,350,100, 40);
-    customerAddAndUpdateFrameCahier.add(backFCAUF);
-    backFCAUF.setBounds(50,400,95,30);
-    customerAddAndUpdateFrameCahier.add(xFCAU.exit);
-    xFCAU.exit.setBounds(250,400,95,30);
+    customerUpdateFrameCahier.add(backFCUF);
+    backFCUF.setBounds(50,400,95,30);
+    customerUpdateFrameCahier.add(xFCU.exit);
+    xFCU.exit.setBounds(250,400,95,30);
     
-    customerAddAndUpdateFrameCahier.setSize(500,500);  
-    customerAddAndUpdateFrameCahier.setLayout(null);  
-    customerAddAndUpdateFrameCahier.setVisible(true);  
+    customerUpdateFrameCahier.setSize(500,500);  
+    customerUpdateFrameCahier.setLayout(null);  
+    customerUpdateFrameCahier.setVisible(true);  
+    
+        backFCUF.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        customerUpdateFrameCahier.dispose();
+         CustomerUpdateIDCollectionFrame.UpdateIDCollectionFrameCashier();
+    }  
+    });
     }
 }

@@ -58,6 +58,7 @@ Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/asianPai
 //here asianPaints is database name, root is username and password  
 Statement stmt=con.createStatement();  
 ResultSet rSFUP=stmt.executeQuery("select emp_possition,emp_userName,emp_password from employeedetails");  
+ boolean exist = false;
 while(rSFUP.next())  {
     
     String empPFUP=rSFUP.getString("emp_possition");
@@ -66,6 +67,7 @@ String empPassFUP=rSFUP.getString("emp_password");
 if(empUNFUP.compareTo(userNameV)==0 && empPassFUP.compareTo(passwordV)==0){
     if(empPFUP.compareTo("manager")==0){
         con.close();
+        exist = true;
         userPass.dispose();
     new MainFirstFrame();
     MainFirstFrame.managersMainFrame();
@@ -73,6 +75,7 @@ if(empUNFUP.compareTo(userNameV)==0 && empPassFUP.compareTo(passwordV)==0){
     }
     else if(empPFUP.compareTo("stock keeper")==0){
         con.close();
+        exist = true;
         userPass.dispose();
     new MainFirstFrame();
     MainFirstFrame.stockKeeperMainFrame();
@@ -80,6 +83,7 @@ if(empUNFUP.compareTo(userNameV)==0 && empPassFUP.compareTo(passwordV)==0){
     }
     else if(empPFUP.compareTo("cashier")==0){
         con.close();
+        exist = true;
         userPass.dispose();
     new MainFirstFrame();
     MainFirstFrame.cashierMainFrame();
@@ -91,12 +95,13 @@ if(empUNFUP.compareTo(userNameV)==0 && empPassFUP.compareTo(passwordV)==0){
     break;
     }
 }
-    else{con.close();  
-    JOptionPane.showMessageDialog(userPass,"Wrong user name or password");
-    break;
-    }
 
-} 
+}
+      if(!exist){con.close();  
+    JOptionPane.showMessageDialog(userPass,"Wrong user name or password");
+    
+    }  
+
 }
  
 catch(Exception e){
