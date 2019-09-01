@@ -108,7 +108,7 @@ public class PaintUpdateFrame {
     
      try{
      Connection con=new DBManager().getConnection();
-    String sqlToViewUserToBeUpdated = "select * from employeedetails where emp_ID = "+userToBeUpdated;
+    String sqlToViewUserToBeUpdated = "select * from paintdetails where paint_product_no = "+paintToBeUpdated;
     PreparedStatement ps = con.prepareStatement(sqlToViewUserToBeUpdated);
 ResultSet rs = ps.executeQuery();
    if(rs.next()){

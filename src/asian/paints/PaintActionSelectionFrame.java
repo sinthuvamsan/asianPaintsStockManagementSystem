@@ -15,18 +15,19 @@ import java.awt.event.*;
  * @author User
  */
 public class PaintActionSelectionFrame{
-    static JFrame paintActionSelectionFrameManager = new JFrame("Asian paints stock");//creating Username Password frame and initializing it
-    static JFrame paintActionSelectionFrameStockKeeper = new JFrame("Asian paints stock");//creating Username Password frame and initializing it
-    static JFrame paintActionSelectionFrameCashier = new JFrame("Asian paints stock");//creating Username Password frame and initializing it
+     JFrame paintActionSelectionFrameManager = new JFrame("Asian paints stock");//creating Username Password frame and initializing it
+     JFrame paintActionSelectionFrameStockKeeper = new JFrame("Asian paints stock");//creating Username Password frame and initializing it
+     JFrame paintActionSelectionFrameCashier = new JFrame("Asian paints stock");//creating Username Password frame and initializing it
     
-    static JButton addStock=new JButton("Add stock");  //creating and initilizing button
-    static JButton updateStocks=new JButton("Update stock");  //creating and initilizing button
-    static JButton deleteStock=new JButton("Delete stock");  //creating and initilizing button
-    static JButton viewStocks=new JButton("View stocks");  //creating and initilizing button
-    static JButton backFP=new JButton("Back");  //creating and initilizing button
+     JButton addStock=new JButton("Add stock");  //creating and initilizing button
+     JButton updateStocks=new JButton("Update stock");  //creating and initilizing button
+     JButton deleteStock=new JButton("Delete stock");  //creating and initilizing button
+     JButton viewStocks=new JButton("View stocks");  //creating and initilizing button
+     JButton backFP=new JButton("Back");  //creating and initilizing button
+     
     static Exit xFP=new Exit();
     
-    public static void managersPaintFrame(){
+    public void managersPaintFrame(){
     
     paintActionSelectionFrameManager.add(updateStocks);
     updateStocks.setBounds(130,100,100, 40);
@@ -54,15 +55,15 @@ public class PaintActionSelectionFrame{
         deleteStock.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameManager.dispose();
-           new PaintDeleteIDCollectionFrame();
-           PaintDeleteIDCollectionFrame.managerPaintDeleteFrame();
+           
+          new PaintDeleteIDCollectionFrame().managerPaintDeleteFrame();
     }  
     });
         
                 viewStocks.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameManager.dispose();
-           new PaintViewSelectionFrame();
+          
           new PaintViewSelectionFrame().managersPaintViewSelectionFrame();
     }  
     });
@@ -70,12 +71,12 @@ public class PaintActionSelectionFrame{
       backFP.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameManager.dispose();
-       new MainFirstFrame();
-       MainFirstFrame.managersMainFrame();
+      
+      new MainFirstFrame().managersMainFrame();
     }  
     });
     }
-    public static void stockKeeperPaintFrame(){
+    public void stockKeeperPaintFrame(){
     
     paintActionSelectionFrameStockKeeper.add(addStock);
     addStock.setBounds(130,100,100, 40);
@@ -97,7 +98,7 @@ public class PaintActionSelectionFrame{
     addStock.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameStockKeeper.dispose();
-           new PaintAddFrame();
+       
          new PaintAddFrame().stockKeeperPaintAddFrame();
     }  
     });
@@ -105,7 +106,7 @@ public class PaintActionSelectionFrame{
     updateStocks.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameStockKeeper.dispose();
-           new PaintUpdateIDCollectionFrame();
+          
           new PaintUpdateIDCollectionFrame().stockKeeperPaintupdateIDCollectionFrame();
     }  
     });
@@ -113,15 +114,15 @@ public class PaintActionSelectionFrame{
         deleteStock.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameStockKeeper.dispose();
-           new PaintDeleteIDCollectionFrame();
-           PaintDeleteIDCollectionFrame.stockKeeperPaintDeleteFrame();
+           
+           new PaintDeleteIDCollectionFrame().stockKeeperPaintDeleteFrame();
     }  
     });
         
                 viewStocks.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameStockKeeper.dispose();
-           new PaintViewSelectionFrame();
+         
            new PaintViewSelectionFrame().stockKeeperPaintViewSelectionFrame();
     }  
     });
@@ -129,12 +130,12 @@ public class PaintActionSelectionFrame{
       backFP.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameStockKeeper.dispose();
-       new MainFirstFrame();
-       MainFirstFrame.stockKeeperMainFrame();
+   
+      new MainFirstFrame().stockKeeperMainFrame();
     }  
     });
     }
-    public static void cashierPaintFrame(){
+    public void cashierPaintFrame(){
     
     paintActionSelectionFrameCashier.add(viewStocks);
     viewStocks.setBounds(130,100,100, 40);
@@ -150,7 +151,7 @@ public class PaintActionSelectionFrame{
                 viewStocks.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameCashier.dispose();
-           new PaintViewSelectionFrame();
+     
           new PaintViewSelectionFrame().cashierPaintViewSelectionFrame();
     }  
     });
@@ -158,8 +159,8 @@ public class PaintActionSelectionFrame{
     backFP.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameCashier.dispose();
-       new MainFirstFrame();
-       MainFirstFrame.cashierMainFrame();
+     
+      new MainFirstFrame().cashierMainFrame();
     }  
     });
     }

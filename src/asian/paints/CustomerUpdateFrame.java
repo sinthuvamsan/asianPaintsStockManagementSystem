@@ -145,15 +145,15 @@ ResultSet rs = ps.executeQuery();
             
                 try{
      Connection con=new DBManager().getConnection();
-    String sqlToViewUserToBeUpdated = "select * from employeedetails where emp_ID = "+casierCustomerUpdateID;
+    String sqlToViewUserToBeUpdated = "select * from customerdetails where emp_ID = "+casierCustomerUpdateID;
     PreparedStatement ps = con.prepareStatement(sqlToViewUserToBeUpdated);
 ResultSet rs = ps.executeQuery();
    if(rs.next()){
-  cusIDForUpdate.setText(String.valueOf(rs.getInt("emp_ID")));
-    cusNameForUpdate.setText(rs.getString("emp_name"));
-     cusAddressForUpdate.setText(rs.getString("emp_address"));
-     cusTPNoForUpdate.setText(String.valueOf(rs.getInt("emp_tp_no")));
-     cusTotalForUpdate.setText(rs.getString("emp_possition"));
+  cusIDForUpdate.setText(String.valueOf(rs.getInt("cus_id")));
+    cusNameForUpdate.setText(rs.getString("cus_name"));
+     cusAddressForUpdate.setText(rs.getString("cus_address"));
+     cusTPNoForUpdate.setText(String.valueOf(rs.getInt("cus_tp_no")));
+     cusTotalForUpdate.setText(rs.getString("cus_total"));
    }
     }
         catch(Exception ex){

@@ -42,7 +42,7 @@ public class SalesUpdateIDCollectionFrame {
     backFSUSF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         salesUpdateIDCollectionFrameManager.dispose();
-           SalesActionSelectionFrame.cashierSalesFrame();
+          new SalesActionSelectionFrame().cashierSalesFrame();
     }  
     });
     

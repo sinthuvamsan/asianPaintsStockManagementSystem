@@ -15,18 +15,19 @@ import java.awt.event.*;
  * @author User
  */
 public class SalesActionSelectionFrame{
-    static JFrame salesActionSelectionFrameManager = new JFrame("Asian paints sales");//creating Username Password frame and initializing it
-    static JFrame salesActionSelectionFrameCashier = new JFrame("Asian paints sales");//creating Username Password frame and initializing it
+     JFrame salesActionSelectionFrameManager;//creating Username Password frame and initializing it
+     JFrame salesActionSelectionFrameCashier;//creating Username Password frame and initializing it
     
-    static JButton addSale=new JButton("Add sale");  //creating and initilizing button
-    static JButton updateSale=new JButton("Update sale");  //creating and initilizing button
-    static JButton deleteSale=new JButton("Delete sale");  //creating and initilizing button
-    static JButton viewSales=new JButton("View sales");  //creating and initilizing button 
-    static JButton backFS=new JButton("Back");  //creating and initilizing button
-    static Exit xFS=new Exit();
+     JButton addSale=new JButton("Add sale");  //creating and initilizing button
+     JButton updateSale=new JButton("Update sale");  //creating and initilizing button
+     JButton deleteSale=new JButton("Delete sale");  //creating and initilizing button
+     JButton viewSales=new JButton("View sales");  //creating and initilizing button 
+     JButton backFS=new JButton("Back");  //creating and initilizing button
+     Exit xFS=new Exit();
 
     
-    public static void managersSalesFrame(){
+    public void managersSalesFrame(){
+    salesActionSelectionFrameManager = new JFrame("Asian paints sales");
     
     salesActionSelectionFrameManager.add(updateSale);
     updateSale.setBounds(130,100,100, 40);
@@ -67,14 +68,15 @@ public class SalesActionSelectionFrame{
              backFS.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         salesActionSelectionFrameManager.dispose();
-       MainFirstFrame.managersMainFrame();
+      new MainFirstFrame().managersMainFrame();
     }  
     });
     }
     
    // public void stockKeeperSalesFrame(){}
     
-    public static void cashierSalesFrame(){
+    public void cashierSalesFrame(){
+    salesActionSelectionFrameCashier = new JFrame("Asian paints sales");
     
     salesActionSelectionFrameCashier.add(addSale);
     addSale.setBounds(130,100,100, 40);
@@ -97,7 +99,7 @@ public class SalesActionSelectionFrame{
     backFS.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         salesActionSelectionFrameCashier.dispose();
-       MainFirstFrame.cashierMainFrame();
+       new MainFirstFrame().cashierMainFrame();
     }  
     });
 }

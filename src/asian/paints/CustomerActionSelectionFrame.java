@@ -69,7 +69,7 @@ public class CustomerActionSelectionFrame{
                  backFC.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         customerActionSelectionFrameManager.dispose();
-       MainFirstFrame.managersMainFrame();
+       new MainFirstFrame().managersMainFrame();
     }  
     });
     }
@@ -122,7 +122,7 @@ public class CustomerActionSelectionFrame{
     public void actionPerformed(ActionEvent e){ 
         customerActionSelectionFrameCashier.dispose();
       
-       MainFirstFrame.cashierMainFrame();
+       new MainFirstFrame().cashierMainFrame();
     }  
     });
     }

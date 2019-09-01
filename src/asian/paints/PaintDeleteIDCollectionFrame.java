@@ -43,7 +43,7 @@ public class PaintDeleteIDCollectionFrame {
     backFPDICF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintDeleteIDCollectionFrameManager.dispose();
-           PaintActionSelectionFrame.managersPaintFrame();
+          new PaintActionSelectionFrame().managersPaintFrame();
     }  
     });
     
@@ -76,7 +76,7 @@ public class PaintDeleteIDCollectionFrame {
     backFPDICF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintDeleteIDCollectionFrameStockKeeper.dispose();
-           PaintActionSelectionFrame.stockKeeperPaintFrame();
+          new PaintActionSelectionFrame().stockKeeperPaintFrame();
     }  
     });
     

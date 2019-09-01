@@ -15,23 +15,23 @@ import java.awt.event.*;
  */
 public class SalesAddFrame {
     
-    static JFrame salesAddFrameCahier=new JFrame();
+     JFrame salesAddFrameCahier;
     
-    static JTextField salesNoForAddSales=new JTextField("Sales no.");
-    static JTextField paintSalesQuantityForAddSales=new JTextField("Sales quantity");
-    static JTextField paintProductNoForAddSales=new JTextField("Product no.");
-    static JTextField cusIDForAddSales=new JTextField("Customer ID");
+     JTextField salesNoForAddSales=new JTextField("Sales no.");
+     JTextField paintSalesQuantityForAddSales=new JTextField("Sales quantity");
+     JTextField paintProductNoForAddSales=new JTextField("Product no.");
+     JTextField cusIDForAddSales=new JTextField("Customer ID");
     
     static Exit xFSA=new Exit();
      
-    static JButton backFSAF=new JButton("Back");
-    static JButton addSales=new JButton("Add sales");
+     JButton backFSAF=new JButton("Back");
+     JButton addSales=new JButton("Add sales");
    
   
     //public void stockKeeperCustomerAddAndUpdateFrame(){}
    
     SalesAddFrame(){
-    
+    salesAddFrameCahier=new JFrame();
         
     salesAddFrameCahier.add(salesNoForAddSales);
     salesNoForAddSales.setBounds(130,100,100, 40);
@@ -56,7 +56,7 @@ public class SalesAddFrame {
     public void actionPerformed(ActionEvent e){ 
         salesAddFrameCahier.dispose();
          
-           SalesActionSelectionFrame.cashierSalesFrame();
+           new SalesActionSelectionFrame().cashierSalesFrame();
     }  
     });
     
@@ -81,8 +81,8 @@ int lastOfSalesId = DBManager.lastID(query,colName);
     new DBManager().dBManipulator(sQLForAddSales);
             
     salesAddFrameCahier.dispose();
-    SalesActionSelectionFrame.cashierSalesFrame();
-    JOptionPane.showMessageDialog(SalesActionSelectionFrame.salesActionSelectionFrameCashier,"Data has been successfully added");  
+    new SalesActionSelectionFrame().cashierSalesFrame();
+    JOptionPane.showMessageDialog(new SalesActionSelectionFrame().salesActionSelectionFrameCashier,"Data has been successfully added");  
      }
     });
     }

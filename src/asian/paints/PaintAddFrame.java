@@ -56,7 +56,7 @@ public class PaintAddFrame {
     backFPAF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintAddFrameManager.dispose();
-           PaintActionSelectionFrame.managersPaintFrame();
+          new PaintActionSelectionFrame().managersPaintFrame();
     }  
     });
     
@@ -75,9 +75,8 @@ public class PaintAddFrame {
     new DBManager().dBManipulator(sQLForAddPaintM);
             
     paintAddFrameManager.dispose();
-    new PaintActionSelectionFrame();
-    PaintActionSelectionFrame.managersPaintFrame();
-    JOptionPane.showMessageDialog(PaintActionSelectionFrame.paintActionSelectionFrameManager,"Data has been successfully added");  
+    new PaintActionSelectionFrame().managersPaintFrame();
+    JOptionPane.showMessageDialog(new PaintActionSelectionFrame().paintActionSelectionFrameManager,"Data has been successfully added");  
             }
     });
     }
@@ -109,7 +108,7 @@ public class PaintAddFrame {
      backFPAF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintAddFrameStockKeeper.dispose();
-           PaintActionSelectionFrame.stockKeeperPaintFrame();
+          new PaintActionSelectionFrame().stockKeeperPaintFrame();
     }  
     });
      
@@ -128,9 +127,9 @@ public class PaintAddFrame {
     new DBManager().dBManipulator(sQLForAddPaintSK);
             
     paintAddFrameStockKeeper.dispose();
-    new PaintActionSelectionFrame();
-    PaintActionSelectionFrame.stockKeeperPaintFrame();
-    JOptionPane.showMessageDialog(PaintActionSelectionFrame.paintActionSelectionFrameStockKeeper,"Data has been successfully added");  
+   
+    new PaintActionSelectionFrame().stockKeeperPaintFrame();
+    JOptionPane.showMessageDialog(new PaintActionSelectionFrame().paintActionSelectionFrameStockKeeper,"Data has been successfully added");  
    
     
             }

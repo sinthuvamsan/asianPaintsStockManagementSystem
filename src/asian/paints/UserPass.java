@@ -70,7 +70,7 @@ if(empUNFUP.compareTo(userNameV)==0 && empPassFUP.compareTo(passwordV)==0){
         exist = true;
         userPass.dispose();
     new MainFirstFrame();
-    MainFirstFrame.managersMainFrame();
+   new MainFirstFrame().managersMainFrame();
     break;
     }
     else if(empPFUP.compareTo("stock keeper")==0){
@@ -78,7 +78,7 @@ if(empUNFUP.compareTo(userNameV)==0 && empPassFUP.compareTo(passwordV)==0){
         exist = true;
         userPass.dispose();
     new MainFirstFrame();
-    MainFirstFrame.stockKeeperMainFrame();
+    new MainFirstFrame().stockKeeperMainFrame();
     break;
     }
     else if(empPFUP.compareTo("cashier")==0){
@@ -86,7 +86,7 @@ if(empUNFUP.compareTo(userNameV)==0 && empPassFUP.compareTo(passwordV)==0){
         exist = true;
         userPass.dispose();
     new MainFirstFrame();
-    MainFirstFrame.cashierMainFrame();
+   new MainFirstFrame().cashierMainFrame();
     break;
     }
     else{

@@ -45,7 +45,7 @@ public class UserActionSelectionFrame{
     public void actionPerformed(ActionEvent e){ 
        userActionSelectionFrame.dispose();
        new MainFirstFrame();
-       MainFirstFrame.managersMainFrame();
+      new MainFirstFrame().managersMainFrame();
     }  
     });
         

@@ -13,17 +13,19 @@ import java.awt.event.*;
  * @author User
  */
 public class MainFirstFrame{
-    static JFrame mainFirstFrameManager = new JFrame("Asian paints");//creating Username Password frame and initializing it
-    static JFrame mainFirstFrameStockKeeper = new JFrame("Asian paints");//creating Username Password frame and initializing it
-    static JFrame mainFirstFrameCashier = new JFrame("Asian paints");//creating Username Password frame and initializing it
+     JFrame mainFirstFrameManager;//creating Username Password frame and initializing it
+     JFrame mainFirstFrameStockKeeper;//creating Username Password frame and initializing it
+     JFrame mainFirstFrameCashier;//creating Username Password frame and initializing it
     
-    static JButton userOptions=new JButton("User options");  //creating and initilizing button
-    static JButton stocksOptions=new JButton("Stocks options");  //creating and initilizing button
-    static JButton salesOptions=new JButton("Sales options");  //creating and initilizing button
-    static JButton customersOptions=new JButton("Customers options");  //creating and initilizing button
+     JButton userOptions=new JButton("User options");  //creating and initilizing button
+     JButton stocksOptions=new JButton("Stocks options");  //creating and initilizing button
+     JButton salesOptions=new JButton("Sales options");  //creating and initilizing button
+     JButton customersOptions=new JButton("Customers options");  //creating and initilizing button
     static Exit xFM=new Exit();
     
-    public static void managersMainFrame(){
+    public void managersMainFrame(){
+        mainFirstFrameManager = new JFrame("Asian paints");
+        
     mainFirstFrameManager.add(userOptions);
     userOptions.setBounds(130,100,100, 40);
     mainFirstFrameManager.add(stocksOptions);
@@ -49,7 +51,6 @@ public class MainFirstFrame{
     stocksOptions.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){
         mainFirstFrameManager.dispose();
-          new PaintActionSelectionFrame();
           new PaintActionSelectionFrame().managersPaintFrame();
     }  
     });  
@@ -57,7 +58,6 @@ public class MainFirstFrame{
     salesOptions.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         mainFirstFrameManager.dispose();
-            new SalesActionSelectionFrame();  
             new SalesActionSelectionFrame().managersSalesFrame();
     }  
     });  
@@ -65,12 +65,13 @@ public class MainFirstFrame{
     customersOptions.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){  
         mainFirstFrameManager.dispose();
-            new CustomerActionSelectionFrame(); 
             new CustomerActionSelectionFrame().managersCustomerFrame();
     }  
     });  
     }
-    public static void stockKeeperMainFrame(){
+    public void stockKeeperMainFrame(){
+        mainFirstFrameStockKeeper = new JFrame("Asian paints");
+        
     mainFirstFrameStockKeeper.add(stocksOptions);
     stocksOptions.setBounds(130,100,100, 40);
     mainFirstFrameStockKeeper.add(xFM.exit);
@@ -83,12 +84,13 @@ public class MainFirstFrame{
     stocksOptions.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         mainFirstFrameStockKeeper.dispose();
-           new PaintActionSelectionFrame();
           new PaintActionSelectionFrame().stockKeeperPaintFrame();
     }  
     });  
     }
-    public static void cashierMainFrame(){
+    public void cashierMainFrame(){
+        mainFirstFrameCashier = new JFrame("Asian paints");
+        
     mainFirstFrameCashier.add(stocksOptions);
     stocksOptions.setBounds(130,100,100, 40);
     mainFirstFrameCashier.add(salesOptions);
@@ -105,23 +107,20 @@ public class MainFirstFrame{
      stocksOptions.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         mainFirstFrameCashier.dispose();
-           new PaintActionSelectionFrame();
          new PaintActionSelectionFrame().cashierPaintFrame();
     }  
     });
      
        salesOptions.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
-        mainFirstFrameCashier.dispose();
-            new SalesActionSelectionFrame();  
+        mainFirstFrameCashier.dispose(); 
             new SalesActionSelectionFrame().cashierSalesFrame();
     }  
     });  
     
     customersOptions.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){  
-        mainFirstFrameCashier.dispose();
-            new CustomerActionSelectionFrame(); 
+        mainFirstFrameCashier.dispose(); 
            new CustomerActionSelectionFrame().cashierCustomerFrame();
     }  
     });

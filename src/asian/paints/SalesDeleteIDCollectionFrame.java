@@ -43,7 +43,7 @@ public class SalesDeleteIDCollectionFrame {
     public void actionPerformed(ActionEvent e){ 
         salesDeleteIDCollectionFrameManager.dispose();
         
-           SalesActionSelectionFrame.managersSalesFrame();
+          new SalesActionSelectionFrame().managersSalesFrame();
     }  
     });
      
