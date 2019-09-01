@@ -15,19 +15,20 @@ import java.sql.*;
  * @author User
  */
 public class CustomerDeleteFrame {
-    static JFrame customerDeleteFrameManager=new JFrame();
+     JFrame customerDeleteFrameManager;
     
     JTextArea customerDetailsForDeleteUser=new JTextArea();
     JScrollPane scrollCD = new JScrollPane(customerDetailsForDeleteUser);
     
     static Exit xFCD=new Exit();
     
-    static JButton backFCDF=new JButton("Back");  
-    static JButton deleteCustomer=new JButton("Delete");
+     JButton backFCDF=new JButton("Back");  
+     JButton deleteCustomer=new JButton("Delete");
     
     String sQLToDeleteCustomer="";
           
-    CustomerDeleteFrame(int customerToBeDeleted){  
+    CustomerDeleteFrame(int customerToBeDeleted){ 
+        customerDeleteFrameManager=new JFrame();
     customerDeleteFrameManager.add(scrollCD);       
     scrollCD.setBounds(20, 20, 300, 300);
     customerDeleteFrameManager.add(deleteCustomer);
@@ -53,7 +54,7 @@ public class CustomerDeleteFrame {
         new DBManager().dBManipulator(sQLToDeleteCustomer);
         customerDeleteFrameManager.dispose();
            new UserActionSelectionFrame();
-           JOptionPane.showMessageDialog(UserActionSelectionFrame.userActionSelectionFrame,"User deleted successfully"); 
+           JOptionPane.showMessageDialog(new UserActionSelectionFrame().userActionSelectionFrame,"User deleted successfully"); 
     }  
     });
        

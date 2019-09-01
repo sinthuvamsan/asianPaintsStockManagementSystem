@@ -24,7 +24,7 @@ public class CustomerUpdateIDCollectionFrame {
     
      static Exit xFCUSF=new Exit();
      
-    public static void UpdateIDCollectionFrameManager(){
+    public void UpdateIDCollectionFrameManager(){
         
    customerUpdateIDCollectionFrameManager.add(userToBeUpdated);
     userToBeUpdated.setBounds(130,50,100, 40);
@@ -43,18 +43,18 @@ public class CustomerUpdateIDCollectionFrame {
     backFCUSF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         customerUpdateIDCollectionFrameManager.dispose();
-         CustomerActionSelectionFrame.managersCustomerFrame();
+        new CustomerActionSelectionFrame().managersCustomerFrame();
     }  
     });
     
      searchUserToBeUpdated.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         customerUpdateIDCollectionFrameManager.dispose();
-       new CustomerUpdateFrame(Integer.parseInt(userToBeUpdated.getText()));
+       new CustomerUpdateFrame().managersCustomerUpdateFrame(Integer.parseInt(userToBeUpdated.getText()));
     }  
     });
     }
-    public static void UpdateIDCollectionFrameCashier(){
+    public void UpdateIDCollectionFrameCashier(){
         
    customerUpdateIDCollectionFrameCashier.add(userToBeUpdated);
     userToBeUpdated.setBounds(130,50,100, 40);
@@ -73,14 +73,14 @@ public class CustomerUpdateIDCollectionFrame {
     backFCUSF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         customerUpdateIDCollectionFrameCashier.dispose();
-         CustomerActionSelectionFrame.cashierCustomerFrame();
+        new CustomerActionSelectionFrame().cashierCustomerFrame();
     }  
     });
     
      searchUserToBeUpdated.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         customerUpdateIDCollectionFrameCashier.dispose();
-       new CustomerUpdateFrame(Integer.parseInt(userToBeUpdated.getText()));
+       new CustomerUpdateFrame().cashierCustomerAddAndUpdateFrame(Integer.parseInt(userToBeUpdated.getText()));
     }  
     });
     }

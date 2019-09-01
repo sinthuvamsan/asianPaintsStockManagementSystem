@@ -15,20 +15,19 @@ import java.sql.*;
  * @author User
  */
 public class UserAddFrame{
-    static JFrame userAddFrameManager=new JFrame();
+     JFrame userAddFrameManager;
     
-    static JTextField empIDForAddUser=new JTextField("Employee ID");
-    static JTextField EmpNameForAddUser=new JTextField("Employee name");
-    static JTextField empAddressForAddUser=new JTextField("Employee address");
-    static JTextField empTPNoForAddUser=new JTextField("Employee TP no.");
-    static JTextField empPositionForAddUser=new JTextField("Position");
-    static JTextField empUserNameForAddUser=new JTextField("Employee user name");
-    static JTextField empPaawordForAddUser=new JTextField("Employee passwoerd");
+     JTextField empIDForAddUser=new JTextField("Employee ID");
+     JTextField EmpNameForAddUser=new JTextField("Employee name");
+     JTextField empAddressForAddUser=new JTextField("Employee address");
+     JTextField empTPNoForAddUser=new JTextField("Employee TP no.");
+     JTextField empPositionForAddUser=new JTextField("Position");
+     JTextField empUserNameForAddUser=new JTextField("Employee user name");
+     JTextField empPaawordForAddUser=new JTextField("Employee passwoerd");
     
     static Exit xFUA=new Exit();
      
-    static JButton backFUAF=new JButton("Back");
-    static JButton addUser=new JButton("Add user");
+    
     
 //private Connection con = null;
 //private Statement stmt = null;
@@ -36,8 +35,10 @@ public class UserAddFrame{
 
    
   UserAddFrame(){
-    
-    
+    userAddFrameManager=new JFrame();
+     JButton backFUAF=new JButton("Back");
+     JButton addUser=new JButton("Add user");
+     
     userAddFrameManager.add(empIDForAddUser);
     empIDForAddUser.setBounds(130,50,100, 40);
     userAddFrameManager.add(EmpNameForAddUser);
@@ -85,7 +86,7 @@ int lastOfuserId = DBManager.lastID(query,colName);
             
     userAddFrameManager.dispose();
     new UserActionSelectionFrame();
-    JOptionPane.showMessageDialog(UserActionSelectionFrame.userActionSelectionFrame,"Data has been successfully added");  
+    JOptionPane.showMessageDialog(new UserActionSelectionFrame().userActionSelectionFrame,"Data has been successfully added");  
    
     
             }

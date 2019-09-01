@@ -15,24 +15,24 @@ import java.sql.*;
  * @author User
  */
 public class UserUpdateFrame {
-    static JFrame userUpdateFrameManager=new JFrame();
+     JFrame userUpdateFrameManager;
     
-    static JTextField empIDUpdateUser=new JTextField();
-    static JTextField empNameForUpdateUser=new JTextField();
-    static JTextField empAddressForUpdateUser=new JTextField();
-    static JTextField empTPNoForUpdateUser=new JTextField();
-    static JTextField empPositionForUpdateUser=new JTextField();
-    static JTextField empUserNameForUpdateUser=new JTextField();
-    static JTextField empPaawordForUpdateUser=new JTextField();
+     JTextField empIDUpdateUser=new JTextField();
+     JTextField empNameForUpdateUser=new JTextField();
+     JTextField empAddressForUpdateUser=new JTextField();
+     JTextField empTPNoForUpdateUser=new JTextField();
+     JTextField empPositionForUpdateUser=new JTextField();
+     JTextField empUserNameForUpdateUser=new JTextField();
+     JTextField empPaawordForUpdateUser=new JTextField();
     
     static Exit xFUU=new Exit();
      
-    static JButton backFUAUF=new JButton("Back");
-    static JButton updateUser=new JButton("Update user");
+     JButton backFUAUF=new JButton("Back");
+     JButton updateUser=new JButton("Update user");
    
   UserUpdateFrame(int userToBeUpdated){
     
-    
+    userUpdateFrameManager=new JFrame();
     userUpdateFrameManager.add(empIDUpdateUser);
     empIDUpdateUser.setBounds(130,50,100, 40);
     userUpdateFrameManager.add(empNameForUpdateUser);
@@ -53,7 +53,8 @@ public class UserUpdateFrame {
    backFUAUF.setBounds(50,450,95,30);
    userUpdateFrameManager.add(xFUU.exit);
    xFUU.exit.setBounds(250,450,95,30);
-    
+   
+   
    userUpdateFrameManager.setSize(550,550);  
     userUpdateFrameManager.setLayout(null);  
     userUpdateFrameManager.setVisible(true);  

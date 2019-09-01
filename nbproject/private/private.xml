@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/Asian%20paints/src/asian/paints/AsianPaints.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/Asian%20paints/src/asian/paints/UserViewFrame.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/Asian%20paints/src/asian/paints/UserUpdateFrame.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/Asian%20paints/src/asian/paints/UserActionSelectionFrame.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/Asian%20paints/src/asian/paints/UserDeleteSelectionFrame.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/Asian%20paints/src/asian/paints/MainFirstFrame.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/Asian%20paints/src/asian/paints/UserUpdateIDCollectionFrame.java</file>
         </group>
     </open-files>
 </project-private>

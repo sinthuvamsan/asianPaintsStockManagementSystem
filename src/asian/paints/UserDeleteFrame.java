@@ -15,23 +15,21 @@ import java.sql.*;
  * @author User
  */
 public class UserDeleteFrame {
-    static JFrame userDeleteConfirmFrameManager=new JFrame();
-    
-    static Exit xFSD=new Exit();
-    static Exit xFSDC=new Exit();
+     JFrame userDeleteConfirmFrameManager;
     
     JTextArea empDetailsForDeleteUser=new JTextArea();
     
     static Exit xFUD=new Exit();
      
-    static JButton backFUDAF=new JButton("Back");
-    static JButton confirmDeleteUser=new JButton("Delete user");
+     JButton backFUDAF=new JButton("Back");
+     JButton confirmDeleteUser=new JButton("Delete user");
     
     JScrollPane scrollUD = new JScrollPane(empDetailsForDeleteUser);
     
     String sQLToDeleteUser="Error";
             
     UserDeleteFrame(int userIDToBeDeleted){
+        userDeleteConfirmFrameManager=new JFrame();
 userDeleteConfirmFrameManager.add(scrollUD);       
 scrollUD.setBounds(20, 20, 300, 300);
 
@@ -39,8 +37,8 @@ userDeleteConfirmFrameManager.add(confirmDeleteUser);
 confirmDeleteUser.setBounds(150,350,95,30);
 userDeleteConfirmFrameManager.add(backFUDAF);
 backFUDAF.setBounds(50,400,95,30);
-userDeleteConfirmFrameManager.add(xFSDC.exit);
-xFSDC.exit.setBounds(250,400,95,30);
+userDeleteConfirmFrameManager.add(xFUD.exit);
+xFUD.exit.setBounds(250,400,95,30);
         
 userDeleteConfirmFrameManager.setSize(500,500);  
     userDeleteConfirmFrameManager.setLayout(null);  
@@ -98,8 +96,8 @@ JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_ME
     public void actionPerformed(ActionEvent e){ 
         new DBManager().dBManipulator(sQLToDeleteUser);
         userDeleteConfirmFrameManager.dispose();
-           new UserActionSelectionFrame();
-           JOptionPane.showMessageDialog(UserActionSelectionFrame.userActionSelectionFrame,"User deleted successfully"); 
+          new UserActionSelectionFrame();
+           JOptionPane.showMessageDialog(new UserActionSelectionFrame().userActionSelectionFrame,"User deleted successfully"); 
     }  
     });
 

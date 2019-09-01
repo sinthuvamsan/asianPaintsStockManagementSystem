@@ -47,7 +47,7 @@ public class PaintActionSelectionFrame{
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameManager.dispose();
            new PaintUpdateIDCollectionFrame();
-          PaintUpdateIDCollectionFrame.managerPaintupdateIDCollectionFrame();
+          new PaintUpdateIDCollectionFrame().managerPaintupdateIDCollectionFrame();
     }  
     });
     
@@ -63,7 +63,7 @@ public class PaintActionSelectionFrame{
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameManager.dispose();
            new PaintViewSelectionFrame();
-           PaintViewSelectionFrame.managersPaintViewSelectionFrame();
+          new PaintViewSelectionFrame().managersPaintViewSelectionFrame();
     }  
     });
                 
@@ -98,7 +98,7 @@ public class PaintActionSelectionFrame{
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameStockKeeper.dispose();
            new PaintAddFrame();
-          PaintAddFrame.stockKeeperPaintAddFrame();
+         new PaintAddFrame().stockKeeperPaintAddFrame();
     }  
     });
     
@@ -106,7 +106,7 @@ public class PaintActionSelectionFrame{
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameStockKeeper.dispose();
            new PaintUpdateIDCollectionFrame();
-          PaintUpdateIDCollectionFrame.stockKeeperPaintupdateIDCollectionFrame();
+          new PaintUpdateIDCollectionFrame().stockKeeperPaintupdateIDCollectionFrame();
     }  
     });
     
@@ -122,7 +122,7 @@ public class PaintActionSelectionFrame{
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameStockKeeper.dispose();
            new PaintViewSelectionFrame();
-           PaintViewSelectionFrame.stockKeeperPaintViewSelectionFrame();
+           new PaintViewSelectionFrame().stockKeeperPaintViewSelectionFrame();
     }  
     });
                 
@@ -151,7 +151,7 @@ public class PaintActionSelectionFrame{
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameCashier.dispose();
            new PaintViewSelectionFrame();
-           PaintViewSelectionFrame.cashierPaintViewSelectionFrame();
+          new PaintViewSelectionFrame().cashierPaintViewSelectionFrame();
     }  
     });
     

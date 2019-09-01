@@ -15,18 +15,18 @@ import java.sql.*;
  * @author User
  */
 public class PaintDeleteFrame {
-    static JFrame paintDeleteFrameManager=new JFrame();
-    static JFrame paintDeleteFrameStockKeeper=new JFrame();
+     JFrame paintDeleteFrameManager=new JFrame();
+     JFrame paintDeleteFrameStockKeeper=new JFrame();
     
     JTextArea paintDetailsForDeleteUser=new JTextArea();
      JScrollPane scrollPD = new JScrollPane(paintDetailsForDeleteUser);
     
-    static JTextField paintProductNoForDelete=new JTextField("Paint product no.");
+     JTextField paintProductNoForDelete=new JTextField("Paint product no.");
     
     static Exit xFPD=new Exit();
     
-    static JButton backFPDF=new JButton("Back");  
-    static JButton confirmDeletePaint=new JButton("Delete");
+     JButton backFPDF=new JButton("Back");  
+     JButton confirmDeletePaint=new JButton("Delete");
     
     String sQLToDeletePaint="Error";
     
@@ -97,7 +97,7 @@ JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_ME
      backFPDF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintDeleteFrameManager.dispose();
-           PaintDeleteIDCollectionFrame.managerPaintDeleteFrame();
+          new PaintDeleteIDCollectionFrame().managerPaintDeleteFrame();
     }  
     });
     
@@ -106,7 +106,7 @@ JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_ME
         new DBManager().dBManipulator(sQLToDeletePaint);
         paintDeleteFrameManager.dispose();
            new UserActionSelectionFrame();
-           JOptionPane.showMessageDialog(UserActionSelectionFrame.userActionSelectionFrame,"Paint deleted successfully"); 
+           JOptionPane.showMessageDialog(new UserActionSelectionFrame().userActionSelectionFrame,"Paint deleted successfully"); 
     }  
     });
    }else{
@@ -126,7 +126,7 @@ JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_ME
      backFPDF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintDeleteFrameStockKeeper.dispose();
-           PaintDeleteIDCollectionFrame.stockKeeperPaintDeleteFrame();
+          new PaintDeleteIDCollectionFrame().stockKeeperPaintDeleteFrame();
     }  
     });
     
@@ -135,7 +135,7 @@ JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_ME
         new DBManager().dBManipulator(sQLToDeletePaint);
         paintDeleteFrameStockKeeper.dispose();
            new UserActionSelectionFrame();
-           JOptionPane.showMessageDialog(UserActionSelectionFrame.userActionSelectionFrame,"Paint deleted successfully"); 
+           JOptionPane.showMessageDialog(new UserActionSelectionFrame().userActionSelectionFrame,"Paint deleted successfully"); 
     }  
     });
    }

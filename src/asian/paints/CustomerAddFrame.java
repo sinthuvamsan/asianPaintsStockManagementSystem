@@ -15,24 +15,26 @@ import java.awt.event.*;
  */
 public class CustomerAddFrame {
    
-    static JFrame customerAddFrameCahier=new JFrame();
+     JFrame customerAddFrameCahier;
     
-    static JTextField cusIDForAdd=new JTextField("Customer ID");
-    static JTextField cusNameForAdd=new JTextField("Customer name");
-    static JTextField cusAddressForAdd=new JTextField("Customer address");
-    static JTextField cusTPNoForAdd=new JTextField("Customer TP number");
-    static JTextField cusTotalForAdd=new JTextField("Customer total");
+     JTextField cusIDForAdd=new JTextField("Customer ID");
+     JTextField cusNameForAdd=new JTextField("Customer name");
+     JTextField cusAddressForAdd=new JTextField("Customer address");
+     JTextField cusTPNoForAdd=new JTextField("Customer TP number");
+     JTextField cusTotalForAdd=new JTextField("Customer total");
     
     static Exit xFCAU=new Exit();
      
-    static JButton backFCAF=new JButton("Back");
-    static JButton addCustomer=new JButton("Add customer");
+     JButton backFCAF=new JButton("Back");
+     JButton addCustomer=new JButton("Add customer");
    
    
    //public static void managersCustomerAddAndUpdateFrame(){}
     //public void stockKeeperCustomerAddAndUpdateFrame(){}
    
-    public static void cashierCustomerAddFrame(){
+    CustomerAddFrame(){
+        customerAddFrameCahier=new JFrame();
+        
     customerAddFrameCahier.add(cusIDForAdd);
     cusIDForAdd.setBounds(130,100,100, 40);
     customerAddFrameCahier.add(cusNameForAdd);
@@ -57,7 +59,7 @@ public class CustomerAddFrame {
     backFCAF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         customerAddFrameCahier.dispose();
-          CustomerActionSelectionFrame.cashierCustomerFrame();
+         new CustomerActionSelectionFrame().cashierCustomerFrame();
     }  
     });
     
@@ -82,8 +84,8 @@ int lastOfCusId = DBManager.lastID(query,colName);
             
     customerAddFrameCahier.dispose();
     new CustomerActionSelectionFrame();
-    CustomerActionSelectionFrame.cashierCustomerFrame();
-    JOptionPane.showMessageDialog(UserActionSelectionFrame.userActionSelectionFrame,"Data has been successfully added");  
+    new CustomerActionSelectionFrame().cashierCustomerFrame();
+    JOptionPane.showMessageDialog(new UserActionSelectionFrame().userActionSelectionFrame,"Data has been successfully added");  
    
     
             }

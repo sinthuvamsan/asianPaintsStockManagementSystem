@@ -14,17 +14,18 @@ import java.awt.event.*;
  * @author User
  */
 public class PaintUpdateIDCollectionFrame {
-     static JFrame paintUpdateIDCollectionFrameManager=new JFrame();
-    static JFrame paintUpdateIDCollectionFrameStockKeeper=new JFrame();
+      JFrame paintUpdateIDCollectionFrameManager=new JFrame();
+     JFrame paintUpdateIDCollectionFrameStockKeeper=new JFrame();
     
      JTextField paintProductNoForUpdate=new JTextField("Paint product no.");
    
     
     static Exit xFPUICF=new Exit();
      
-    static JButton backFPUICF=new JButton("Back");
-    static JButton searchPaintToBeUpdated=new JButton("Add paint");
+     JButton backFPUICF=new JButton("Back");
+     JButton searchPaintToBeUpdated=new JButton("Add paint");
    
+    JPanel pCheck=new JPanel();
     
     public void managerPaintupdateIDCollectionFrame(){
     
@@ -52,7 +53,7 @@ public class PaintUpdateIDCollectionFrame {
      searchPaintToBeUpdated.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintUpdateIDCollectionFrameManager.dispose();
-       new PaintUpdateFrame(Integer.parseInt(paintProductNoForUpdate.getText()));
+       new PaintUpdateFrame(true,Integer.parseInt(paintProductNoForUpdate.getText()));
     }  
     });
     }
@@ -83,7 +84,7 @@ public class PaintUpdateIDCollectionFrame {
      searchPaintToBeUpdated.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintUpdateIDCollectionFrameStockKeeper.dispose();
-       new PaintUpdateFrame(Integer.parseInt(paintProductNoForUpdate.getText()));
+       new PaintUpdateFrame(false,Integer.parseInt(paintProductNoForUpdate.getText()));
     }  
     });
     }

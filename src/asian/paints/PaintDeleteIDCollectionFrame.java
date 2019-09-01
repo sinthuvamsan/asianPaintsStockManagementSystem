@@ -14,18 +14,18 @@ import java.awt.event.*;
  * @author User
  */
 public class PaintDeleteIDCollectionFrame {
-        static JFrame paintDeleteIDCollectionFrameManager=new JFrame();
-    static JFrame paintDeleteIDCollectionFrameStockKeeper=new JFrame();
+         JFrame paintDeleteIDCollectionFrameManager;
+     JFrame paintDeleteIDCollectionFrameStockKeeper;
     
-    static JTextField paintProductNoForDelete=new JTextField("Paint product no.");
+     JTextField paintProductNoForDelete=new JTextField("Paint product no.");
     
     static Exit xFPDICF=new Exit();
       
-    static JButton backFPDICF=new JButton("Back"); 
-    static JButton searchPaintToBeDeleted=new JButton("Delete");
+     JButton backFPDICF=new JButton("Back"); 
+     JButton searchPaintToBeDeleted=new JButton("Delete");
     
-    public static void managerPaintDeleteFrame(){  
-    
+    public void managerPaintDeleteFrame(){  
+    paintDeleteIDCollectionFrameManager=new JFrame();
     
     paintDeleteIDCollectionFrameManager.add(paintProductNoForDelete);
     paintProductNoForDelete.setBounds(130,100,100, 40);
@@ -56,8 +56,9 @@ public class PaintDeleteIDCollectionFrame {
     });
     }
     
-    public static void stockKeeperPaintDeleteFrame(){  
+    public void stockKeeperPaintDeleteFrame(){  
     
+    paintDeleteIDCollectionFrameStockKeeper=new JFrame();
     
     paintDeleteIDCollectionFrameStockKeeper.add(paintProductNoForDelete);
     paintProductNoForDelete.setBounds(130,100,100, 40);

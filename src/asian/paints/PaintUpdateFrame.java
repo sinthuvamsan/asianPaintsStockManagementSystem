@@ -8,31 +8,46 @@ package asian.paints;
 import javax.swing.*; 
 import java.awt.*;  
 import java.awt.event.*;
+import java.sql.*;
+
 
 /**
  *
  * @author User
  */
 public class PaintUpdateFrame {
-    static JFrame paintUpdateFrameManager=new JFrame();
-    static JFrame paintUpdateFrameStockKeeper=new JFrame();
+     JFrame paintUpdateFrameManager;
+     JFrame paintUpdateFrameStockKeeper;
     
-    static JTextField paintProductNoForUpdate=new JTextField("Paint product no.");
-    static JTextField paintModelNameForUpdate=new JTextField("Paint model name");
-    static JTextField paintColourForUpdate=new JTextField("Paint colour");
-    static JTextField paintUnitPriceForUpdate=new JTextField("Paint unit price");
-    static JTextField paintStockQuantityForUpdate=new JTextField("Paint stock quantity");
+     JTextField paintProductNoForUpdate=new JTextField("Paint product no.");
+     JTextField paintModelNameForUpdate=new JTextField("Paint model name");
+     JTextField paintColourForUpdate=new JTextField("Paint colour");
+     JTextField paintUnitPriceForUpdate=new JTextField("Paint unit price");
+     JTextField paintStockQuantityForUpdate=new JTextField("Paint stock quantity");
     
     static Exit xFPU=new Exit();
 
-    static JButton backFPUF=new JButton("Back");
-    static JButton updatePaint=new JButton("Add paint");
+     JButton backFPUF=new JButton("Back");
+     JButton updatePaint=new JButton("Add paint");
    
+    PaintUpdateFrame(boolean isUserManager,int paintToBeUpdated){
+     updatePaint.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+      int paintIDUpdatePaintInt=Integer.parseInt(paintProductNoForUpdate.getText());
+     String paintNameForUpdatePaintString=paintModelNameForUpdate.getText();
+      String paintColourForUpdatePaintString=paintColourForUpdate.getText();
+      float paintUnitPriceForUpdatePaintInt=Float.parseFloat(paintUnitPriceForUpdate.getText());
+      int paintStockQuantityForUpdatePaintInt=Integer.parseInt(paintStockQuantityForUpdate.getText());
     
-    public static void managerPaintAddFrame(){
-    
-    
-    paintUpdateFrameManager.add(paintProductNoForUpdate);
+      String sQLToUpdatePaint="update paintdetails set paint_product_no='"+paintIDUpdatePaintInt+"' ,paint_model_name='"+paintNameForUpdatePaintString+"' ,paint_colour='"+paintColourForUpdatePaintString+"' ,paint_unit_price='"+paintUnitPriceForUpdatePaintInt+"' ,paint_stock_quantity='"+paintStockQuantityForUpdatePaintInt+"'  where paint_product_no="+paintToBeUpdated;
+      new DBManager().dBManipulator(sQLToUpdatePaint);
+    }  
+    });
+     
+     if(isUserManager==true){
+         paintUpdateFrameManager=new JFrame();
+         
+         paintUpdateFrameManager.add(paintProductNoForUpdate);
     paintProductNoForUpdate.setBounds(130,100,100, 40);
     paintUpdateFrameManager.add(paintModelNameForUpdate);
     paintModelNameForUpdate.setBounds(130,150,100, 40);
@@ -56,13 +71,12 @@ public class PaintUpdateFrame {
     backFPUF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintUpdateFrameManager.dispose();
-           PaintUpdateIDCollectionFrame.managerPaintupdateIDCollectionFrame();
+          new PaintUpdateIDCollectionFrame().managerPaintupdateIDCollectionFrame();
     }  
     });
-    }
-    
-    public static void stockKeeperPaintAddFrame(){
-    
+     }
+     else{
+         paintUpdateFrameStockKeeper=new JFrame();
     
     paintUpdateFrameStockKeeper.add(paintProductNoForUpdate);
     paintProductNoForUpdate.setBounds(130,100,100, 40);
@@ -88,8 +102,26 @@ public class PaintUpdateFrame {
     backFPUF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintUpdateFrameManager.dispose();
-           PaintUpdateIDCollectionFrame.stockKeeperPaintupdateIDCollectionFrame();
+          new PaintUpdateIDCollectionFrame().stockKeeperPaintupdateIDCollectionFrame();
     }  
     });
+    
+     try{
+     Connection con=new DBManager().getConnection();
+    String sqlToViewUserToBeUpdated = "select * from employeedetails where emp_ID = "+userToBeUpdated;
+    PreparedStatement ps = con.prepareStatement(sqlToViewUserToBeUpdated);
+ResultSet rs = ps.executeQuery();
+   if(rs.next()){
+   paintProductNoForUpdate.setText(String.valueOf(rs.getInt("paint_product_no")));
+    paintModelNameForUpdate.setText(rs.getString("paint_model_name"));
+     paintColourForUpdate.setText(rs.getString("paint_colour"));
+     paintUnitPriceForUpdate.setText(String.valueOf(rs.getFloat("paint_unit_price")));
+     paintStockQuantityForUpdate.setText(String.valueOf(rs.getInt("paint_stock_quantity")));
+     
+   }
+   //else{JOptionPane.showMessageDialog(userUpdateFrameManager,"Wrong ID"); }
+    }catch(Exception ex){JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);}
+     }
     }
+ 
 }

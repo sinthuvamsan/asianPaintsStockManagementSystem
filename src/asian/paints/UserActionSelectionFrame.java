@@ -14,15 +14,16 @@ import java.awt.event.*;
  * @author User
  */
 public class UserActionSelectionFrame{
-    static JFrame userActionSelectionFrame = new JFrame("Asian paints users");//creating Username Password frame and initializing it
-    static JButton AddUser=new JButton("Add user");  //creating and initilizing button
-    static JButton updateUser=new JButton("Update user");  //creating and initilizing button
-    static JButton deleteUser=new JButton("Delete user");  //creating and initilizing button
-    static JButton viewUsers=new JButton("View users");  //creating and initilizing button
-    static JButton backFU=new JButton("Back");  //creating and initilizing button
-    static Exit xFU=new Exit();
+    JFrame userActionSelectionFrame ; //creating Username Password frame and initializing it
+     JButton AddUser=new JButton("Add user");  //creating and initilizing button
+     JButton updateUser=new JButton("Update user");  //creating and initilizing button
+     JButton deleteUser=new JButton("Delete user");  //creating and initilizing button
+     JButton viewUsers=new JButton("View users");  //creating and initilizing button
+     JButton backFU=new JButton("Back");  //creating and initilizing button
+     Exit xFU=new Exit();
    
     UserActionSelectionFrame(){
+       userActionSelectionFrame  = new JFrame("Asian paints users");
     userActionSelectionFrame.add(AddUser);
     AddUser.setBounds(130,100,100, 40);
     userActionSelectionFrame.add(updateUser);

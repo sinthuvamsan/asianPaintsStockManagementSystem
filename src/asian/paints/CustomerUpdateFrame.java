@@ -8,37 +8,40 @@ package asian.paints;
 import javax.swing.*; 
 import java.awt.*;  
 import java.awt.event.*;
+import java.sql.*;
 
 /**
  *
  * @author User
  */
 public class CustomerUpdateFrame {
-      static JFrame customerUpdateFrameManager=new JFrame();
-    static JFrame customerUpdateFrameCahier=new JFrame();
+       JFrame customerUpdateFrameManager;
+     JFrame customerUpdateFrameCahier;
     
-    static JTextField cusIDForAddOrUpdate=new JTextField("Customer ID");
-    static JTextField cusNameForAddOrUpdate=new JTextField("Customer name");
-    static JTextField cusAddressForAddOrUpdate=new JTextField("Customer address");
-    static JTextField cusTPNoForAddOrUpdate=new JTextField("Customer TP number");
-    static JTextField cusTotalForAddOrUpdate=new JTextField("Customer total");
+     JTextField cusIDForUpdate=new JTextField("Customer ID");
+     JTextField cusNameForUpdate=new JTextField("Customer name");
+     JTextField cusAddressForUpdate=new JTextField("Customer address");
+     JTextField cusTPNoForUpdate=new JTextField("Customer TP number");
+     JTextField cusTotalForUpdate=new JTextField("Customer total");
     
     static Exit xFCU=new Exit();
      
-    static JButton backFCUF=new JButton("Back");
-    static JButton updateCustomer=new JButton("Update customer");
-   
-   public static void managersCustomerUpdateFrame(){
-    customerUpdateFrameManager.add(cusIDForAddOrUpdate);
-    cusIDForAddOrUpdate.setBounds(130,100,100, 40);
-    customerUpdateFrameManager.add(cusNameForAddOrUpdate);
-    cusNameForAddOrUpdate.setBounds(130,150,100, 40);
-    customerUpdateFrameManager.add(cusAddressForAddOrUpdate);
-    cusAddressForAddOrUpdate.setBounds(130,200,100, 40);
-    customerUpdateFrameManager.add(cusTPNoForAddOrUpdate);
-    cusTPNoForAddOrUpdate.setBounds(130,250,100, 40);
-    customerUpdateFrameManager.add(cusTotalForAddOrUpdate);
-    cusTotalForAddOrUpdate.setBounds(130,300,100, 40);   
+    JButton backFCUF=new JButton("Back");
+    JButton updateCustomer=new JButton("Update customer");
+  
+   public void managersCustomerUpdateFrame(int managerCustomerUpdateID){
+        customerUpdateFrameManager=new JFrame();
+        
+    customerUpdateFrameManager.add(cusIDForUpdate);
+    cusIDForUpdate.setBounds(130,100,100, 40);
+    customerUpdateFrameManager.add(cusNameForUpdate);
+    cusNameForUpdate.setBounds(130,150,100, 40);
+    customerUpdateFrameManager.add(cusAddressForUpdate);
+    cusAddressForUpdate.setBounds(130,200,100, 40);
+    customerUpdateFrameManager.add(cusTPNoForUpdate);
+    cusTPNoForUpdate.setBounds(130,250,100, 40);
+    customerUpdateFrameManager.add(cusTotalForUpdate);
+    cusTotalForUpdate.setBounds(130,300,100, 40);   
    customerUpdateFrameManager.add(updateCustomer);
    updateCustomer.setBounds(130,350,100, 40);
    customerUpdateFrameManager.add(backFCUF);
@@ -52,24 +55,61 @@ public class CustomerUpdateFrame {
    
        backFCUF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
-        customerUpdateFrameManager.dispose();
-         CustomerUpdateIDCollectionFrame.UpdateIDCollectionFrameManager();
+       customerUpdateFrameManager.dispose();
+       CustomerUpdateIDCollectionFrame f1= new CustomerUpdateIDCollectionFrame();
+         f1.UpdateIDCollectionFrameManager();
+    }  
+    });
+    
+    
+    
+        try{
+     Connection con=new DBManager().getConnection();
+    String sqlToViewUserToBeUpdated = "select * from employeedetails where emp_ID = "+managerCustomerUpdateID;
+    PreparedStatement ps = con.prepareStatement(sqlToViewUserToBeUpdated);
+ResultSet rs = ps.executeQuery();
+   if(rs.next()){
+  cusIDForUpdate.setText(String.valueOf(rs.getInt("emp_ID")));
+    cusNameForUpdate.setText(rs.getString("emp_name"));
+     cusAddressForUpdate.setText(rs.getString("emp_address"));
+     cusTPNoForUpdate.setText(String.valueOf(rs.getInt("emp_tp_no")));
+     cusTotalForUpdate.setText(rs.getString("emp_possition"));
+   }
+    }
+        catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+        }
+    
+   updateCustomer.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+      int cusIDUpdateCustomerInt=Integer.parseInt(cusIDForUpdate.getText());
+     String cusNameForUpdateCustomerString=cusNameForUpdate.getText();
+      String cusAddressForUpdateCustomerString=cusAddressForUpdate.getText();
+      int cusTPNoForUpdateCustomerInt=Integer.parseInt(cusTPNoForUpdate.getText());
+     float  cusTotalForUpdateCustomerFloat=Float.parseFloat(cusTotalForUpdate.getText());
+     
+      
+      String managerSQLToUpdateCustomer="update customerdetails set cus_id='"+cusIDUpdateCustomerInt+"' ,cus_name='"+cusNameForUpdateCustomerString+"' ,cus_address='"+cusAddressForUpdateCustomerString+"' ,cus_tp_no='"+cusTPNoForUpdateCustomerInt+"' ,cus_total='"+cusTotalForUpdateCustomerFloat+"'  where cus_id="+managerCustomerUpdateID;
+      new DBManager().dBManipulator(managerSQLToUpdateCustomer);
     }  
     });
    }
+   
     
    
-    public static void cashierCustomerAddAndUpdateFrame(){
-    customerUpdateFrameCahier.add(cusIDForAddOrUpdate);
-    cusIDForAddOrUpdate.setBounds(130,100,100, 40);
-    customerUpdateFrameCahier.add(cusNameForAddOrUpdate);
-    cusNameForAddOrUpdate.setBounds(130,150,100, 40);
-    customerUpdateFrameCahier.add(cusAddressForAddOrUpdate);
-    cusAddressForAddOrUpdate.setBounds(130,200,100, 40);
-    customerUpdateFrameCahier.add(cusTPNoForAddOrUpdate);
-    cusTPNoForAddOrUpdate.setBounds(130,250,100, 40);
-    customerUpdateFrameCahier.add(cusTotalForAddOrUpdate);
-    cusTotalForAddOrUpdate.setBounds(130,300,100, 40);
+    public void cashierCustomerAddAndUpdateFrame(int casierCustomerUpdateID){
+        customerUpdateFrameCahier=new JFrame();
+        
+    customerUpdateFrameCahier.add(cusIDForUpdate);
+    cusIDForUpdate.setBounds(130,100,100, 40);
+    customerUpdateFrameCahier.add(cusNameForUpdate);
+    cusNameForUpdate.setBounds(130,150,100, 40);
+    customerUpdateFrameCahier.add(cusAddressForUpdate);
+    cusAddressForUpdate.setBounds(130,200,100, 40);
+    customerUpdateFrameCahier.add(cusTPNoForUpdate);
+    cusTPNoForUpdate.setBounds(130,250,100, 40);
+    customerUpdateFrameCahier.add(cusTotalForUpdate);
+    cusTotalForUpdate.setBounds(130,300,100, 40);
     customerUpdateFrameCahier.add(updateCustomer);
     updateCustomer.setBounds(250,350,100, 40);
     customerUpdateFrameCahier.add(backFCUF);
@@ -84,8 +124,40 @@ public class CustomerUpdateFrame {
         backFCUF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         customerUpdateFrameCahier.dispose();
-         CustomerUpdateIDCollectionFrame.UpdateIDCollectionFrameCashier();
+        CustomerUpdateIDCollectionFrame f1= new CustomerUpdateIDCollectionFrame();
+         f1.UpdateIDCollectionFrameCashier();
     }  
     });
+        
+            updateCustomer.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+      int cusIDUpdateCustomerInt=Integer.parseInt(cusIDForUpdate.getText());
+     String cusNameForUpdateCustomerString=cusNameForUpdate.getText();
+      String cusAddressForUpdateCustomerString=cusAddressForUpdate.getText();
+      int cusTPNoForUpdateCustomerInt=Integer.parseInt(cusTPNoForUpdate.getText());
+     float  cusTotalForUpdateCustomerFloat=Float.parseFloat(cusTotalForUpdate.getText());
+     
+      
+      String cashierSQLToUpdateCustomer="update customerdetails set cus_id='"+cusIDUpdateCustomerInt+"' ,cus_name='"+cusNameForUpdateCustomerString+"' ,cus_address='"+cusAddressForUpdateCustomerString+"' ,cus_tp_no='"+cusTPNoForUpdateCustomerInt+"' ,cus_total='"+cusTotalForUpdateCustomerFloat+"'  where cus_id="+casierCustomerUpdateID;
+      new DBManager().dBManipulator(cashierSQLToUpdateCustomer);
+    }  
+    });
+            
+                try{
+     Connection con=new DBManager().getConnection();
+    String sqlToViewUserToBeUpdated = "select * from employeedetails where emp_ID = "+casierCustomerUpdateID;
+    PreparedStatement ps = con.prepareStatement(sqlToViewUserToBeUpdated);
+ResultSet rs = ps.executeQuery();
+   if(rs.next()){
+  cusIDForUpdate.setText(String.valueOf(rs.getInt("emp_ID")));
+    cusNameForUpdate.setText(rs.getString("emp_name"));
+     cusAddressForUpdate.setText(rs.getString("emp_address"));
+     cusTPNoForUpdate.setText(String.valueOf(rs.getInt("emp_tp_no")));
+     cusTotalForUpdate.setText(rs.getString("emp_possition"));
+   }
+    }
+        catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+        }
     }
 }

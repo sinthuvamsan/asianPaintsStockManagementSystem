@@ -50,7 +50,7 @@ public class MainFirstFrame{
     public void actionPerformed(ActionEvent e){
         mainFirstFrameManager.dispose();
           new PaintActionSelectionFrame();
-          PaintActionSelectionFrame.managersPaintFrame();
+          new PaintActionSelectionFrame().managersPaintFrame();
     }  
     });  
     
@@ -58,7 +58,7 @@ public class MainFirstFrame{
     public void actionPerformed(ActionEvent e){ 
         mainFirstFrameManager.dispose();
             new SalesActionSelectionFrame();  
-            SalesActionSelectionFrame.managersSalesFrame();
+            new SalesActionSelectionFrame().managersSalesFrame();
     }  
     });  
     
@@ -66,7 +66,7 @@ public class MainFirstFrame{
     public void actionPerformed(ActionEvent e){  
         mainFirstFrameManager.dispose();
             new CustomerActionSelectionFrame(); 
-            CustomerActionSelectionFrame.managersCustomerFrame();
+            new CustomerActionSelectionFrame().managersCustomerFrame();
     }  
     });  
     }
@@ -84,7 +84,7 @@ public class MainFirstFrame{
     public void actionPerformed(ActionEvent e){ 
         mainFirstFrameStockKeeper.dispose();
            new PaintActionSelectionFrame();
-          PaintActionSelectionFrame.stockKeeperPaintFrame();
+          new PaintActionSelectionFrame().stockKeeperPaintFrame();
     }  
     });  
     }
@@ -106,7 +106,7 @@ public class MainFirstFrame{
     public void actionPerformed(ActionEvent e){ 
         mainFirstFrameCashier.dispose();
            new PaintActionSelectionFrame();
-          PaintActionSelectionFrame.cashierPaintFrame();
+         new PaintActionSelectionFrame().cashierPaintFrame();
     }  
     });
      
@@ -114,7 +114,7 @@ public class MainFirstFrame{
     public void actionPerformed(ActionEvent e){ 
         mainFirstFrameCashier.dispose();
             new SalesActionSelectionFrame();  
-            SalesActionSelectionFrame.cashierSalesFrame();
+            new SalesActionSelectionFrame().cashierSalesFrame();
     }  
     });  
     
@@ -122,7 +122,7 @@ public class MainFirstFrame{
     public void actionPerformed(ActionEvent e){  
         mainFirstFrameCashier.dispose();
             new CustomerActionSelectionFrame(); 
-            CustomerActionSelectionFrame.cashierCustomerFrame();
+           new CustomerActionSelectionFrame().cashierCustomerFrame();
     }  
     });
     

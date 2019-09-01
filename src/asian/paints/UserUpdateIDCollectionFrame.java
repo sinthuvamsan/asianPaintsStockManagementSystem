@@ -14,26 +14,29 @@ import java.awt.event.*;
  * @author User
  */
 public class UserUpdateIDCollectionFrame {
-    static JFrame userUpdateIDCollectionFrameManager=new JFrame();
+     JFrame userUpdateIDCollectionFrameManager;
     
-    JTextField userToBeUpdated=new JTextField();
+    JTextField userToBeUpdated=new JTextField("User Id");
     
-    static JButton searchUserToBeUpdated=new JButton("Update this user");
-    static JButton backFUUSF=new JButton("Back");
+     JButton searchUserToBeUpdated=new JButton("Update this user");
+     JButton backFUUSF=new JButton("Back");
     
      static Exit xFUUSF=new Exit();
      
     UserUpdateIDCollectionFrame(){
-        
+      userUpdateIDCollectionFrameManager=new JFrame();
+      
    userUpdateIDCollectionFrameManager.add(userToBeUpdated);
-    userToBeUpdated.setBounds(130,50,100, 40);
+    userToBeUpdated.setBounds(130,50,80,30);
     userUpdateIDCollectionFrameManager.add(searchUserToBeUpdated);
-    searchUserToBeUpdated.setBounds(130,100,100, 40);
+    searchUserToBeUpdated.setBounds(130,100,80,30);
+    userUpdateIDCollectionFrameManager.setBackground(Color.gray); 
     
+   
    userUpdateIDCollectionFrameManager.add(backFUUSF);
-   backFUUSF.setBounds(50,150,95,30);
+   backFUUSF.setBounds(50,350,95,30);
    userUpdateIDCollectionFrameManager.add(xFUUSF.exit);
-   xFUUSF.exit.setBounds(250,150,95,30);
+   xFUUSF.exit.setBounds(250,350,95,30);
    
     userUpdateIDCollectionFrameManager.setSize(500,500);  
     userUpdateIDCollectionFrameManager.setLayout(null);  

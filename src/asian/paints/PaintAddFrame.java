@@ -14,22 +14,22 @@ import java.awt.event.*;
  * @author User
  */
 public class PaintAddFrame {
-    static JFrame paintAddFrameManager=new JFrame();
-    static JFrame paintAddFrameStockKeeper=new JFrame();
+     JFrame paintAddFrameManager=new JFrame();
+     JFrame paintAddFrameStockKeeper=new JFrame();
     
-    static JTextField paintProductNoForAdd=new JTextField("Paint product no.");
-    static JTextField paintModelNameForAdd=new JTextField("Paint model name");
-    static JTextField paintColourForAdd=new JTextField("Paint colour");
-    static JTextField paintUnitPriceForAdd=new JTextField("Paint unit price");
-    static JTextField paintStockQuantityForAdd=new JTextField("Paint stock quantity");
+     JTextField paintProductNoForAdd=new JTextField("Paint product no.");
+     JTextField paintModelNameForAdd=new JTextField("Paint model name");
+     JTextField paintColourForAdd=new JTextField("Paint colour");
+     JTextField paintUnitPriceForAdd=new JTextField("Paint unit price");
+     JTextField paintStockQuantityForAdd=new JTextField("Paint stock quantity");
     
     static Exit xFPA=new Exit();
      
-    static JButton backFPAF=new JButton("Back");
-    static JButton addPaint=new JButton("Add paint");
+     JButton backFPAF=new JButton("Back");
+     JButton addPaint=new JButton("Add paint");
    
     
-    public static void managerPaintAddFrame(){
+    public void managerPaintAddFrame(){
     
     
     paintAddFrameManager.add(paintProductNoForAdd);
@@ -82,7 +82,7 @@ public class PaintAddFrame {
     });
     }
     
-    public static void stockKeeperPaintAddFrame(){
+    public void stockKeeperPaintAddFrame(){
     
     
     paintAddFrameStockKeeper.add(paintProductNoForAdd);

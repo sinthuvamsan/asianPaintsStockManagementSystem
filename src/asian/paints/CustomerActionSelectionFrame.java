@@ -16,16 +16,16 @@ import java.awt.event.*;
  */
 public class CustomerActionSelectionFrame{
      
-    static JButton addCustomer=new JButton("Add customer");  //creating and initilizing button
-    static JButton updateCustomer=new JButton("Update customer");  //creating and initilizing button
-    static JButton deleteCustomer=new JButton("Delete customer");  //creating and initilizing button
-    static JButton viewCustomer=new JButton("View customer");  //creating and initilizing button
-    static JButton backFC=new JButton("Back");  //creating and initilizing button
+     JButton addCustomer=new JButton("Add customer");  //creating and initilizing button
+     JButton updateCustomer=new JButton("Update customer");  //creating and initilizing button
+     JButton deleteCustomer=new JButton("Delete customer");  //creating and initilizing button
+     JButton viewCustomer=new JButton("View customer");  //creating and initilizing button
+     JButton backFC=new JButton("Back");  //creating and initilizing button
     
     static Exit xFC=new Exit();
    
     
-    public static void managersCustomerFrame(){
+    public void managersCustomerFrame(){
     JFrame customerActionSelectionFrameManager = new JFrame("Asian paints customer");//creating Username Password frame and initializing it
         
     customerActionSelectionFrameManager.add(updateCustomer);
@@ -47,7 +47,7 @@ public class CustomerActionSelectionFrame{
     public void actionPerformed(ActionEvent e){ 
         customerActionSelectionFrameManager.dispose();
            
-          CustomerUpdateIDCollectionFrame.UpdateIDCollectionFrameManager();
+         new CustomerUpdateIDCollectionFrame().UpdateIDCollectionFrameManager();
     }  
     });
     
@@ -76,7 +76,7 @@ public class CustomerActionSelectionFrame{
     
     //public void stockKeeperCustomerFrame(){}
     
-    public static void cashierCustomerFrame(){
+    public void cashierCustomerFrame(){
     JFrame customerActionSelectionFrameCashier = new JFrame("Asian paints customer");//creating Username Password frame and initializing it
        
         customerActionSelectionFrameCashier.add(addCustomer);
@@ -98,7 +98,7 @@ public class CustomerActionSelectionFrame{
     public void actionPerformed(ActionEvent e){ 
         customerActionSelectionFrameCashier.dispose();
            
-          CustomerAddFrame.cashierCustomerAddFrame();
+          new CustomerAddFrame();
     }  
     });
      
@@ -106,7 +106,7 @@ public class CustomerActionSelectionFrame{
     public void actionPerformed(ActionEvent e){ 
         customerActionSelectionFrameCashier.dispose();
            
-          CustomerUpdateIDCollectionFrame.UpdateIDCollectionFrameCashier();
+          new CustomerUpdateIDCollectionFrame().UpdateIDCollectionFrameCashier();
     }  
     });
       

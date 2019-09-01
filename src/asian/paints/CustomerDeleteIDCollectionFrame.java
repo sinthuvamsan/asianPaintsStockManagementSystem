@@ -14,16 +14,17 @@ import java.awt.event.*;
  * @author User
  */
 public class CustomerDeleteIDCollectionFrame {
-     static JFrame customerDeleteIDCollectionFrameManager=new JFrame();
+      JFrame customerDeleteIDCollectionFrameManager;
     
-    static JTextField customerToBeDeleted=new JTextField("Customer ID");
+     JTextField customerToBeDeleted=new JTextField("Customer ID");
     
-    static JButton searchCustomerToBeDeleted=new JButton("Delete");
-    static JButton backFCDSF=new JButton("Back");
+     JButton searchCustomerToBeDeleted=new JButton("Delete");
+     JButton backFCDSF=new JButton("Back");
     
      static Exit xFCDSF=new Exit();
      
     CustomerDeleteIDCollectionFrame(){
+        customerDeleteIDCollectionFrameManager=new JFrame();
         
    customerDeleteIDCollectionFrameManager.add(customerToBeDeleted);
     customerToBeDeleted.setBounds(130,50,100, 40);
@@ -42,7 +43,7 @@ public class CustomerDeleteIDCollectionFrame {
     backFCDSF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         customerDeleteIDCollectionFrameManager.dispose();
-         CustomerActionSelectionFrame.managersCustomerFrame();
+        new CustomerActionSelectionFrame().managersCustomerFrame();
     }  
     });
     
