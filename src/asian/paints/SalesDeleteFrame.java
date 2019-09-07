@@ -22,9 +22,15 @@ public class SalesDeleteFrame {
     
     static Exit xFSD=new Exit();
     
-    static JButton backFSDF=new JButton("Back");  
-    static JButton confirmDeleteSales=new JButton("Delete");
+     JButton backFSDF=new JButton("Back");  
+     JButton confirmDeleteSales=new JButton("Delete");
     
+      int paintQuantity=0;
+  float cTotal=0,pUnitPrice=0;
+    int pPN=0;
+    int cID=0;
+      int pSalesQ=0;
+  
      String sQLToDeleteUser="Error";
      
     SalesDeleteFrame(int salesIDToBeDeleted){
@@ -43,9 +49,8 @@ scrollSD.setBounds(20, 20, 300, 300);
     salesDeleteFrameManager.setVisible(true); 
     
             int sID=salesIDToBeDeleted;
-   int pSQ=0;
-   int pPN=0;
-    int cID=0;
+ 
+ 
     
     try
 { 
@@ -60,13 +65,13 @@ int i =0;
 if(rs.next())
 {
 sID = rs.getInt("sales_no");
-pSQ=rs.getInt("paint_sales_quantity");
+pSalesQ=rs.getInt("paint_sales_quantity");
 pPN=rs.getInt("paint_product_no");
 cID=rs.getInt("cus_id");
     
-String detailsOfUserToBeDeleted="Sales No.: "+sID+"\n"+"Paint sales quantity: "+pSQ+"\n"+"Paint product No.: "+pPN+"\n"+"Customer ID: "+cID;
+String detailsOfSalesToBeDeleted="Sales No.: "+sID+"\n"+"Paint sales quantity: "+pSalesQ+"\n"+"Paint product No.: "+pPN+"\n"+"Customer ID: "+cID;
 
-salesDetailsForDeleteUser.setText(detailsOfUserToBeDeleted);
+salesDetailsForDeleteUser.setText(detailsOfSalesToBeDeleted);
 i++; 
 }
 if(i <1)
@@ -85,8 +90,53 @@ catch(Exception ex)
 JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
 }
     confirmDeleteSales.addActionListener(new ActionListener(){  
-    public void actionPerformed(ActionEvent e){ 
-        new DBManager().dBManipulator(sQLToDeleteUser);
+    public void actionPerformed(ActionEvent e){
+           
+         try
+{ 
+Connection con = DBManager.getConnection();
+      String queryForCustomerCheck ="SELECT * FROM customerDetails where cus_id="+cID;
+      PreparedStatement ps = con.prepareStatement(queryForCustomerCheck);
+ResultSet rs = ps.executeQuery();
+        
+if(rs.next())
+{
+cTotal=Float.parseFloat(rs.getString("cus_total"));
+ 
+}
+}catch(Exception ex)
+{
+JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+}
+          try
+{ 
+Connection con = DBManager.getConnection();
+      String queryForStockCheck ="SELECT * FROM paintDetails where paint_product_no="+pPN;
+      PreparedStatement ps = con.prepareStatement(queryForStockCheck);
+ResultSet rs = ps.executeQuery();
+     
+if(rs.next())
+{
+paintQuantity = rs.getInt("paint_stock_quantity");
+pUnitPrice=Float.parseFloat(rs.getString("paint_unit_price"));
+
+}
+
+}catch(Exception ex)
+{
+JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+} 
+          
+          cTotal=cTotal-(pSalesQ*pUnitPrice);
+          paintQuantity=paintQuantity-pSalesQ;
+          
+       String sQLToUpdateCustomerOnDeleteSales="update customerdetails set cus_total='"+cTotal+"' where sales_no="+cID;
+      new DBManager().dBManipulator(sQLToUpdateCustomerOnDeleteSales);
+      
+       String sQLToUpdatePaintOnDeleteSales="update paintdetails set paint_sales_quantity='"+paintQuantity+"' where sales_no="+pPN;
+      new DBManager().dBManipulator(sQLToUpdatePaintOnDeleteSales);
+        
+      new DBManager().dBManipulator(sQLToDeleteUser);
         salesDeleteFrameManager.dispose();
            new SalesActionSelectionFrame().managersSalesFrame();
     }  

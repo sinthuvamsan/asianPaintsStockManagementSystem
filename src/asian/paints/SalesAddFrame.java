@@ -76,6 +76,7 @@ int lastOfSalesId = DBManager.lastID(query,colName);
    int paintSalesQuantityForAddSalesInt=Integer.parseInt(paintSalesQuantityForAddSales.getText());
     int paintProductNoForAddSalesInt=Integer.parseInt(paintProductNoForAddSales.getText());
      int cusIDForAddSalesInt=Integer.parseInt(cusIDForAddSales.getText());
+     
        try
 { 
 Connection con = DBManager.getConnection();
@@ -122,11 +123,11 @@ JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_ME
             + "values('"+lastOfSalesId+"','"+paintSalesQuantityForAddSalesInt+"','"+paintProductNoForAddSalesInt+"','"+cusIDForAddSalesInt+"')";
    new DBManager().dBManipulator(sQLForAddSales);
    
-     String sQLToUpdateCustomer="update customerdetails set cus_total='"+cTotal+"' where sales_no="+cusIDForAddSalesInt;
-      new DBManager().dBManipulator(sQLToUpdateCustomer);
+     String sQLToUpdateCustomerInSales="update customerdetails set cus_total='"+cTotal+"' where sales_no="+cusIDForAddSalesInt;
+      new DBManager().dBManipulator(sQLToUpdateCustomerInSales);
       
-       String sQLToUpdatePaint="update paintdetails set paint_sales_quantity='"+paintQuantity+"' where sales_no="+paintProductNoForAddSalesInt;
-      new DBManager().dBManipulator(sQLToUpdatePaint);
+       String sQLToUpdatePaintInSales="update paintdetails set paint_sales_quantity='"+paintQuantity+"' where sales_no="+paintProductNoForAddSalesInt;
+      new DBManager().dBManipulator(sQLToUpdatePaintInSales);
    
     salesAddFrameCahier.dispose();
     new SalesActionSelectionFrame().cashierSalesFrame();
