@@ -14,24 +14,24 @@ import java.awt.event.*;
  * @author User
  */
 public class PaintViewSelectionFrame {
-    static JFrame paintViewSelectionFrameManager=new JFrame();
-    static JFrame paintViewSelectionFrameStockKeeper=new JFrame();
-    static JFrame paintViewSelectionFrameCahsier=new JFrame();
+     JFrame paintViewSelectionFrameManager=new JFrame();
+     JFrame paintViewSelectionFrameStockKeeper=new JFrame();
+     JFrame paintViewSelectionFrameCahsier=new JFrame();
      
-    static JTextField dataForSearchPaint=new JTextField("Search by");
+     JTextField dataForSearchPaint=new JTextField("Search by");
     
     static Exit xFPVS=new Exit();
     
-    static JLabel labelForSearchPaint=new JLabel("Search by"); 
+     JLabel labelForSearchPaint=new JLabel("Search by"); 
     
-    static String searchPaintBy[]={"Product no.","Name","Colour"};        
-    static JComboBox paintSearchByCB=new JComboBox(searchPaintBy); 
+     String searchPaintBy[]={"Product no.","Name","Colour"};        
+     JComboBox paintSearchByCB=new JComboBox(searchPaintBy); 
     
-    static JButton backFPVSF=new JButton("Back");
-    static JButton viewAllPaint=new JButton("View all");
-    static JButton viewPaintBy=new JButton("Search");
+     JButton backFPVSF=new JButton("Back");
+     JButton viewAllPaint=new JButton("View all");
+     JButton viewPaintBy=new JButton("Search");
     
-    public static void managersPaintViewSelectionFrame(){
+    public void managersPaintViewSelectionFrame(){
     
      
     paintViewSelectionFrameManager.add(viewAllPaint);
@@ -56,12 +56,26 @@ public class PaintViewSelectionFrame {
     backFPVSF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintViewSelectionFrameManager.dispose();
-           PaintActionSelectionFrame.managersPaintFrame();
+          new PaintActionSelectionFrame().managersPaintFrame();
+    }  
+    });
+    
+      viewPaintBy.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        String idOrName=dataForSearchPaint.getText();
+        new PaintViewFrame().showPaintTableData(InputIntOrString.checkInput(idOrName),idOrName);
+    }  
+    });
+     
+        viewAllPaint.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+    new PaintViewFrame().showPaintTableData();
+         
     }  
     });
     }
      
-    public static void stockKeeperPaintViewSelectionFrame(){
+    public void stockKeeperPaintViewSelectionFrame(){
     
      
     paintViewSelectionFrameStockKeeper.add(viewAllPaint);
@@ -86,12 +100,26 @@ public class PaintViewSelectionFrame {
     backFPVSF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintViewSelectionFrameStockKeeper.dispose();
-           PaintActionSelectionFrame.stockKeeperPaintFrame();
+          new PaintActionSelectionFrame().stockKeeperPaintFrame();
+    }  
+    });
+        
+          viewPaintBy.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        String idOrName=dataForSearchPaint.getText();
+        new PaintViewFrame().showPaintTableData(InputIntOrString.checkInput(idOrName),idOrName);
+    }  
+    });
+     
+        viewAllPaint.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+    new PaintViewFrame().showPaintTableData();
+         
     }  
     });
     }
     
-    public static void cashierPaintViewSelectionFrame(){
+    public void cashierPaintViewSelectionFrame(){
     
      
     paintViewSelectionFrameCahsier.add(viewAllPaint);
@@ -116,7 +144,21 @@ public class PaintViewSelectionFrame {
     backFPVSF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintViewSelectionFrameCahsier.dispose();
-           PaintActionSelectionFrame.cashierPaintFrame();
+          new PaintActionSelectionFrame().cashierPaintFrame();
+    }  
+    });
+    
+          viewPaintBy.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        String idOrName=dataForSearchPaint.getText();
+        new PaintViewFrame().showPaintTableData(InputIntOrString.checkInput(idOrName),idOrName);
+    }  
+    });
+     
+        viewAllPaint.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+    new PaintViewFrame().showPaintTableData();
+         
     }  
     });
     }

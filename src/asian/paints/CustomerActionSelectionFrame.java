@@ -62,7 +62,7 @@ public class CustomerActionSelectionFrame{
     public void actionPerformed(ActionEvent e){ 
         customerActionSelectionFrameManager.dispose();
            
-           CustomerViewSelectionFrame.managersCustomerViewSelectionFrame();
+          new CustomerViewSelectionFrame().managersCustomerViewSelectionFrame();
     }  
     });
                 
@@ -114,7 +114,7 @@ public class CustomerActionSelectionFrame{
     public void actionPerformed(ActionEvent e){ 
         customerActionSelectionFrameCashier.dispose();
            
-          CustomerViewSelectionFrame.cashiresCustomerViewSelectionFrame();
+         new CustomerViewSelectionFrame().cashiresCustomerViewSelectionFrame();
     }  
     });
             

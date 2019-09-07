@@ -57,35 +57,13 @@ public class UserViewSelectionFrame {
     viewUserBy.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         String idOrName=dataForSearchUser.getText();
-        UserViewFrame uSF=new UserViewFrame();
-        uSF.showTableData(InputIntOrString.checkInput(idOrName),idOrName);
+        new UserViewFrame().showUserTableData(InputIntOrString.checkInput(idOrName),idOrName);
     }  
     });
      
         viewAllUsers.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
-       /* JFrame fToViewUser=new JFrame();
-       String sql = "select * from EmployeeDetails";
-       new DBManager().showDataFromDB(sql);
-JTextArea tVU=new JTextArea();
-tVU.setText("emp_ID"+" "+"emp_name"+" "+"emp_address"+" "+"emp_tp_no"+" "+"emp_possition"+" "+"emp_userName"+" "+"emp_password");
-try{
-//String arr=new DBManager().showDataFromDB(sql);
-//while(new DBManager().showDataFromDB(sql)==true){}
-
-}catch(Exception ex){System.out.println(ex);}
-
-
-
-//for(int i = 1;i<=1;i++){tVU.append(arr[i]);}
-JScrollPane scroll = new JScrollPane(tVU); 
-fToViewUser.add(scroll); 
-scroll.setBounds(10,30, 300,300); 
-  fToViewUser.setSize(500,500); 
-    fToViewUser.setLayout(null);  
-    fToViewUser.setVisible(true); */
-
-    UserViewFrame.showTableData();
+    new UserViewFrame().showUserTableData();
          
     }  
     });

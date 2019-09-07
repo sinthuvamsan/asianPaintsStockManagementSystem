@@ -28,7 +28,7 @@ public class PaintUpdateFrame {
     static Exit xFPU=new Exit();
 
      JButton backFPUF=new JButton("Back");
-     JButton updatePaint=new JButton("Add paint");
+     JButton updatePaint=new JButton("Update paint");
    
     PaintUpdateFrame(boolean isUserManager,int paintToBeUpdated){
      updatePaint.addActionListener(new ActionListener(){  

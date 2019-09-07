@@ -16,21 +16,16 @@ import java.sql.*;
  * @author User
  */
 public class UserViewFrame {
-    static JFrame frame1;
-static JTable table;
+     JFrame frame1;
+ JTable table;
 
+ String[] columnNames = {"User ID", "Name", "Address", "User T.P no.", "Position", "User name", "Password"};
+ String sql;
 
-static String driverName = "com.mysql.jdbc.Driver";
- static String url = "jdbc:mysql://localhost:3306/asianPaints";
- static String userName = "root";
-static String password = "root";
-static String[] columnNames = {"User ID", "Name", "Address", "User T.P no.", "Position", "User name", "Password"};
-static String sql;
-
-    public static void showTableData()
+    public void showUserTableData()
 {
 
-frame1 = new JFrame("Database Search Result");
+frame1 = new JFrame("User result");
 frame1.setDefaultCloseOperation(frame1.DISPOSE_ON_CLOSE);
 frame1.setLayout(new BorderLayout()); 
 
@@ -54,8 +49,7 @@ int UID=0;
     String passwordUser="";
 try
 { 
-Class.forName(driverName); 
-Connection con = DriverManager.getConnection(url, userName, password);
+Connection con = new DBManager().getConnection();
 String sql = "select * from EmployeeDetails";
 PreparedStatement ps = con.prepareStatement(sql);
 ResultSet rs = ps.executeQuery();
@@ -100,10 +94,10 @@ frame1.setSize(400,300);
     
 }
     
-    public static void showTableData(boolean userSearch,String idOrNameForUserSearch)
+    public void showUserTableData(boolean userSearch,String idOrNameForUserSearch)
 {
 
-frame1 = new JFrame("Database Search Result");
+frame1 = new JFrame("User search result");
 frame1.setDefaultCloseOperation(frame1.DISPOSE_ON_CLOSE);
 frame1.setLayout(new BorderLayout()); 
 
@@ -128,8 +122,7 @@ int UID=0;
     String passwordUser="";
 try
 { 
-Class.forName(driverName); 
-Connection con = DriverManager.getConnection(url, userName, password);
+Connection con = new DBManager().getConnection();
 if(userSearch==true){
 sql = "select * from employeedetails where emp_ID = "+idOrNameForUserSearch;}
 else {sql = "select * from employeedetails where emp_name LIKE '%"+ idOrNameForUserSearch + "%'";}

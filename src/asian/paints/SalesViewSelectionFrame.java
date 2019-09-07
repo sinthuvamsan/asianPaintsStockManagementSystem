@@ -14,20 +14,20 @@ import java.awt.event.*;
  * @author User
  */
 public class SalesViewSelectionFrame {
-    static JFrame salesViewSelectionFrameManager=new JFrame();
+     JFrame salesViewSelectionFrameManager=new JFrame();
      
-    static JTextField dataForSearchSales=new JTextField("Search by");
+     JTextField dataForSearchSales=new JTextField("Search by");
     
     static Exit xFSVS=new Exit();
     
-    static JLabel labelForSearchSales=new JLabel("Search by:"); 
+     JLabel labelForSearchSales=new JLabel("Search by:"); 
     
-    static String searchSalesBy[]={"Cus ID","Name"};        
-    static JComboBox salesSearchByCB=new JComboBox(searchSalesBy); 
+     String searchSalesBy[]={"Customer_ID","Sales_ID"};        
+     JComboBox salesSearchByCB=new JComboBox(searchSalesBy); 
     
-    static JButton backFSVSF=new JButton("Back");
-    static JButton viewAllSales=new JButton("View all");
-    static JButton viewSalesBy=new JButton("Search");
+     JButton backFSVSF=new JButton("Back");
+     JButton viewAllSales=new JButton("View all");
+     JButton viewSalesBy=new JButton("Search");
     
     SalesViewSelectionFrame(){
     
@@ -54,7 +54,29 @@ public class SalesViewSelectionFrame {
     backFSVSF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         salesViewSelectionFrameManager.dispose();
-           SalesActionSelectionFrame.managersSalesFrame();
+          new SalesActionSelectionFrame().managersSalesFrame();
+    }  
+    });
+    
+viewSalesBy.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        String cusOrSales = (String)salesSearchByCB.getSelectedItem();
+        boolean cusOrSalesBoolean=false;
+        if(cusOrSales.equals("Customer_ID")){
+            cusOrSalesBoolean=true;
+        }
+        else{
+            cusOrSalesBoolean=false;
+        }
+        String idOCusOrSales=dataForSearchSales.getText();
+        new SalesViewFrame().showSalesTableData(cusOrSalesBoolean,idOCusOrSales);
+    }  
+    });
+     
+        viewAllSales.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+    new SalesViewFrame().showSalesTableData();
+         
     }  
     });
     }

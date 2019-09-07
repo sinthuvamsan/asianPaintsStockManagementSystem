@@ -15,23 +15,23 @@ import java.sql.*;
  * @author User
  */
 public class CustomerViewSelectionFrame {
-    static  JFrame customerViewSelectionFrameManager=new JFrame();
-    static JFrame customerViewSelectionFrameCahsier=new JFrame();
+      JFrame customerViewSelectionFrameManager=new JFrame();
+     JFrame customerViewSelectionFrameCahsier=new JFrame();
     
-    static JTextField dataForSearchCustomer=new JTextField("Search by");
+     JTextField dataForSearchCustomer=new JTextField("Search by");
     
     static Exit xFCVS=new Exit();
     
-    static JLabel labelForSearchCustomer=new JLabel("Search by:"); 
+     JLabel labelForSearchCustomer=new JLabel("Search by:"); 
     
-    static String searchCustomerBy[]={"Cus ID","Name"};        
-    static JComboBox customerSearchByCB=new JComboBox(searchCustomerBy); 
+     String searchCustomerBy[]={"Cus ID","Name"};        
+     JComboBox customerSearchByCB=new JComboBox(searchCustomerBy); 
     
-    static JButton backFCVSF=new JButton("Back");
-    static JButton viewAllCustomer=new JButton("View all");
-    static JButton viewCustomerBy=new JButton("Search");
+     JButton backFCVSF=new JButton("Back");
+     JButton viewAllCustomer=new JButton("View all");
+     JButton viewCustomerBy=new JButton("Search");
     
-    public static void managersCustomerViewSelectionFrame(){
+    public void managersCustomerViewSelectionFrame(){
     customerViewSelectionFrameManager.add(viewAllCustomer);
     viewAllCustomer.setBounds(130,100,100, 40);
     customerViewSelectionFrameManager.add(labelForSearchCustomer);
@@ -54,12 +54,27 @@ public class CustomerViewSelectionFrame {
     backFCVSF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         customerViewSelectionFrameManager.dispose();
-         CustomerActionSelectionFrame.managersCustomerFrame();
+        new CustomerActionSelectionFrame().managersCustomerFrame();
+    }  
+    });
+    
+    viewCustomerBy.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        String idOrName=dataForSearchCustomer.getText();
+        
+        new CustomerViewFrame().showCustomerTableData(InputIntOrString.checkInput(idOrName),idOrName);
+    }  
+    });
+     
+        viewAllCustomer.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+    new CustomerViewFrame().showCustomerTableData();
+         
     }  
     });
     }
      
-    public static void cashiresCustomerViewSelectionFrame(){
+    public void cashiresCustomerViewSelectionFrame(){
     customerViewSelectionFrameCahsier.add(viewAllCustomer);
     viewAllCustomer.setBounds(130,100,100, 40);
     customerViewSelectionFrameCahsier.add(labelForSearchCustomer);
@@ -82,7 +97,21 @@ public class CustomerViewSelectionFrame {
     backFCVSF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         customerViewSelectionFrameCahsier.dispose();
-         CustomerActionSelectionFrame.cashierCustomerFrame();
+        new CustomerActionSelectionFrame().cashierCustomerFrame();
+    }  
+    });
+    
+    viewCustomerBy.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        String idOrName=dataForSearchCustomer.getText();
+        new CustomerViewFrame().showCustomerTableData(InputIntOrString.checkInput(idOrName),idOrName);
+    }  
+    });
+     
+        viewAllCustomer.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+    new CustomerViewFrame().showCustomerTableData();
+         
     }  
     });
     }

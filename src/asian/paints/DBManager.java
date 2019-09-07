@@ -53,7 +53,7 @@ if (rs.next())
   conForLastID.close();
   recordCount++;
   return lastId;
-}else if(recordCount <1)
+}else
 {
 return recordCount;
 }

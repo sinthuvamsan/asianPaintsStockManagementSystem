@@ -23,7 +23,7 @@ public class PaintUpdateIDCollectionFrame {
     static Exit xFPUICF=new Exit();
      
      JButton backFPUICF=new JButton("Back");
-     JButton searchPaintToBeUpdated=new JButton("Add paint");
+     JButton searchPaintToBeUpdated=new JButton("Update paint");
    
     JPanel pCheck=new JPanel();
     
@@ -46,7 +46,7 @@ public class PaintUpdateIDCollectionFrame {
     backFPUICF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintUpdateIDCollectionFrameManager.dispose();
-           PaintActionSelectionFrame.managersPaintFrame();
+           new PaintActionSelectionFrame().managersPaintFrame();
     }  
     });
     
@@ -77,7 +77,7 @@ public class PaintUpdateIDCollectionFrame {
     backFPUICF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintUpdateIDCollectionFrameStockKeeper.dispose();
-           PaintActionSelectionFrame.stockKeeperPaintFrame();
+           new PaintActionSelectionFrame().stockKeeperPaintFrame();
     }  
     });
     
