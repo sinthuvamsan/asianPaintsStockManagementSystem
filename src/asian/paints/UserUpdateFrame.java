@@ -25,6 +25,9 @@ public class UserUpdateFrame {
      JTextField empUserNameForUpdateUser=new JTextField();
      JTextField empPaawordForUpdateUser=new JTextField();
     
+      JLabel forUserName=new JLabel("User name:");
+     JLabel forPassword=new JLabel("Password:");
+     
     static Exit xFUU=new Exit();
      
      JButton backFUAUF=new JButton("Back");
@@ -33,6 +36,12 @@ public class UserUpdateFrame {
   UserUpdateFrame(int userToBeUpdated){
     
     userUpdateFrameManager=new JFrame();
+    
+     userUpdateFrameManager.add(forUserName);
+    forUserName.setBounds(50,300,100, 40); 
+        userUpdateFrameManager.add(forPassword);
+    forPassword.setBounds(50,350,100, 40); 
+    
     userUpdateFrameManager.add(empIDUpdateUser);
     empIDUpdateUser.setBounds(130,50,100, 40);
     userUpdateFrameManager.add(empNameForUpdateUser);

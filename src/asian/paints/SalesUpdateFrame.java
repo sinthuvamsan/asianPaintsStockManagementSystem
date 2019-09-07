@@ -17,10 +17,15 @@ import java.sql.*;
 public class SalesUpdateFrame {
      JFrame salesUpdateFrameManager;
     
-     JTextField salesNoForUpdateSales=new JTextField("Sales no.");
-     JTextField paintSalesQuantityForUpdateSales=new JTextField("Sales quantity");
-     JTextField paintProductNoForUpdateSales=new JTextField("Product no.");
-     JTextField cusIDForUpdateSales=new JTextField("Customer ID");
+     JTextField salesNoForUpdateSales=new JTextField();
+     JTextField paintSalesQuantityForUpdateSales=new JTextField();
+     JTextField paintProductNoForUpdateSales=new JTextField();
+     JTextField cusIDForUpdateSales=new JTextField();
+     
+     JLabel forSalesNoForUpdateSales=new JLabel("Sales no.");
+     JLabel forPaintSalesQuantityForUpdateSales=new JLabel("Sales quantity");
+     JLabel forPaintProductNoForUpdateSales=new JLabel("Paint product no.");
+     JLabel forCusIDForUpdateSales=new JLabel("Customer ID");
     
     static Exit xFSU=new Exit();
      
@@ -29,6 +34,15 @@ public class SalesUpdateFrame {
    
      SalesUpdateFrame(int saleIDToBeUpdated){
     salesUpdateFrameManager=new JFrame();
+    
+    salesUpdateFrameManager.add(forSalesNoForUpdateSales);
+    forSalesNoForUpdateSales.setBounds(50,100,100, 40);
+    salesUpdateFrameManager.add(forPaintSalesQuantityForUpdateSales);
+    forPaintSalesQuantityForUpdateSales.setBounds(50,150,100, 40);
+    salesUpdateFrameManager.add(forPaintProductNoForUpdateSales);
+    forPaintProductNoForUpdateSales.setBounds(50,200,100, 40);
+    salesUpdateFrameManager.add(forCusIDForUpdateSales);
+    forCusIDForUpdateSales.setBounds(50,250,100, 40);   
     
     salesUpdateFrameManager.add(salesNoForUpdateSales);
     salesNoForUpdateSales.setBounds(130,100,100, 40);
