@@ -40,8 +40,8 @@ public class CustomerUpdateFrame {
     cusAddressForUpdate.setBounds(130,200,100, 40);
     customerUpdateFrameManager.add(cusTPNoForUpdate);
     cusTPNoForUpdate.setBounds(130,250,100, 40);
-    customerUpdateFrameManager.add(cusTotalForUpdate);
-    cusTotalForUpdate.setBounds(130,300,100, 40);   
+    //customerUpdateFrameManager.add(cusTotalForUpdate);
+   // cusTotalForUpdate.setBounds(130,300,100, 40);   
    customerUpdateFrameManager.add(updateCustomer);
    updateCustomer.setBounds(130,350,100, 40);
    customerUpdateFrameManager.add(backFCUF);
@@ -65,15 +65,15 @@ public class CustomerUpdateFrame {
     
         try{
      Connection con=new DBManager().getConnection();
-    String sqlToViewUserToBeUpdated = "select * from employeedetails where emp_ID = "+managerCustomerUpdateID;
+    String sqlToViewUserToBeUpdated = "select * from customerDetails where cus_id = "+managerCustomerUpdateID;
     PreparedStatement ps = con.prepareStatement(sqlToViewUserToBeUpdated);
 ResultSet rs = ps.executeQuery();
    if(rs.next()){
-  cusIDForUpdate.setText(String.valueOf(rs.getInt("emp_ID")));
-    cusNameForUpdate.setText(rs.getString("emp_name"));
-     cusAddressForUpdate.setText(rs.getString("emp_address"));
-     cusTPNoForUpdate.setText(String.valueOf(rs.getInt("emp_tp_no")));
-     cusTotalForUpdate.setText(rs.getString("emp_possition"));
+  cusIDForUpdate.setText(String.valueOf(rs.getInt("cus_ID")));
+    cusNameForUpdate.setText(rs.getString("cus_name"));
+     cusAddressForUpdate.setText(rs.getString("cus_address"));
+     cusTPNoForUpdate.setText(String.valueOf(rs.getInt("cus_tp_no")));
+     cusTotalForUpdate.setText(rs.getString("cus_total"));
    }
     }
         catch(Exception ex){
@@ -108,8 +108,8 @@ ResultSet rs = ps.executeQuery();
     cusAddressForUpdate.setBounds(130,200,100, 40);
     customerUpdateFrameCahier.add(cusTPNoForUpdate);
     cusTPNoForUpdate.setBounds(130,250,100, 40);
-    customerUpdateFrameCahier.add(cusTotalForUpdate);
-    cusTotalForUpdate.setBounds(130,300,100, 40);
+    //customerUpdateFrameCahier.add(cusTotalForUpdate);
+    //cusTotalForUpdate.setBounds(130,300,100, 40);
     customerUpdateFrameCahier.add(updateCustomer);
     updateCustomer.setBounds(250,350,100, 40);
     customerUpdateFrameCahier.add(backFCUF);
