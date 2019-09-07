@@ -8,6 +8,7 @@ package asian.paints;
 import javax.swing.*; 
 import java.awt.*;  
 import java.awt.event.*;
+import java.sql.*;
 
 /**
  *
@@ -27,7 +28,9 @@ public class SalesAddFrame {
      JButton backFSAF=new JButton("Back");
      JButton addSales=new JButton("Add sales");
    
-  
+  int cID=0,paintQuantity=0;
+  float cTotal=0,pUnitPrice=0;
+  boolean customerExistForSales=false,paintExistForSales=false;
     //public void stockKeeperCustomerAddAndUpdateFrame(){}
    
     SalesAddFrame(){
@@ -73,17 +76,70 @@ int lastOfSalesId = DBManager.lastID(query,colName);
    int paintSalesQuantityForAddSalesInt=Integer.parseInt(paintSalesQuantityForAddSales.getText());
     int paintProductNoForAddSalesInt=Integer.parseInt(paintProductNoForAddSales.getText());
      int cusIDForAddSalesInt=Integer.parseInt(cusIDForAddSales.getText());
+       try
+{ 
+Connection con = DBManager.getConnection();
+      String queryForCustomerCheck ="SELECT * FROM customerDetails where cus_id="+cusIDForAddSalesInt;
+      PreparedStatement ps = con.prepareStatement(queryForCustomerCheck);
+ResultSet rs = ps.executeQuery();
+        
+if(rs.next())
+{
+cTotal=Float.parseFloat(rs.getString("cus_total"));
+customerExistForSales=true;
+ 
+}
+}catch(Exception ex)
+{
+JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+}
+          try
+{ 
+Connection con = DBManager.getConnection();
+      String queryForStockCheck ="SELECT * FROM paintDetails where paint_product_no="+paintProductNoForAddSalesInt;
+      PreparedStatement ps = con.prepareStatement(queryForStockCheck);
+ResultSet rs = ps.executeQuery();
      
-   
+if(rs.next())
+{
+paintQuantity = rs.getInt("paint_stock_quantity");
+pUnitPrice=Float.parseFloat(rs.getString("paint_unit_price"));
+paintExistForSales=true;
+
+}
+
+}catch(Exception ex)
+{
+JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+} 
+       
+     if(customerExistForSales==true){
+         if(paintExistForSales==true){
+           if(paintQuantity<paintSalesQuantityForAddSalesInt){
+   cTotal=cTotal+(paintSalesQuantityForAddSalesInt*pUnitPrice);
+   paintQuantity=paintQuantity-paintSalesQuantityForAddSalesInt;
     String sQLForAddSales="insert into salesdetails (sales_no,paint_sales_quantity,paint_product_no,cus_id)"
             + "values('"+lastOfSalesId+"','"+paintSalesQuantityForAddSalesInt+"','"+paintProductNoForAddSalesInt+"','"+cusIDForAddSalesInt+"')";
+   new DBManager().dBManipulator(sQLForAddSales);
    
-    new DBManager().dBManipulator(sQLForAddSales);
-            
+     String sQLToUpdateCustomer="update customerdetails set cus_total='"+cTotal+"' where sales_no="+cusIDForAddSalesInt;
+      new DBManager().dBManipulator(sQLToUpdateCustomer);
+      
+       String sQLToUpdatePaint="update paintdetails set paint_sales_quantity='"+paintQuantity+"' where sales_no="+paintProductNoForAddSalesInt;
+      new DBManager().dBManipulator(sQLToUpdatePaint);
+   
     salesAddFrameCahier.dispose();
     new SalesActionSelectionFrame().cashierSalesFrame();
     JOptionPane.showMessageDialog(new SalesActionSelectionFrame().salesActionSelectionFrameCashier,"Data has been successfully added");  
+           }else{JOptionPane.showMessageDialog(salesAddFrameCahier,"That sales amount is mothan we have in stock");}
+         }else{JOptionPane.showMessageDialog(salesAddFrameCahier,"Wrong paint ID");}
+     }else{
+     JOptionPane.showMessageDialog(salesAddFrameCahier,"Wrong customer ID");
      }
+     
+       
+    }
     });
     }
+           
 }

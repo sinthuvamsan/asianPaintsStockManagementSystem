@@ -77,8 +77,8 @@ public class SalesUpdateFrame {
       int paintProductNoForUpdateSalesInt=Integer.parseInt(paintProductNoForUpdateSales.getText());
       int cusIDForUpdateSalesInt=Integer.parseInt(cusIDForUpdateSales.getText());
       
-      String sQLToUpdateUser="update salesdetails set sales_no='"+salesNoForUpdateSalesInt+"' ,paint_sales_quantity='"+paintSalesQuantityForUpdateSalesInt+"' ,paint_product_no='"+paintProductNoForUpdateSalesInt+"' ,cus_id='"+cusIDForUpdateSalesInt+"' where sales_no="+saleIDToBeUpdated;
-      new DBManager().dBManipulator(sQLToUpdateUser);
+      String sQLToUpdateSales="update salesdetails set sales_no='"+salesNoForUpdateSalesInt+"' ,paint_sales_quantity='"+paintSalesQuantityForUpdateSalesInt+"' ,paint_product_no='"+paintProductNoForUpdateSalesInt+"' ,cus_id='"+cusIDForUpdateSalesInt+"' where sales_no="+saleIDToBeUpdated;
+      new DBManager().dBManipulator(sQLToUpdateSales);
     }  
     });
      
