@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author User
  */
-public class PaintViewFrame extends ViewFrame {
+public class PaintViewFrame {
       JFrame frame1;
  JTable table;
 

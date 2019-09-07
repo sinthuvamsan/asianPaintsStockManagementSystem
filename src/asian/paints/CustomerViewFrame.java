@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author User
  */
-public class CustomerViewFrame extends ViewFrame {
+public class CustomerViewFrame {
      JFrame frame1;
  JTable table;
 
