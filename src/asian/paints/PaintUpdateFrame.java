@@ -19,16 +19,16 @@ public class PaintUpdateFrame {
      JFrame paintUpdateFrameManager;
      JFrame paintUpdateFrameStockKeeper;
     
-     JTextField paintProductNoForUpdate=new JTextField("Paint product no.");
-     JTextField paintModelNameForUpdate=new JTextField("Paint model name");
-     JTextField paintColourForUpdate=new JTextField("Paint colour");
-     JTextField paintUnitPriceForUpdate=new JTextField("Paint unit price");
-     JTextField paintStockQuantityForUpdate=new JTextField("Paint stock quantity");
+     JTextField paintProductNoForUpdate=new JTextField("Product no.");
+     JTextField paintModelNameForUpdate=new JTextField("Model name");
+     JTextField paintColourForUpdate=new JTextField("Color");
+     JTextField paintUnitPriceForUpdate=new JTextField("Unit price");
+     JTextField paintStockQuantityForUpdate=new JTextField("Stock quantity");
     
     static Exit xFPU=new Exit();
 
      JButton backFPUF=new JButton("Back");
-     JButton updatePaint=new JButton("Update paint");
+     JButton updatePaint=new JButton("Update");
    
     PaintUpdateFrame(boolean isUserManager,int paintToBeUpdated){
      updatePaint.addActionListener(new ActionListener(){  
@@ -45,7 +45,7 @@ public class PaintUpdateFrame {
     });
      
      if(isUserManager==true){
-         paintUpdateFrameManager=new JFrame();
+         paintUpdateFrameManager=new JFrame("Update paint");
          
          paintUpdateFrameManager.add(paintProductNoForUpdate);
     paintProductNoForUpdate.setBounds(130,100,100, 40);
@@ -76,7 +76,7 @@ public class PaintUpdateFrame {
     });
      }
      else{
-         paintUpdateFrameStockKeeper=new JFrame();
+         paintUpdateFrameStockKeeper=new JFrame("Update paint");
     
     paintUpdateFrameStockKeeper.add(paintProductNoForUpdate);
     paintProductNoForUpdate.setBounds(130,100,100, 40);

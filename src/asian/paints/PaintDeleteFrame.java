@@ -15,13 +15,12 @@ import java.sql.*;
  * @author User
  */
 public class PaintDeleteFrame {
-     JFrame paintDeleteFrameManager=new JFrame();
-     JFrame paintDeleteFrameStockKeeper=new JFrame();
+     JFrame paintDeleteFrameManager=new JFrame("Asian paints stock delete");
     
     JTextArea paintDetailsForDeleteUser=new JTextArea();
      JScrollPane scrollPD = new JScrollPane(paintDetailsForDeleteUser);
     
-     JTextField paintProductNoForDelete=new JTextField("Paint product no.");
+     JTextField paintProductNoForDelete=new JTextField("Product no.");
     
     static Exit xFPD=new Exit();
     
@@ -30,7 +29,7 @@ public class PaintDeleteFrame {
     
     String sQLToDeletePaint="Error";
     
-    PaintDeleteFrame(int paintToBeDeleted,boolean IsUserManagerPM){
+    PaintDeleteFrame(int paintToBeDeleted){
         int pPN=paintToBeDeleted;
     String pMN="";
     String pC="";
@@ -68,11 +67,9 @@ JOptionPane.ERROR_MESSAGE);
 
 else
 {
-    if(IsUserManagerPM==true){
+    
  JOptionPane.showMessageDialog(paintDeleteFrameManager,i+" Records found to be deleted"); 
-    }else{
-    JOptionPane.showMessageDialog(paintDeleteFrameStockKeeper,i+" Records found to be deleted"); 
-    }
+   
 }
 
 }
@@ -80,7 +77,7 @@ catch(Exception ex)
 {
 JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
 }
-   if(IsUserManagerPM==true){
+  
    paintDeleteFrameManager.add(scrollPD);       
     scrollPD.setBounds(20, 20, 300, 300);
     paintDeleteFrameManager.add(confirmDeletePaint);
@@ -97,7 +94,7 @@ JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_ME
      backFPDF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         paintDeleteFrameManager.dispose();
-          new PaintDeleteIDCollectionFrame().managerPaintDeleteFrame();
+          new PaintDeleteIDCollectionFrame();
     }  
     });
     
@@ -109,36 +106,8 @@ JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_ME
            JOptionPane.showMessageDialog(new UserActionSelectionFrame().userActionSelectionFrame,"Paint deleted successfully"); 
     }  
     });
-   }else{
-    paintDeleteFrameStockKeeper.add(scrollPD);       
-    scrollPD.setBounds(20, 20, 300, 300);
-    paintDeleteFrameStockKeeper.add(confirmDeletePaint);
-    confirmDeletePaint.setBounds(250,350,100, 40);
-    paintDeleteFrameStockKeeper.add(backFPDF);
-    backFPDF.setBounds(50,400,95,30);
-    paintDeleteFrameStockKeeper.add(xFPD.exit);
-    xFPD.exit.setBounds(250,400,95,30);
-    
-    paintDeleteFrameStockKeeper.setSize(500,500);  
-    paintDeleteFrameStockKeeper.setLayout(null);  
-    paintDeleteFrameStockKeeper.setVisible(true); 
-    
-     backFPDF.addActionListener(new ActionListener(){  
-    public void actionPerformed(ActionEvent e){ 
-        paintDeleteFrameStockKeeper.dispose();
-          new PaintDeleteIDCollectionFrame().stockKeeperPaintDeleteFrame();
-    }  
-    });
-    
-    confirmDeletePaint.addActionListener(new ActionListener(){  
-    public void actionPerformed(ActionEvent e){ 
-        new DBManager().dBManipulator(sQLToDeletePaint);
-        paintDeleteFrameStockKeeper.dispose();
-           new UserActionSelectionFrame();
-           JOptionPane.showMessageDialog(new UserActionSelectionFrame().userActionSelectionFrame,"Paint deleted successfully"); 
-    }  
-    });
+   
    }
-    }
-    
 }
+    
+

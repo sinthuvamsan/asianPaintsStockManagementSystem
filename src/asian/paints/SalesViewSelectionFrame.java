@@ -14,7 +14,7 @@ import java.awt.event.*;
  * @author User
  */
 public class SalesViewSelectionFrame {
-     JFrame salesViewSelectionFrameManager=new JFrame();
+     JFrame salesViewSelectionFrameManager=new JFrame("View sales");
      
      JTextField dataForSearchSales=new JTextField("Search by");
     

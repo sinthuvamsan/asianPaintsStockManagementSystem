@@ -14,16 +14,16 @@ import java.awt.event.*;
  * @author User
  */
 public class PaintUpdateIDCollectionFrame {
-      JFrame paintUpdateIDCollectionFrameManager=new JFrame();
-     JFrame paintUpdateIDCollectionFrameStockKeeper=new JFrame();
+      JFrame paintUpdateIDCollectionFrameManager=new JFrame("Update paint");
+     JFrame paintUpdateIDCollectionFrameStockKeeper=new JFrame("Update paint");
     
-     JTextField paintProductNoForUpdate=new JTextField("Paint product no.");
+     JTextField paintProductNoForUpdate=new JTextField("Product no.");
    
     
     static Exit xFPUICF=new Exit();
      
      JButton backFPUICF=new JButton("Back");
-     JButton searchPaintToBeUpdated=new JButton("Update paint");
+     JButton searchPaintToBeUpdated=new JButton("Update");
    
     JPanel pCheck=new JPanel();
     

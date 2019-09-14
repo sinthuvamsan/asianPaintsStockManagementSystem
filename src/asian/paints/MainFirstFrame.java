@@ -17,15 +17,18 @@ public class MainFirstFrame{
      JFrame mainFirstFrameStockKeeper;//creating Username Password frame and initializing it
      JFrame mainFirstFrameCashier;//creating Username Password frame and initializing it
     
-     JButton userOptions=new JButton("User options");  //creating and initilizing button
-     JButton stocksOptions=new JButton("Stocks options");  //creating and initilizing button
-     JButton salesOptions=new JButton("Sales options");  //creating and initilizing button
-     JButton customersOptions=new JButton("Customers options");  //creating and initilizing button
+     JButton userOptions=new JButton("User");  //creating and initilizing button
+     JButton stocksOptions=new JButton("Stocks");  //creating and initilizing button
+     JButton salesOptions=new JButton("Sales");  //creating and initilizing button
+     JButton customersOptions=new JButton("Customers");  //creating and initilizing button
+     JButton signOut=new JButton("Signout");  //creating and initilizing button
     static Exit xFM=new Exit();
     
     public void managersMainFrame(){
         mainFirstFrameManager = new JFrame("Asian paints");
         
+        mainFirstFrameManager.add(signOut);
+    signOut.setBounds(0,0,100, 40);
     mainFirstFrameManager.add(userOptions);
     userOptions.setBounds(130,100,100, 40);
     mainFirstFrameManager.add(stocksOptions);
@@ -68,10 +71,18 @@ public class MainFirstFrame{
             new CustomerActionSelectionFrame().managersCustomerFrame();
     }  
     });  
+    signOut.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        mainFirstFrameManager.dispose();
+          new UserPass();
+    }  
+    });
     }
     public void stockKeeperMainFrame(){
         mainFirstFrameStockKeeper = new JFrame("Asian paints");
         
+         mainFirstFrameStockKeeper.add(signOut);
+    signOut.setBounds(0,0,100, 40);
     mainFirstFrameStockKeeper.add(stocksOptions);
     stocksOptions.setBounds(130,100,100, 40);
     mainFirstFrameStockKeeper.add(xFM.exit);
@@ -87,9 +98,18 @@ public class MainFirstFrame{
           new PaintActionSelectionFrame().stockKeeperPaintFrame();
     }  
     });  
+    signOut.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        mainFirstFrameStockKeeper.dispose();
+          new UserPass();
+    }  
+    });
     }
     public void cashierMainFrame(){
         mainFirstFrameCashier = new JFrame("Asian paints");
+        
+           mainFirstFrameCashier.add(signOut);
+    signOut.setBounds(0,0,100, 40);
         
     mainFirstFrameCashier.add(stocksOptions);
     stocksOptions.setBounds(130,100,100, 40);
@@ -124,7 +144,12 @@ public class MainFirstFrame{
            new CustomerActionSelectionFrame().cashierCustomerFrame();
     }  
     });
-    
+    signOut.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+        mainFirstFrameCashier.dispose();
+          new UserPass();
+    }  
+    });
     }
      
 }

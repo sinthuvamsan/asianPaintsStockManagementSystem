@@ -14,9 +14,9 @@ import java.awt.event.*;
  * @author User
  */
 public class SalesDeleteIDCollectionFrame {
-    static JFrame salesDeleteIDCollectionFrameManager=new JFrame();
+    static JFrame salesDeleteIDCollectionFrameManager=new JFrame("Sales delete");
     
-    static JTextField saleToBeDeleted=new JTextField("Customer ID");
+    static JTextField saleToBeDeleted=new JTextField("Sales no.");
     
     static JButton searchSalesToBeDeleted=new JButton("Delete");
     static JButton backFSDSF=new JButton("Back");

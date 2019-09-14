@@ -18,10 +18,10 @@ public class SalesActionSelectionFrame{
      JFrame salesActionSelectionFrameManager;//creating Username Password frame and initializing it
      JFrame salesActionSelectionFrameCashier;//creating Username Password frame and initializing it
     
-     JButton addSale=new JButton("Add sale");  //creating and initilizing button
-     JButton updateSale=new JButton("Update sale");  //creating and initilizing button
-     JButton deleteSale=new JButton("Delete sale");  //creating and initilizing button
-     JButton viewSales=new JButton("View sales");  //creating and initilizing button 
+     JButton addSale=new JButton("Add");  //creating and initilizing button
+     JButton updateSale=new JButton("Update");  //creating and initilizing button
+     JButton deleteSale=new JButton("Delete");  //creating and initilizing button
+     JButton viewSales=new JButton("View");  //creating and initilizing button 
      JButton backFS=new JButton("Back");  //creating and initilizing button
      Exit xFS=new Exit();
 

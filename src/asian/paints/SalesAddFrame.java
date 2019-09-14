@@ -34,7 +34,7 @@ public class SalesAddFrame {
     //public void stockKeeperCustomerAddAndUpdateFrame(){}
    
     SalesAddFrame(){
-    salesAddFrameCahier=new JFrame();
+    salesAddFrameCahier=new JFrame("Add sales");
         
     salesAddFrameCahier.add(salesNoForAddSales);
     salesNoForAddSales.setBounds(130,100,100, 40);

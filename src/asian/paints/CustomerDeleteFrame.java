@@ -28,7 +28,8 @@ public class CustomerDeleteFrame {
     String sQLToDeleteCustomer="";
           
     CustomerDeleteFrame(int customerToBeDeleted){ 
-        customerDeleteFrameManager=new JFrame();
+        customerDeleteFrameManager=new JFrame("Delete customer");
+        
     customerDeleteFrameManager.add(scrollCD);       
     scrollCD.setBounds(20, 20, 300, 300);
     customerDeleteFrameManager.add(deleteCustomer);

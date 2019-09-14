@@ -16,7 +16,7 @@ import java.awt.event.*;
 public class UserDeleteSelectionFrame {
      JFrame userDeleteIDCollectionFrameManager;
     
-     JTextField userToBeDeleted=new JTextField("Employee ID");
+     JTextField userToBeDeleted=new JTextField("ID");
     
      JButton searchUserToBeDeleted=new JButton("Delete");
      JButton backFUDSF=new JButton("Back");
@@ -24,7 +24,7 @@ public class UserDeleteSelectionFrame {
      static Exit xFUDSF=new Exit();
      
     UserDeleteSelectionFrame(){
-        userDeleteIDCollectionFrameManager=new JFrame();
+        userDeleteIDCollectionFrameManager=new JFrame("Delete user");
    userDeleteIDCollectionFrameManager.add(userToBeDeleted);
     userToBeDeleted.setBounds(130,50,100, 40);
     userDeleteIDCollectionFrameManager.add(searchUserToBeDeleted);

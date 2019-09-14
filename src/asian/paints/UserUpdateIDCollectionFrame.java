@@ -16,15 +16,15 @@ import java.awt.event.*;
 public class UserUpdateIDCollectionFrame {
      JFrame userUpdateIDCollectionFrameManager;
     
-    JTextField userToBeUpdated=new JTextField("User Id");
+    JTextField userToBeUpdated=new JTextField("ID");
     
-     JButton searchUserToBeUpdated=new JButton("Update this user");
+     JButton searchUserToBeUpdated=new JButton("Update");
      JButton backFUUSF=new JButton("Back");
     
      static Exit xFUUSF=new Exit();
      
     UserUpdateIDCollectionFrame(){
-      userUpdateIDCollectionFrameManager=new JFrame();
+      userUpdateIDCollectionFrameManager=new JFrame("Update user");
       
    userUpdateIDCollectionFrameManager.add(userToBeUpdated);
     userToBeUpdated.setBounds(130,50,80,30);

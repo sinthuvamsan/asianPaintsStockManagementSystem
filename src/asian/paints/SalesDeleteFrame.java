@@ -15,7 +15,7 @@ import java.sql.*;
  * @author User
  */
 public class SalesDeleteFrame {
-    static JFrame salesDeleteFrameManager=new JFrame();
+    static JFrame salesDeleteFrameManager=new JFrame("Delete sales");
     
      JTextArea salesDetailsForDeleteUser=new JTextArea();
      JScrollPane scrollSD = new JScrollPane(salesDetailsForDeleteUser);

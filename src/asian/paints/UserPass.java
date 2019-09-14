@@ -14,7 +14,7 @@ import java.awt.event.*;
  * @author Sinthuvamsan
  */
 public class UserPass {
-    static JFrame userPass = new JFrame("Login");//creating Username Password frame and initializing it
+     JFrame userPass = new JFrame("Login");//creating Username Password frame and initializing it
      
     UserPass(){
    

@@ -14,9 +14,9 @@ import java.awt.event.*;
  * @author User
  */
 public class PaintViewSelectionFrame {
-     JFrame paintViewSelectionFrameManager=new JFrame();
-     JFrame paintViewSelectionFrameStockKeeper=new JFrame();
-     JFrame paintViewSelectionFrameCahsier=new JFrame();
+     JFrame paintViewSelectionFrameManager=new JFrame("View paint details");
+     JFrame paintViewSelectionFrameStockKeeper=new JFrame("View paint details");
+     JFrame paintViewSelectionFrameCahsier=new JFrame("View paint details");
      
      JTextField dataForSearchPaint=new JTextField("Search by");
     

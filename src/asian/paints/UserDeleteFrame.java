@@ -22,14 +22,14 @@ public class UserDeleteFrame {
     static Exit xFUD=new Exit();
      
      JButton backFUDAF=new JButton("Back");
-     JButton confirmDeleteUser=new JButton("Delete user");
+     JButton confirmDeleteUser=new JButton("Delete");
     
     JScrollPane scrollUD = new JScrollPane(empDetailsForDeleteUser);
     
     String sQLToDeleteUser="Error";
             
     UserDeleteFrame(int userIDToBeDeleted){
-        userDeleteConfirmFrameManager=new JFrame();
+        userDeleteConfirmFrameManager=new JFrame("Delete user");
 userDeleteConfirmFrameManager.add(scrollUD);       
 scrollUD.setBounds(20, 20, 300, 300);
 

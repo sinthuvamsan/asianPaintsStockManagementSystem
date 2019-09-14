@@ -14,13 +14,13 @@ import java.awt.event.*;
  * @author User
  */
 public class CustomerUpdateIDCollectionFrame {
-        static JFrame customerUpdateIDCollectionFrameManager=new JFrame();
-     static JFrame customerUpdateIDCollectionFrameCashier=new JFrame();
+         JFrame customerUpdateIDCollectionFrameManager=new JFrame("Update customer");
+      JFrame customerUpdateIDCollectionFrameCashier=new JFrame("Update customer");
      
-     JTextField userToBeUpdated=new JTextField("Employee ID");
+     JTextField userToBeUpdated=new JTextField("Customer ID");
     
-    static JButton searchUserToBeUpdated=new JButton("Update this user");
-    static JButton backFCUSF=new JButton("Back");
+     JButton searchUserToBeUpdated=new JButton("Update");
+     JButton backFCUSF=new JButton("Back");
     
      static Exit xFCUSF=new Exit();
      
@@ -80,7 +80,7 @@ public class CustomerUpdateIDCollectionFrame {
      searchUserToBeUpdated.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         customerUpdateIDCollectionFrameCashier.dispose();
-       new CustomerUpdateFrame().cashierCustomerAddAndUpdateFrame(Integer.parseInt(userToBeUpdated.getText()));
+       new CustomerUpdateFrame().cashierCustomerUpdateFrame(Integer.parseInt(userToBeUpdated.getText()));
     }  
     });
     }

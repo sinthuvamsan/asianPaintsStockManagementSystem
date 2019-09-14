@@ -14,19 +14,19 @@ import java.awt.event.*;
  * @author User
  */
 public class PaintAddFrame {
-     JFrame paintAddFrameManager=new JFrame();
-     JFrame paintAddFrameStockKeeper=new JFrame();
+     JFrame paintAddFrameManager=new JFrame("Asian paints stock add");
+     JFrame paintAddFrameStockKeeper=new JFrame("Asian paints stock add");
     
-     JTextField paintProductNoForAdd=new JTextField("Paint product no.");
-     JTextField paintModelNameForAdd=new JTextField("Paint model name");
-     JTextField paintColourForAdd=new JTextField("Paint colour");
-     JTextField paintUnitPriceForAdd=new JTextField("Paint unit price");
-     JTextField paintStockQuantityForAdd=new JTextField("Paint stock quantity");
+     JTextField paintProductNoForAdd=new JTextField("Product no.");
+     JTextField paintModelNameForAdd=new JTextField("Model name");
+     JTextField paintColourForAdd=new JTextField("Color");
+     JTextField paintUnitPriceForAdd=new JTextField("Unit price");
+     JTextField paintStockQuantityForAdd=new JTextField("Stock quantity");
     
     static Exit xFPA=new Exit();
      
      JButton backFPAF=new JButton("Back");
-     JButton addPaint=new JButton("Add paint");
+     JButton addPaint=new JButton("Add");
    
     
     public void managerPaintAddFrame(){

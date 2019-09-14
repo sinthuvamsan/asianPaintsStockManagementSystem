@@ -16,10 +16,10 @@ import java.awt.event.*;
  */
 public class CustomerActionSelectionFrame{
      
-     JButton addCustomer=new JButton("Add customer");  //creating and initilizing button
-     JButton updateCustomer=new JButton("Update customer");  //creating and initilizing button
-     JButton deleteCustomer=new JButton("Delete customer");  //creating and initilizing button
-     JButton viewCustomer=new JButton("View customer");  //creating and initilizing button
+     JButton addCustomer=new JButton("Add");  //creating and initilizing button
+     JButton updateCustomer=new JButton("Update");  //creating and initilizing button
+     JButton deleteCustomer=new JButton("Delete");  //creating and initilizing button
+     JButton viewCustomer=new JButton("View");  //creating and initilizing button
      JButton backFC=new JButton("Back");  //creating and initilizing button
     
     static Exit xFC=new Exit();

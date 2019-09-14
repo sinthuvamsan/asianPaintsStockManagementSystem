@@ -17,13 +17,13 @@ import java.sql.*;
 public class UserAddFrame{
      JFrame userAddFrameManager;
     
-     JTextField empIDForAddUser=new JTextField("Employee ID");
-     JTextField EmpNameForAddUser=new JTextField("Employee name");
-     JTextField empAddressForAddUser=new JTextField("Employee address");
-     JTextField empTPNoForAddUser=new JTextField("Employee TP no.");
+     JTextField empIDForAddUser=new JTextField("ID");
+     JTextField EmpNameForAddUser=new JTextField("Name");
+     JTextField empAddressForAddUser=new JTextField("Address");
+     JTextField empTPNoForAddUser=new JTextField("TP no.");
      JTextField empPositionForAddUser=new JTextField("Position");
-     JTextField empUserNameForAddUser=new JTextField("Employee user name");
-     JTextField empPaawordForAddUser=new JTextField("Employee passwoerd");
+     JTextField empUserNameForAddUser=new JTextField("User name");
+     JTextField empPaawordForAddUser=new JTextField("Passwoerd");
     
     static Exit xFUA=new Exit();
      
@@ -35,9 +35,9 @@ public class UserAddFrame{
 
    
   UserAddFrame(){
-    userAddFrameManager=new JFrame();
+    userAddFrameManager=new JFrame("Add user");
      JButton backFUAF=new JButton("Back");
-     JButton addUser=new JButton("Add user");
+     JButton addUser=new JButton("Add");
      
     userAddFrameManager.add(empIDForAddUser);
     empIDForAddUser.setBounds(130,50,100, 40);

@@ -15,10 +15,10 @@ import java.awt.event.*;
  */
 public class UserActionSelectionFrame{
     JFrame userActionSelectionFrame ; //creating Username Password frame and initializing it
-     JButton AddUser=new JButton("Add user");  //creating and initilizing button
-     JButton updateUser=new JButton("Update user");  //creating and initilizing button
-     JButton deleteUser=new JButton("Delete user");  //creating and initilizing button
-     JButton viewUsers=new JButton("View users");  //creating and initilizing button
+     JButton AddUser=new JButton("Add");  //creating and initilizing button
+     JButton updateUser=new JButton("Update");  //creating and initilizing button
+     JButton deleteUser=new JButton("Delete");  //creating and initilizing button
+     JButton viewUsers=new JButton("View");  //creating and initilizing button
      JButton backFU=new JButton("Back");  //creating and initilizing button
      Exit xFU=new Exit();
    

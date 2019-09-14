@@ -30,7 +30,7 @@ public class SalesUpdateFrame {
     static Exit xFSU=new Exit();
      
      JButton backFSUF=new JButton("Back");
-     JButton updateSales=new JButton("Update sales");
+     JButton updateSales=new JButton("Update");
      
      int cID=0,newPaintQuantity=0;
   float cTotal=0,newPUnitPrice=0;
@@ -41,7 +41,7 @@ public class SalesUpdateFrame {
     float oldPUnitPrice,oldCTotal;
     
      SalesUpdateFrame(int saleIDToBeUpdated){
-    salesUpdateFrameManager=new JFrame();
+    salesUpdateFrameManager=new JFrame("Update sales");
     
     salesUpdateFrameManager.add(forSalesNoForUpdateSales);
     forSalesNoForUpdateSales.setBounds(50,100,100, 40);

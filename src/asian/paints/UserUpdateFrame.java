@@ -31,7 +31,7 @@ public class UserUpdateFrame {
     static Exit xFUU=new Exit();
      
      JButton backFUAUF=new JButton("Back");
-     JButton updateUser=new JButton("Update user");
+     JButton updateUser=new JButton("Update");
    
   UserUpdateFrame(int userToBeUpdated){
     

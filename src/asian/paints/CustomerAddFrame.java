@@ -17,25 +17,25 @@ public class CustomerAddFrame {
    
      JFrame customerAddFrameCahier;
     
-     JTextField cusIDForAdd=new JTextField("Customer ID");
-     JTextField cusNameForAdd=new JTextField("Customer name");
-     JTextField cusAddressForAdd=new JTextField("Customer address");
-     JTextField cusTPNoForAdd=new JTextField("Customer TP number");
-     JTextField cusTotalForAdd=new JTextField("Customer total");
+     JTextField cusIDForAdd=new JTextField("ID");
+     JTextField cusNameForAdd=new JTextField("Name");
+     JTextField cusAddressForAdd=new JTextField("Address");
+     JTextField cusTPNoForAdd=new JTextField("TP number");
+     JTextField cusTotalForAdd=new JTextField("Total");
     
     static Exit xFCAU=new Exit();
      
      JButton backFCAF=new JButton("Back");
-     JButton addCustomer=new JButton("Add customer");
+     JButton addCustomer=new JButton("Add");
    
    
    //public static void managersCustomerAddAndUpdateFrame(){}
     //public void stockKeeperCustomerAddAndUpdateFrame(){}
    
     CustomerAddFrame(){
-        customerAddFrameCahier=new JFrame();
+        customerAddFrameCahier=new JFrame("Add customer");
         
-    customerAddFrameCahier.add(cusIDForAdd);
+    //customerAddFrameCahier.add(cusIDForAdd);
     cusIDForAdd.setBounds(130,100,100, 40);
     customerAddFrameCahier.add(cusNameForAdd);
     cusNameForAdd.setBounds(130,150,100, 40);

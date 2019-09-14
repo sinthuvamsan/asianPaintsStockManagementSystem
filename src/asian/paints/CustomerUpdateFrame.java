@@ -18,19 +18,19 @@ public class CustomerUpdateFrame {
        JFrame customerUpdateFrameManager;
      JFrame customerUpdateFrameCahier;
     
-     JTextField cusIDForUpdate=new JTextField("Customer ID");
-     JTextField cusNameForUpdate=new JTextField("Customer name");
-     JTextField cusAddressForUpdate=new JTextField("Customer address");
-     JTextField cusTPNoForUpdate=new JTextField("Customer TP number");
-     JTextField cusTotalForUpdate=new JTextField("Customer total");
+     JTextField cusIDForUpdate=new JTextField("ID");
+     JTextField cusNameForUpdate=new JTextField("Name");
+     JTextField cusAddressForUpdate=new JTextField("Address");
+     JTextField cusTPNoForUpdate=new JTextField("TP number");
+     JTextField cusTotalForUpdate=new JTextField("Total");
     
     static Exit xFCU=new Exit();
      
     JButton backFCUF=new JButton("Back");
-    JButton updateCustomer=new JButton("Update customer");
+    JButton updateCustomer=new JButton("Update");
   
    public void managersCustomerUpdateFrame(int managerCustomerUpdateID){
-        customerUpdateFrameManager=new JFrame();
+        customerUpdateFrameManager=new JFrame("Update customer");
         
     customerUpdateFrameManager.add(cusIDForUpdate);
     cusIDForUpdate.setBounds(130,100,100, 40);
@@ -40,8 +40,8 @@ public class CustomerUpdateFrame {
     cusAddressForUpdate.setBounds(130,200,100, 40);
     customerUpdateFrameManager.add(cusTPNoForUpdate);
     cusTPNoForUpdate.setBounds(130,250,100, 40);
-    //customerUpdateFrameManager.add(cusTotalForUpdate);
-   // cusTotalForUpdate.setBounds(130,300,100, 40);   
+    customerUpdateFrameManager.add(cusTotalForUpdate);
+   cusTotalForUpdate.setBounds(130,300,100, 40);   
    customerUpdateFrameManager.add(updateCustomer);
    updateCustomer.setBounds(130,350,100, 40);
    customerUpdateFrameManager.add(backFCUF);
@@ -97,8 +97,8 @@ ResultSet rs = ps.executeQuery();
    
     
    
-    public void cashierCustomerAddAndUpdateFrame(int casierCustomerUpdateID){
-        customerUpdateFrameCahier=new JFrame();
+    public void cashierCustomerUpdateFrame(int casierCustomerUpdateID){
+        customerUpdateFrameCahier=new JFrame("Update customer");
         
     customerUpdateFrameCahier.add(cusIDForUpdate);
     cusIDForUpdate.setBounds(130,100,100, 40);
@@ -108,8 +108,8 @@ ResultSet rs = ps.executeQuery();
     cusAddressForUpdate.setBounds(130,200,100, 40);
     customerUpdateFrameCahier.add(cusTPNoForUpdate);
     cusTPNoForUpdate.setBounds(130,250,100, 40);
-    //customerUpdateFrameCahier.add(cusTotalForUpdate);
-    //cusTotalForUpdate.setBounds(130,300,100, 40);
+    customerUpdateFrameCahier.add(cusTotalForUpdate);
+    cusTotalForUpdate.setBounds(130,300,100, 40);
     customerUpdateFrameCahier.add(updateCustomer);
     updateCustomer.setBounds(250,350,100, 40);
     customerUpdateFrameCahier.add(backFCUF);

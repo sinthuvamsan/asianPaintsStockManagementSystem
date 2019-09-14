@@ -17,7 +17,7 @@ import java.sql.*;
  * @author User
  */
 public class UserViewSelectionFrame {
-    static JFrame userViewSelectionFrameManager=new JFrame();
+    static JFrame userViewSelectionFrameManager=new JFrame("View user");
     
     static JTextField dataForSearchUser=new JTextField("Search for");
     

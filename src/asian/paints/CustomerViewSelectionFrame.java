@@ -15,8 +15,8 @@ import java.sql.*;
  * @author User
  */
 public class CustomerViewSelectionFrame {
-      JFrame customerViewSelectionFrameManager=new JFrame();
-     JFrame customerViewSelectionFrameCahsier=new JFrame();
+      JFrame customerViewSelectionFrameManager=new JFrame("View customer");
+     JFrame customerViewSelectionFrameCahsier=new JFrame("View customer");
     
      JTextField dataForSearchCustomer=new JTextField("Search by");
     

@@ -19,10 +19,10 @@ public class PaintActionSelectionFrame{
      JFrame paintActionSelectionFrameStockKeeper = new JFrame("Asian paints stock");//creating Username Password frame and initializing it
      JFrame paintActionSelectionFrameCashier = new JFrame("Asian paints stock");//creating Username Password frame and initializing it
     
-     JButton addStock=new JButton("Add stock");  //creating and initilizing button
-     JButton updateStocks=new JButton("Update stock");  //creating and initilizing button
-     JButton deleteStock=new JButton("Delete stock");  //creating and initilizing button
-     JButton viewStocks=new JButton("View stocks");  //creating and initilizing button
+     JButton addStock=new JButton("Add");  //creating and initilizing button
+     JButton updateStocks=new JButton("Update");  //creating and initilizing button
+     JButton deleteStock=new JButton("Delete");  //creating and initilizing button
+     JButton viewStocks=new JButton("View");  //creating and initilizing button
      JButton backFP=new JButton("Back");  //creating and initilizing button
      
     static Exit xFP=new Exit();
@@ -56,7 +56,7 @@ public class PaintActionSelectionFrame{
     public void actionPerformed(ActionEvent e){ 
         paintActionSelectionFrameManager.dispose();
            
-          new PaintDeleteIDCollectionFrame().managerPaintDeleteFrame();
+          new PaintDeleteIDCollectionFrame();
     }  
     });
         
@@ -82,14 +82,12 @@ public class PaintActionSelectionFrame{
     addStock.setBounds(130,100,100, 40);
     paintActionSelectionFrameStockKeeper.add(updateStocks);
     updateStocks.setBounds(130,150,100, 40);
-    paintActionSelectionFrameStockKeeper.add(deleteStock);
-    deleteStock.setBounds(130,200,100, 40);
     paintActionSelectionFrameStockKeeper.add(viewStocks);
-    viewStocks.setBounds(130,250,100, 40);
+    viewStocks.setBounds(130,200,100, 40);
     paintActionSelectionFrameStockKeeper.add(backFP);
-    backFP.setBounds(50,300,100, 40);
+    backFP.setBounds(50,250,100, 40);
     paintActionSelectionFrameStockKeeper.add(xFP.exit);
-    xFP.exit.setBounds(250,300,95,30);//setBounds(int x axsis, int y axsis, int width, int height)
+    xFP.exit.setBounds(250,250,95,30);//setBounds(int x axsis, int y axsis, int width, int height)
     
     paintActionSelectionFrameStockKeeper.setSize(400,500);//400 width and 500 height  
     paintActionSelectionFrameStockKeeper.setLayout(null);//using no layout managers  
@@ -111,13 +109,6 @@ public class PaintActionSelectionFrame{
     }  
     });
     
-        deleteStock.addActionListener(new ActionListener(){  
-    public void actionPerformed(ActionEvent e){ 
-        paintActionSelectionFrameStockKeeper.dispose();
-           
-           new PaintDeleteIDCollectionFrame().stockKeeperPaintDeleteFrame();
-    }  
-    });
         
                 viewStocks.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 

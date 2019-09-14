@@ -24,8 +24,8 @@ public class PaintDeleteIDCollectionFrame {
      JButton backFPDICF=new JButton("Back"); 
      JButton searchPaintToBeDeleted=new JButton("Delete");
     
-    public void managerPaintDeleteFrame(){  
-    paintDeleteIDCollectionFrameManager=new JFrame();
+   PaintDeleteIDCollectionFrame(){  
+    paintDeleteIDCollectionFrameManager=new JFrame("Asian paints stock delete");
     
     paintDeleteIDCollectionFrameManager.add(paintProductNoForDelete);
     paintProductNoForDelete.setBounds(130,100,100, 40);
@@ -50,40 +50,7 @@ public class PaintDeleteIDCollectionFrame {
     searchPaintToBeDeleted.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
          paintDeleteIDCollectionFrameManager.dispose();
-       new PaintDeleteFrame(Integer.parseInt(paintProductNoForDelete.getText()),true);
-      
-    }  
-    });
-    }
-    
-    public void stockKeeperPaintDeleteFrame(){  
-    
-    paintDeleteIDCollectionFrameStockKeeper=new JFrame();
-    
-    paintDeleteIDCollectionFrameStockKeeper.add(paintProductNoForDelete);
-    paintProductNoForDelete.setBounds(130,100,100, 40);
-    paintDeleteIDCollectionFrameStockKeeper.add(searchPaintToBeDeleted);
-    searchPaintToBeDeleted.setBounds(250,150,100, 40);
-    paintDeleteIDCollectionFrameStockKeeper.add(backFPDICF);
-    backFPDICF.setBounds(50,400,95,30);
-    paintDeleteIDCollectionFrameStockKeeper.add(xFPDICF.exit);
-    xFPDICF.exit.setBounds(250,400,95,30);
-    
-    paintDeleteIDCollectionFrameStockKeeper.setSize(500,500);  
-    paintDeleteIDCollectionFrameStockKeeper.setLayout(null);  
-    paintDeleteIDCollectionFrameStockKeeper.setVisible(true); 
-    
-    backFPDICF.addActionListener(new ActionListener(){  
-    public void actionPerformed(ActionEvent e){ 
-        paintDeleteIDCollectionFrameStockKeeper.dispose();
-          new PaintActionSelectionFrame().stockKeeperPaintFrame();
-    }  
-    });
-    
-    searchPaintToBeDeleted.addActionListener(new ActionListener(){  
-    public void actionPerformed(ActionEvent e){ 
-         paintDeleteIDCollectionFrameStockKeeper.dispose();
-       new PaintDeleteFrame(Integer.parseInt(paintProductNoForDelete.getText()),false);
+       new PaintDeleteFrame(Integer.parseInt(paintProductNoForDelete.getText()));
       
     }  
     });
