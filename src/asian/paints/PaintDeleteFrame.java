@@ -40,8 +40,8 @@ public class PaintDeleteFrame {
 { 
 Connection con = DBManager.getConnection();
 
-String sql = "select * from employeedetails where emp_ID = "+paintToBeDeleted;
- String sQLToDeletePaint="DELETE FROM employeeDetails WHERE emp_id="+paintToBeDeleted;
+String sql = "select * from paintDetails where paint_product_no = "+paintToBeDeleted;
+  sQLToDeletePaint="DELETE FROM paintDetails WHERE paint_product_no="+paintToBeDeleted;
 PreparedStatement ps = con.prepareStatement(sql);
 ResultSet rs = ps.executeQuery();
 //Statement stmt=con.createStatement();  ResultSet rs=stmt.executeQuery("select * from employeedetails where emp_name = "+idOrNameForUserSearch);    
@@ -52,7 +52,7 @@ pPN = rs.getInt("paint_product_no");
 pMN = rs.getString("paint_model_name");
 pC = rs.getString("paint_colour");
 pUP=rs.getFloat("paint_unit_price");
-pSQ = rs.getInt("paint_quantity");
+pSQ = rs.getInt("paint_stock_quantity");
     
  String detailsOfUserToBeDeleted="Paint product No.: "+pPN+"\n"+"Paint model name: "+pMN+"\n"+"Paint colour: "+pC+"\n"+"Paint unit price: "+pUP+"\n"+"Paint quantity: "+pSQ;
  
@@ -67,18 +67,7 @@ JOptionPane.ERROR_MESSAGE);
 
 else
 {
-    
- JOptionPane.showMessageDialog(paintDeleteFrameManager,i+" Records found to be deleted"); 
-   
-}
-
-}
-catch(Exception ex)
-{
-JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
-}
-  
-   paintDeleteFrameManager.add(scrollPD);       
+    paintDeleteFrameManager.add(scrollPD);       
     scrollPD.setBounds(20, 20, 300, 300);
     paintDeleteFrameManager.add(confirmDeletePaint);
     confirmDeletePaint.setBounds(250,350,100, 40);
@@ -102,10 +91,21 @@ JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_ME
     public void actionPerformed(ActionEvent e){ 
         new DBManager().dBManipulator(sQLToDeletePaint);
         paintDeleteFrameManager.dispose();
-           new UserActionSelectionFrame();
+           new PaintActionSelectionFrame().managersPaintFrame();
            JOptionPane.showMessageDialog(new UserActionSelectionFrame().userActionSelectionFrame,"Paint deleted successfully"); 
     }  
     });
+ JOptionPane.showMessageDialog(paintDeleteFrameManager,i+" Records found to be deleted"); 
+   
+}
+
+}
+catch(Exception ex)
+{
+JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+}
+  
+   
    
    }
 }

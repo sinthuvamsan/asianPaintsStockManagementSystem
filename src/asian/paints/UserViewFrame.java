@@ -130,7 +130,7 @@ PreparedStatement ps = con.prepareStatement(sql);
 ResultSet rs = ps.executeQuery();
 //Statement stmt=con.createStatement();  ResultSet rs=stmt.executeQuery("select * from employeedetails where emp_name = "+idOrNameForUserSearch);    
 int i =0;
-if(rs.next())
+while(rs.next())
 {
 UID = rs.getInt("emp_ID");
 nameUser = rs.getString("emp_name");

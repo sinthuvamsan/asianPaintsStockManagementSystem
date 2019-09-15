@@ -20,12 +20,8 @@ public class CustomerViewSelectionFrame {
     
      JTextField dataForSearchCustomer=new JTextField("Search by");
     
-    static Exit xFCVS=new Exit();
-    
-     JLabel labelForSearchCustomer=new JLabel("Search by:"); 
-    
-     String searchCustomerBy[]={"Cus ID","Name"};        
-     JComboBox customerSearchByCB=new JComboBox(searchCustomerBy); 
+    static Exit xFCVS=new Exit(); 
+     
     
      JButton backFCVSF=new JButton("Back");
      JButton viewAllCustomer=new JButton("View all");
@@ -34,18 +30,14 @@ public class CustomerViewSelectionFrame {
     public void managersCustomerViewSelectionFrame(){
     customerViewSelectionFrameManager.add(viewAllCustomer);
     viewAllCustomer.setBounds(130,100,100, 40);
-    customerViewSelectionFrameManager.add(labelForSearchCustomer);
-    labelForSearchCustomer.setBounds(50,150, 150,30);
-    customerViewSelectionFrameManager.add(customerSearchByCB);
-    customerSearchByCB.setBounds(130,150,90,20); 
     customerViewSelectionFrameManager.add(dataForSearchCustomer);
-    dataForSearchCustomer.setBounds(130,200,100, 40);
+    dataForSearchCustomer.setBounds(130,150,100, 40);
     customerViewSelectionFrameManager.add(viewCustomerBy);
-    viewCustomerBy.setBounds(130,250,100, 40);
+    viewCustomerBy.setBounds(130,200,100, 40);
     customerViewSelectionFrameManager.add(backFCVSF);
-    backFCVSF.setBounds(50,300,95,30);
+    backFCVSF.setBounds(50,250,95,30);
     customerViewSelectionFrameManager.add(xFCVS.exit);
-    xFCVS.exit.setBounds(250,300,95,30);
+    xFCVS.exit.setBounds(250,250,95,30);
     
    customerViewSelectionFrameManager.setSize(500,500);  
     customerViewSelectionFrameManager.setLayout(null);  
@@ -76,19 +68,15 @@ public class CustomerViewSelectionFrame {
      
     public void cashiresCustomerViewSelectionFrame(){
     customerViewSelectionFrameCahsier.add(viewAllCustomer);
-    viewAllCustomer.setBounds(130,100,100, 40);
-    customerViewSelectionFrameCahsier.add(labelForSearchCustomer);
-    labelForSearchCustomer.setBounds(50,150, 150,30);
-    customerViewSelectionFrameCahsier.add(customerSearchByCB);
-    customerSearchByCB.setBounds(130,150,90,20); 
+    viewAllCustomer.setBounds(130,100,100, 40); 
     customerViewSelectionFrameCahsier.add(dataForSearchCustomer);
-    dataForSearchCustomer.setBounds(130,200,100, 40);
+    dataForSearchCustomer.setBounds(130,150,100, 40);
     customerViewSelectionFrameCahsier.add(viewCustomerBy);
-    viewCustomerBy.setBounds(130,250,100, 40);
+    viewCustomerBy.setBounds(130,200,100, 40);
     customerViewSelectionFrameCahsier.add(backFCVSF);
-    backFCVSF.setBounds(50,300,95,30);
+    backFCVSF.setBounds(50,250,95,30);
     customerViewSelectionFrameCahsier.add(xFCVS.exit);
-    xFCVS.exit.setBounds(250,300,95,30);
+    xFCVS.exit.setBounds(250,250,95,30);
     
    customerViewSelectionFrameCahsier.setSize(500,500);  
     customerViewSelectionFrameCahsier.setLayout(null);  

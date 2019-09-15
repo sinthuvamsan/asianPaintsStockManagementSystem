@@ -32,7 +32,7 @@ public class CustomerUpdateFrame {
    public void managersCustomerUpdateFrame(int managerCustomerUpdateID){
         customerUpdateFrameManager=new JFrame("Update customer");
         
-    customerUpdateFrameManager.add(cusIDForUpdate);
+    //customerUpdateFrameManager.add(cusIDForUpdate);
     cusIDForUpdate.setBounds(130,100,100, 40);
     customerUpdateFrameManager.add(cusNameForUpdate);
     cusNameForUpdate.setBounds(130,150,100, 40);
@@ -56,8 +56,7 @@ public class CustomerUpdateFrame {
        backFCUF.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
        customerUpdateFrameManager.dispose();
-       CustomerUpdateIDCollectionFrame f1= new CustomerUpdateIDCollectionFrame();
-         f1.UpdateIDCollectionFrameManager();
+         new CustomerUpdateIDCollectionFrame().UpdateIDCollectionFrameManager();
     }  
     });
     
@@ -91,6 +90,10 @@ ResultSet rs = ps.executeQuery();
       
       String managerSQLToUpdateCustomer="update customerdetails set cus_id='"+cusIDUpdateCustomerInt+"' ,cus_name='"+cusNameForUpdateCustomerString+"' ,cus_address='"+cusAddressForUpdateCustomerString+"' ,cus_tp_no='"+cusTPNoForUpdateCustomerInt+"' ,cus_total='"+cusTotalForUpdateCustomerFloat+"'  where cus_id="+managerCustomerUpdateID;
       new DBManager().dBManipulator(managerSQLToUpdateCustomer);
+      
+      customerUpdateFrameManager.dispose();
+      new CustomerActionSelectionFrame().managersCustomerFrame();
+      JOptionPane.showMessageDialog(new CustomerActionSelectionFrame().customerActionSelectionFrameManager,"Customer succesfully updated"); 
     }  
     });
    }
@@ -100,7 +103,7 @@ ResultSet rs = ps.executeQuery();
     public void cashierCustomerUpdateFrame(int casierCustomerUpdateID){
         customerUpdateFrameCahier=new JFrame("Update customer");
         
-    customerUpdateFrameCahier.add(cusIDForUpdate);
+    //customerUpdateFrameCahier.add(cusIDForUpdate);
     cusIDForUpdate.setBounds(130,100,100, 40);
     customerUpdateFrameCahier.add(cusNameForUpdate);
     cusNameForUpdate.setBounds(130,150,100, 40);
@@ -140,12 +143,16 @@ ResultSet rs = ps.executeQuery();
       
       String cashierSQLToUpdateCustomer="update customerdetails set cus_id='"+cusIDUpdateCustomerInt+"' ,cus_name='"+cusNameForUpdateCustomerString+"' ,cus_address='"+cusAddressForUpdateCustomerString+"' ,cus_tp_no='"+cusTPNoForUpdateCustomerInt+"' ,cus_total='"+cusTotalForUpdateCustomerFloat+"'  where cus_id="+casierCustomerUpdateID;
       new DBManager().dBManipulator(cashierSQLToUpdateCustomer);
+    
+    customerUpdateFrameCahier.dispose();
+      new CustomerActionSelectionFrame().cashierCustomerFrame();
+       JOptionPane.showMessageDialog(new CustomerActionSelectionFrame().customerActionSelectionFrameCashier,"Customer succesfully updated"); 
     }  
     });
             
                 try{
      Connection con=new DBManager().getConnection();
-    String sqlToViewUserToBeUpdated = "select * from customerdetails where emp_ID = "+casierCustomerUpdateID;
+    String sqlToViewUserToBeUpdated = "select * from customerdetails where cus_id = "+casierCustomerUpdateID;
     PreparedStatement ps = con.prepareStatement(sqlToViewUserToBeUpdated);
 ResultSet rs = ps.executeQuery();
    if(rs.next()){

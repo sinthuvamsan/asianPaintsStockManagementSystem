@@ -42,7 +42,7 @@ public class UserUpdateFrame {
         userUpdateFrameManager.add(forPassword);
     forPassword.setBounds(50,350,100, 40); 
     
-    userUpdateFrameManager.add(empIDUpdateUser);
+    //userUpdateFrameManager.add(empIDUpdateUser);
     empIDUpdateUser.setBounds(130,50,100, 40);
     userUpdateFrameManager.add(empNameForUpdateUser);
     empNameForUpdateUser.setBounds(130,100,100, 40);
@@ -86,16 +86,20 @@ ResultSet rs = ps.executeQuery();
     
     updateUser.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
-      int empIDUpdateUserInt=Integer.parseInt(empNameForUpdateUser.getText());
+      int empIDUpdateUserInt=Integer.parseInt(empIDUpdateUser.getText());
       String empNameForUpdateUserString=empNameForUpdateUser.getText();
-      String empAddressForUpdateUserString=empNameForUpdateUser.getText();
-      int empTPNoForUpdateUserInt=Integer.parseInt(empNameForUpdateUser.getText());
-      String empPositionForUpdateUserString=empNameForUpdateUser.getText();
-      String empUserNameForUpdateUserString=empNameForUpdateUser.getText();
-      String empPaawordForUpdateUserString=empNameForUpdateUser.getText();
+      String empAddressForUpdateUserString=empAddressForUpdateUser.getText();
+      int empTPNoForUpdateUserInt=Integer.parseInt(empTPNoForUpdateUser.getText());
+      String empPositionForUpdateUserString=empPositionForUpdateUser.getText();
+      String empUserNameForUpdateUserString=empUserNameForUpdateUser.getText();
+      String empPaawordForUpdateUserString=empPaawordForUpdateUser.getText();
       
       String sQLToUpdateUser="update employeedetails set emp_id='"+empIDUpdateUserInt+"' ,emp_name='"+empNameForUpdateUserString+"' ,emp_address='"+empAddressForUpdateUserString+"' ,emp_tp_no='"+empTPNoForUpdateUserInt+"' ,emp_possition='"+empPositionForUpdateUserString+"' ,emp_userName='"+empUserNameForUpdateUserString+"' ,emp_password='"+empPaawordForUpdateUserString+"' where emp_id="+userToBeUpdated;
       new DBManager().dBManipulator(sQLToUpdateUser);
+      
+    userUpdateFrameManager.dispose();
+    new MainFirstFrame().managersMainFrame();
+    JOptionPane.showMessageDialog(new MainFirstFrame().mainFirstFrameManager,"User updated successfully");
     }  
     });
     

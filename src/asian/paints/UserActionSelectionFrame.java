@@ -74,7 +74,7 @@ public class UserActionSelectionFrame{
        viewUsers.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
        userActionSelectionFrame.dispose();
-       new UserViewFrame();
+       new UserViewSelectionFrame();
     }  
     });     
        

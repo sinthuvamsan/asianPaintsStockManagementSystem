@@ -39,7 +39,7 @@ public class UserAddFrame{
      JButton backFUAF=new JButton("Back");
      JButton addUser=new JButton("Add");
      
-    userAddFrameManager.add(empIDForAddUser);
+   // userAddFrameManager.add(empIDForAddUser);
     empIDForAddUser.setBounds(130,50,100, 40);
     userAddFrameManager.add(EmpNameForAddUser);
     EmpNameForAddUser.setBounds(130,100,100, 40);

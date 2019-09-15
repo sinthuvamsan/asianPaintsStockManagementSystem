@@ -36,7 +36,7 @@ public class SalesAddFrame {
     SalesAddFrame(){
     salesAddFrameCahier=new JFrame("Add sales");
         
-    salesAddFrameCahier.add(salesNoForAddSales);
+    //salesAddFrameCahier.add(salesNoForAddSales);
     salesNoForAddSales.setBounds(130,100,100, 40);
     salesAddFrameCahier.add(paintSalesQuantityForAddSales);
     paintSalesQuantityForAddSales.setBounds(130,150,100, 40);
@@ -67,7 +67,7 @@ public class SalesAddFrame {
     public void actionPerformed(ActionEvent e){ 
         
 
-        String query ="SELECT * FROM salesdetails ORDER BY emp_id DESC LIMIT 1;";
+        String query ="SELECT * FROM salesdetails ORDER BY sales_no DESC LIMIT 1;";
         String colName="sales_no";
 int lastOfSalesId = DBManager.lastID(query,colName);
 
@@ -116,17 +116,17 @@ JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_ME
        
      if(customerExistForSales==true){
          if(paintExistForSales==true){
-           if(paintQuantity<paintSalesQuantityForAddSalesInt){
+           if(paintQuantity>paintSalesQuantityForAddSalesInt){
    cTotal=cTotal+(paintSalesQuantityForAddSalesInt*pUnitPrice);
    paintQuantity=paintQuantity-paintSalesQuantityForAddSalesInt;
     String sQLForAddSales="insert into salesdetails (sales_no,paint_sales_quantity,paint_product_no,cus_id)"
             + "values('"+lastOfSalesId+"','"+paintSalesQuantityForAddSalesInt+"','"+paintProductNoForAddSalesInt+"','"+cusIDForAddSalesInt+"')";
    new DBManager().dBManipulator(sQLForAddSales);
    
-     String sQLToUpdateCustomerInSales="update customerdetails set cus_total='"+cTotal+"' where sales_no="+cusIDForAddSalesInt;
+     String sQLToUpdateCustomerInSales="update customerdetails set cus_total='"+cTotal+"' where cus_id="+cusIDForAddSalesInt;
       new DBManager().dBManipulator(sQLToUpdateCustomerInSales);
       
-       String sQLToUpdatePaintInSales="update paintdetails set paint_sales_quantity='"+paintQuantity+"' where sales_no="+paintProductNoForAddSalesInt;
+       String sQLToUpdatePaintInSales="update paintdetails set paint_stock_quantity='"+paintQuantity+"' where paint_product_no="+paintProductNoForAddSalesInt;
       new DBManager().dBManipulator(sQLToUpdatePaintInSales);
    
     salesAddFrameCahier.dispose();

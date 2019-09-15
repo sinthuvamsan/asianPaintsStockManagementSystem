@@ -15,9 +15,8 @@ import java.awt.event.*;
  */
 public class PaintDeleteIDCollectionFrame {
          JFrame paintDeleteIDCollectionFrameManager;
-     JFrame paintDeleteIDCollectionFrameStockKeeper;
     
-     JTextField paintProductNoForDelete=new JTextField("Paint product no.");
+     JTextField paintProductNoForDelete=new JTextField("Product no.");
     
     static Exit xFPDICF=new Exit();
       

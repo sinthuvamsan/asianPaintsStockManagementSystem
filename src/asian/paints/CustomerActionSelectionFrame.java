@@ -15,7 +15,9 @@ import java.awt.event.*;
  * @author User
  */
 public class CustomerActionSelectionFrame{
-     
+      JFrame customerActionSelectionFrameCashier;
+      JFrame customerActionSelectionFrameManager;
+      
      JButton addCustomer=new JButton("Add");  //creating and initilizing button
      JButton updateCustomer=new JButton("Update");  //creating and initilizing button
      JButton deleteCustomer=new JButton("Delete");  //creating and initilizing button
@@ -26,7 +28,7 @@ public class CustomerActionSelectionFrame{
    
     
     public void managersCustomerFrame(){
-    JFrame customerActionSelectionFrameManager = new JFrame("Asian paints customer");//creating Username Password frame and initializing it
+     customerActionSelectionFrameManager = new JFrame("Asian paints customer");//creating Username Password frame and initializing it
         
     customerActionSelectionFrameManager.add(updateCustomer);
     updateCustomer.setBounds(130,100,100, 40);
@@ -77,7 +79,7 @@ public class CustomerActionSelectionFrame{
     //public void stockKeeperCustomerFrame(){}
     
     public void cashierCustomerFrame(){
-    JFrame customerActionSelectionFrameCashier = new JFrame("Asian paints customer");//creating Username Password frame and initializing it
+     customerActionSelectionFrameCashier = new JFrame("Asian paints customer");//creating Username Password frame and initializing it
        
         customerActionSelectionFrameCashier.add(addCustomer);
     addCustomer.setBounds(130,100,100, 40);

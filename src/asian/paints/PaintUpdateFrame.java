@@ -31,18 +31,7 @@ public class PaintUpdateFrame {
      JButton updatePaint=new JButton("Update");
    
     PaintUpdateFrame(boolean isUserManager,int paintToBeUpdated){
-     updatePaint.addActionListener(new ActionListener(){  
-    public void actionPerformed(ActionEvent e){ 
-      int paintIDUpdatePaintInt=Integer.parseInt(paintProductNoForUpdate.getText());
-     String paintNameForUpdatePaintString=paintModelNameForUpdate.getText();
-      String paintColourForUpdatePaintString=paintColourForUpdate.getText();
-      float paintUnitPriceForUpdatePaintInt=Float.parseFloat(paintUnitPriceForUpdate.getText());
-      int paintStockQuantityForUpdatePaintInt=Integer.parseInt(paintStockQuantityForUpdate.getText());
-    
-      String sQLToUpdatePaint="update paintdetails set paint_product_no='"+paintIDUpdatePaintInt+"' ,paint_model_name='"+paintNameForUpdatePaintString+"' ,paint_colour='"+paintColourForUpdatePaintString+"' ,paint_unit_price='"+paintUnitPriceForUpdatePaintInt+"' ,paint_stock_quantity='"+paintStockQuantityForUpdatePaintInt+"'  where paint_product_no="+paintToBeUpdated;
-      new DBManager().dBManipulator(sQLToUpdatePaint);
-    }  
-    });
+  
      
      if(isUserManager==true){
          paintUpdateFrameManager=new JFrame("Update paint");
@@ -72,6 +61,23 @@ public class PaintUpdateFrame {
     public void actionPerformed(ActionEvent e){ 
         paintUpdateFrameManager.dispose();
           new PaintUpdateIDCollectionFrame().managerPaintupdateIDCollectionFrame();
+    }  
+    });
+    
+       updatePaint.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+      int paintIDUpdatePaintInt=Integer.parseInt(paintProductNoForUpdate.getText());
+     String paintNameForUpdatePaintString=paintModelNameForUpdate.getText();
+      String paintColourForUpdatePaintString=paintColourForUpdate.getText();
+      float paintUnitPriceForUpdatePaintInt=Float.parseFloat(paintUnitPriceForUpdate.getText());
+      int paintStockQuantityForUpdatePaintInt=Integer.parseInt(paintStockQuantityForUpdate.getText());
+    
+      String sQLToUpdatePaint="update paintdetails set paint_product_no='"+paintIDUpdatePaintInt+"' ,paint_model_name='"+paintNameForUpdatePaintString+"' ,paint_colour='"+paintColourForUpdatePaintString+"' ,paint_unit_price='"+paintUnitPriceForUpdatePaintInt+"' ,paint_stock_quantity='"+paintStockQuantityForUpdatePaintInt+"'  where paint_product_no="+paintToBeUpdated;
+      new DBManager().dBManipulator(sQLToUpdatePaint);
+      
+       paintUpdateFrameManager.dispose();
+      new PaintActionSelectionFrame().managersPaintFrame();
+      JOptionPane.showMessageDialog(new PaintActionSelectionFrame().paintActionSelectionFrameManager,"Paint has been sucessfully updated");
     }  
     });
      }
@@ -106,6 +112,24 @@ public class PaintUpdateFrame {
     }  
     });
     
+       updatePaint.addActionListener(new ActionListener(){  
+    public void actionPerformed(ActionEvent e){ 
+      int paintIDUpdatePaintInt=Integer.parseInt(paintProductNoForUpdate.getText());
+     String paintNameForUpdatePaintString=paintModelNameForUpdate.getText();
+      String paintColourForUpdatePaintString=paintColourForUpdate.getText();
+      float paintUnitPriceForUpdatePaintInt=Float.parseFloat(paintUnitPriceForUpdate.getText());
+      int paintStockQuantityForUpdatePaintInt=Integer.parseInt(paintStockQuantityForUpdate.getText());
+    
+      String sQLToUpdatePaint="update paintdetails set paint_product_no='"+paintIDUpdatePaintInt+"' ,paint_model_name='"+paintNameForUpdatePaintString+"' ,paint_colour='"+paintColourForUpdatePaintString+"' ,paint_unit_price='"+paintUnitPriceForUpdatePaintInt+"' ,paint_stock_quantity='"+paintStockQuantityForUpdatePaintInt+"'  where paint_product_no="+paintToBeUpdated;
+      new DBManager().dBManipulator(sQLToUpdatePaint);
+      
+      paintUpdateFrameStockKeeper.dispose();
+      new PaintActionSelectionFrame().stockKeeperPaintFrame();
+      JOptionPane.showMessageDialog(new PaintActionSelectionFrame().paintActionSelectionFrameStockKeeper,"Paint has been sucessfully updated");
+    }  
+    });
+     }
+    
      try{
      Connection con=new DBManager().getConnection();
     String sqlToViewUserToBeUpdated = "select * from paintdetails where paint_product_no = "+paintToBeUpdated;
@@ -121,7 +145,7 @@ ResultSet rs = ps.executeQuery();
    }
    //else{JOptionPane.showMessageDialog(userUpdateFrameManager,"Wrong ID"); }
     }catch(Exception ex){JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);}
-     }
+     
     }
  
 }

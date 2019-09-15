@@ -73,33 +73,4 @@ stmt.executeUpdate(sQLToManipulate);
     catch(SQLException ex){JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);}
 
     }
-
-
-/* 
-public static boolean showDataFromDB(String sQLToviewAll){ con = DBManager.getConnection();
-     String[] arr= {"Error"};
-try{
-stmt = con.createStatement();
-ResultSet rs =stmt.executeQuery(sQLToviewAll);
-
-
-     ResultSetMetaData rsmd = rs.getMetaData();
-     int numberOfColumns = rsmd.getColumnCount();
-
-       
-    if(rs.next()){
-   for( int i = 1;i<=numberOfColumns;i++){
-         
-       arr[i-1]=rs.getString(i); 
-   }
-   return true;
-   
-    }
-}
-    catch(SQLException ex){JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);}
-return false;
-    }
-
-public static void showDataFromDB(int iD){}
-*/
 }

@@ -69,19 +69,19 @@ public class CustomerDeleteFrame {
 { 
 Connection con = DBManager.getConnection();
 
-String sql = "select * from employeedetails where emp_ID = "+customerToBeDeleted;
- sQLToDeleteCustomer="DELETE FROM employeeDetails WHERE emp_id="+customerToBeDeleted;
+String sql = "select * from customerDetails where cus_id = "+customerToBeDeleted;
+ sQLToDeleteCustomer="DELETE FROM customerDetails WHERE cus_id="+customerToBeDeleted;
 PreparedStatement ps = con.prepareStatement(sql);
 ResultSet rs = ps.executeQuery();
 //Statement stmt=con.createStatement();  ResultSet rs=stmt.executeQuery("select * from employeedetails where emp_name = "+idOrNameForUserSearch);    
 int i =0;
 if(rs.next())
 {
-cID = rs.getInt("cus_ID");
+cID = rs.getInt("cus_id");
 cN = rs.getString("cus_name");
 cA = rs.getString("cus_address");
 tPCus=rs.getInt("cus_tp_no");
-cT=rs.getFloat("emp_possition");
+cT=rs.getFloat("cus_total");
     
 String detailsOfUserToBeDeleted="Customer ID: "+cID+"\n"+"Customer name: "+cN+"\n"+"Customer address: "+cA+"\n"+"Customer T.P No.: "+tPCus+"\n"+"Customer total: "+cT;
 

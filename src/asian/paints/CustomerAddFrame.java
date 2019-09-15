@@ -67,7 +67,7 @@ public class CustomerAddFrame {
     public void actionPerformed(ActionEvent e){ 
         
 
-        String query ="SELECT * FROM customerdetails ORDER BY emp_id DESC LIMIT 1;";
+        String query ="SELECT * FROM customerdetails ORDER BY cus_id DESC LIMIT 1;";
         String colName="cus_id";
 int lastOfCusId = DBManager.lastID(query,colName);
 
@@ -83,9 +83,8 @@ int lastOfCusId = DBManager.lastID(query,colName);
     new DBManager().dBManipulator(sQLForAddCus);
             
     customerAddFrameCahier.dispose();
-    new CustomerActionSelectionFrame();
     new CustomerActionSelectionFrame().cashierCustomerFrame();
-    JOptionPane.showMessageDialog(new UserActionSelectionFrame().userActionSelectionFrame,"Data has been successfully added");  
+    JOptionPane.showMessageDialog(new CustomerActionSelectionFrame().customerActionSelectionFrameCashier,"Data has been successfully added");  
    
     
             }

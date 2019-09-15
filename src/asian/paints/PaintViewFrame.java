@@ -122,7 +122,7 @@ PreparedStatement ps = con.prepareStatement(sql);
 ResultSet rs = ps.executeQuery();
 //Statement stmt=con.createStatement();  ResultSet rs=stmt.executeQuery("select * from employeedetails where emp_name = "+idOrNameForUserSearch);    
 int i =0;
-if(rs.next())
+while(rs.next())
 {
 pID = rs.getInt("paint_product_no");
 nameModel = rs.getString("paint_model_name");
