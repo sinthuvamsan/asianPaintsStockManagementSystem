@@ -80,8 +80,8 @@ public class SalesUpdateFrame {
      
       try{
      Connection con=new DBManager().getConnection();
-    String sqlToViewUserToBeUpdated = "select * from salesdetails where sales_no = "+saleIDToBeUpdated;
-    PreparedStatement ps = con.prepareStatement(sqlToViewUserToBeUpdated);
+    String sqlToViewSalesToBeUpdated = "select * from salesdetails where sales_no = "+saleIDToBeUpdated;
+    PreparedStatement ps = con.prepareStatement(sqlToViewSalesToBeUpdated);
 ResultSet rs = ps.executeQuery();
    if(rs.next()){
    salesNoForUpdateSales.setText(String.valueOf(rs.getInt("sales_no")));
@@ -176,18 +176,6 @@ paintExistForUpdate=true;
 JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
 } 
 
-          if(cusIDForUpdateSalesForCompare==cusIDForUpdateSalesInt){
-          oldCTotal=oldCTotal+(oldPaintQuantity*oldPUnitPrice);
-          String sQLToUpdateCustomerInSales="update customerdetails set cus_total='"+oldCTotal+"' where sales_no="+cusIDForUpdateSalesInt;
-      new DBManager().dBManipulator(sQLToUpdateCustomerInSales);
-          }else{cTotal=cTotal+(oldPaintQuantity*oldPUnitPrice);
-          String sQLToUpdateCustomerInSales="update customerdetails set cus_total='"+oldCTotal+"' where sales_no="+cusIDForUpdateSalesInt;
-      new DBManager().dBManipulator(sQLToUpdateCustomerInSales);}
-          
-          
-          
-          
-          
           if(customerExistForUpdate==true){
           if(paintExistForUpdate==true){
               
@@ -199,15 +187,15 @@ if(differenceInQuantity>oldPaintQuantity){
 }
 else{
     oldPaintQuantity=oldPaintQuantity+differenceInQuantity;
-    String sQLToUpdateOldPaintInSales="update paintdetails set paint_sales_quantity='"+oldPaintQuantity+"' where sales_no="+paintProductNoForUpdateSalesInt;
+    String sQLToUpdateOldPaintInSales="update paintdetails set paint_stock_quantity='"+oldPaintQuantity+"' where paint_product_no="+paintProductNoForUpdateSalesInt;
       new DBManager().dBManipulator(sQLToUpdateOldPaintInSales);
       
       if(cusIDForUpdateSalesForCompare==cusIDForUpdateSalesInt){
-          oldCTotal=oldCTotal+(oldPaintQuantity*oldPUnitPrice);
-          String sQLToUpdateCustomerInSales="update customerdetails set cus_total='"+oldCTotal+"' where sales_no="+cusIDForUpdateSalesInt;
+          oldCTotal=oldCTotal+(differenceInQuantity*oldPUnitPrice);
+          String sQLToUpdateCustomerInSales="update customerdetails set cus_total='"+oldCTotal+"' where cus_id="+cusIDForUpdateSalesInt;
       new DBManager().dBManipulator(sQLToUpdateCustomerInSales);
-          }else{cTotal=cTotal+(oldPaintQuantity*oldPUnitPrice);
-          String sQLToUpdateCustomerInSales="update customerdetails set cus_total='"+cTotal+"' where sales_no="+cusIDForUpdateSalesInt;
+          }else{cTotal=cTotal+(paintSalesQuantityForUpdateSalesInt*oldPUnitPrice);
+          String sQLToUpdateCustomerInSales="update customerdetails set cus_total='"+cTotal+"' where cus_id="+cusIDForUpdateSalesInt;
       new DBManager().dBManipulator(sQLToUpdateCustomerInSales);}
       
 String sQLToUpdateSales="update salesdetails set sales_no='"+salesNoForUpdateSalesInt+"' ,paint_sales_quantity='"+paintSalesQuantityForUpdateSalesInt+"' ,paint_product_no='"+paintProductNoForUpdateSalesInt+"' ,cus_id='"+cusIDForUpdateSalesInt+"' where sales_no="+saleIDToBeUpdated;
@@ -220,15 +208,15 @@ String sQLToUpdateSales="update salesdetails set sales_no='"+salesNoForUpdateSal
             }
             else{ 
                 newPaintQuantity=newPaintQuantity+ paintSalesQuantityForUpdateSalesInt;
-       String sQLToUpdateNewPaintInSales="update paintdetails set paint_sales_quantity='"+newPaintQuantity+"' where sales_no="+paintProductNoForUpdateSalesInt;
+       String sQLToUpdateNewPaintInSales="update paintdetails set paint_stock_quantity='"+newPaintQuantity+"' where paint_product_no="+paintProductNoForUpdateSalesInt;
       new DBManager().dBManipulator(sQLToUpdateNewPaintInSales);
       
       if(cusIDForUpdateSalesForCompare==cusIDForUpdateSalesInt){
-          oldCTotal=oldCTotal+(newPaintQuantity*newPUnitPrice);
-          String sQLToUpdateCustomerInSales="update customerdetails set cus_total='"+oldCTotal+"' where sales_no="+cusIDForUpdateSalesInt;
+          oldCTotal=oldCTotal+(paintSalesQuantityForUpdateSalesForCompare*newPUnitPrice);
+          String sQLToUpdateCustomerInSales="update customerdetails set cus_total='"+oldCTotal+"' where cus_id="+cusIDForUpdateSalesInt;
       new DBManager().dBManipulator(sQLToUpdateCustomerInSales);
-          }else{cTotal=cTotal+(newPaintQuantity*newPUnitPrice);
-          String sQLToUpdateCustomerInSales="update customerdetails set cus_total='"+cTotal+"' where sales_no="+cusIDForUpdateSalesInt;
+          }else{cTotal=cTotal+(paintSalesQuantityForUpdateSalesInt*newPUnitPrice);
+          String sQLToUpdateCustomerInSales="update customerdetails set cus_total='"+cTotal+"' where cus_id="+cusIDForUpdateSalesInt;
       new DBManager().dBManipulator(sQLToUpdateCustomerInSales);}
       
       String sQLToUpdateSales="update salesdetails set sales_no='"+salesNoForUpdateSalesInt+"' ,paint_sales_quantity='"+paintSalesQuantityForUpdateSalesInt+"' ,paint_product_no='"+paintProductNoForUpdateSalesInt+"' ,cus_id='"+cusIDForUpdateSalesInt+"' where sales_no="+saleIDToBeUpdated;

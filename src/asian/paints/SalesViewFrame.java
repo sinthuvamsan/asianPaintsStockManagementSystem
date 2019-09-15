@@ -47,7 +47,7 @@ int salesNo=0;
 try
 { 
 Connection con = new DBManager().getConnection();
-String sql = "select * from EmployeeDetails";
+String sql = "select * from salesDetails";
 PreparedStatement ps = con.prepareStatement(sql);
 ResultSet rs = ps.executeQuery();
 int i =0;
@@ -88,7 +88,7 @@ frame1.setSize(400,300);
     
 }
     
-    public void showSalesTableData(boolean cusOrSales,String idOfCusOrSalesSearch)
+    public void showSalesTableData(boolean cus,String idOfCusOrSalesSearch)
 {
 
 frame1 = new JFrame("Sales search result");
@@ -115,14 +115,14 @@ int salesNo=0;
 try
 { 
 Connection con = new DBManager().getConnection();
-if(cusOrSales==true){
+if(cus==true){
 sql = "select * from salesDetails where cus_id = "+idOfCusOrSalesSearch;}
 else {sql = "select * from salesDetails where sales_no = "+idOfCusOrSalesSearch;}
 PreparedStatement ps = con.prepareStatement(sql);
 ResultSet rs = ps.executeQuery();
 //Statement stmt=con.createStatement();  ResultSet rs=stmt.executeQuery("select * from employeedetails where emp_name = "+idOrNameForUserSearch);    
 int i =0;
-if(rs.next())
+while(rs.next())
 {
 salesNo=rs.getInt("sales_no");
     quantityOfPaintSold=rs.getInt("paint_sales_quantity");

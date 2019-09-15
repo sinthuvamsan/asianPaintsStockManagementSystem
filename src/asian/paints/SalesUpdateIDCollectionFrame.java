@@ -14,12 +14,12 @@ import java.awt.event.*;
  * @author User
  */
 public class SalesUpdateIDCollectionFrame {
-        static JFrame salesUpdateIDCollectionFrameManager=new JFrame("Update sales");
+         JFrame salesUpdateIDCollectionFrameManager=new JFrame("Update sales");
      
      JTextField salesToBeUpdated=new JTextField("Sales ID");
     
-    static JButton searchSalesToBeUpdated=new JButton("Update");
-    static JButton backFSUSF=new JButton("Back");
+     JButton searchSalesToBeUpdated=new JButton("Update");
+     JButton backFSUSF=new JButton("Back");
     
      static Exit xFCUSF=new Exit();
      

@@ -14,12 +14,12 @@ import java.awt.event.*;
  * @author User
  */
 public class SalesDeleteIDCollectionFrame {
-    static JFrame salesDeleteIDCollectionFrameManager=new JFrame("Sales delete");
+     JFrame salesDeleteIDCollectionFrameManager=new JFrame("Sales delete");
     
-    static JTextField saleToBeDeleted=new JTextField("Sales no.");
+     JTextField saleToBeDeleted=new JTextField("Sales no.");
     
-    static JButton searchSalesToBeDeleted=new JButton("Delete");
-    static JButton backFSDSF=new JButton("Back");
+     JButton searchSalesToBeDeleted=new JButton("Delete");
+     JButton backFSDSF=new JButton("Back");
     
      static Exit xFSDSF=new Exit();
      

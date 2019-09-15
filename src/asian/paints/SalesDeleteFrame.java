@@ -56,8 +56,8 @@ scrollSD.setBounds(20, 20, 300, 300);
 { 
 Connection con = DBManager.getConnection();
 
-String sql = "select * from employeedetails where emp_ID = "+salesIDToBeDeleted;
- sQLToDeleteUser="DELETE FROM employeeDetails WHERE emp_id="+salesIDToBeDeleted;
+String sql = "select * from salesDetails where sales_no = "+salesIDToBeDeleted;
+ sQLToDeleteUser="DELETE FROM salesDetails WHERE sales_no="+salesIDToBeDeleted;
 PreparedStatement ps = con.prepareStatement(sql);
 ResultSet rs = ps.executeQuery();
 //Statement stmt=con.createStatement();  ResultSet rs=stmt.executeQuery("select * from employeedetails where emp_name = "+idOrNameForUserSearch);    
@@ -128,17 +128,18 @@ JOptionPane.showMessageDialog(null, ex.getMessage(),"Error",JOptionPane.ERROR_ME
 } 
           
           cTotal=cTotal-(pSalesQ*pUnitPrice);
-          paintQuantity=paintQuantity-pSalesQ;
+          paintQuantity=paintQuantity+pSalesQ;
           
-       String sQLToUpdateCustomerOnDeleteSales="update customerdetails set cus_total='"+cTotal+"' where sales_no="+cID;
+       String sQLToUpdateCustomerOnDeleteSales="update customerdetails set cus_total='"+cTotal+"' where cus_id="+cID;
       new DBManager().dBManipulator(sQLToUpdateCustomerOnDeleteSales);
       
-       String sQLToUpdatePaintOnDeleteSales="update paintdetails set paint_sales_quantity='"+paintQuantity+"' where sales_no="+pPN;
+       String sQLToUpdatePaintOnDeleteSales="update paintdetails set paint_stock_quantity='"+paintQuantity+"' where paint_product_no="+pPN;
       new DBManager().dBManipulator(sQLToUpdatePaintOnDeleteSales);
         
       new DBManager().dBManipulator(sQLToDeleteUser);
         salesDeleteFrameManager.dispose();
            new SalesActionSelectionFrame().managersSalesFrame();
+           JOptionPane.showMessageDialog(new SalesActionSelectionFrame().salesActionSelectionFrameManager,"Sales successfully deleted");
     }  
     });
     

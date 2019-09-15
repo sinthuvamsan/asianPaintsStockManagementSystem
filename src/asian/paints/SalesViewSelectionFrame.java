@@ -61,15 +61,15 @@ public class SalesViewSelectionFrame {
 viewSalesBy.addActionListener(new ActionListener(){  
     public void actionPerformed(ActionEvent e){ 
         String cusOrSales = (String)salesSearchByCB.getSelectedItem();
-        boolean cusOrSalesBoolean=false;
+        boolean cusBoolean=false;
         if(cusOrSales.equals("Customer_ID")){
-            cusOrSalesBoolean=true;
+            cusBoolean=true;
         }
         else{
-            cusOrSalesBoolean=false;
+            cusBoolean=false;
         }
         String idOCusOrSales=dataForSearchSales.getText();
-        new SalesViewFrame().showSalesTableData(cusOrSalesBoolean,idOCusOrSales);
+        new SalesViewFrame().showSalesTableData(cusBoolean,idOCusOrSales);
     }  
     });
      
